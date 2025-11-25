@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="../../../public/assets/img/LOGO-icon.png" />
+  <link rel="shortcut icon" href="../../../public/assets/img/LOGO-icon.png" />
+  <title>Information and Learning Engineering Technology</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../../../public/css/index.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="../../../public/assets/img/LOGO.png" alt="Logo" class="logo-image" />
+    </div>
+
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#home">Our News</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="#contacts">Contacts</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>INFORMATION AND LEARNING<br />ENGINEERING TECHNOLOGY</h1>
+      <p class="hero-subtitle">
+        Find amazing Learning application tailored for you.
+      </p>
+      <p class="hero-description">
+        Handy connects you with amazing Learning Engineering professionals.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cards Section -->
+  <div class="cards-container">
+    <div class="glass-container">
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-newspaper"></i>
+        </div>
+        <h3>News</h3>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Our Team</h3>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3>Research</h3>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Contact Us</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our News Section -->
+  <section class="our-news" id="news">
+    <h2 class="section-title">Our News</h2>
+    <p class="section-subtitle">Read the recent blog posts about our work</p>
+    <div class="news-grid">
+      <!-- News Card 1 -->
+      <div class="news-card">
+        <img src="../../../public/assets/img/news1.jpg" alt="Visiting Scientist Program" />
+        <div class="news-content">
+          <h3>Visiting Scientist Program</h3>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          <a href="#" class="news-link">
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- News Card 2 -->
+      <div class="news-card">
+        <img src="../../../public/assets/img/news2.jpg" alt="Visiting Scientist Program" />
+        <div class="news-content">
+          <h3>Visiting Scientist Program</h3>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          <a href="#" class="news-link">
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- News Card 3 -->
+      <div class="news-card">
+        <img src="../../../public/assets/img/news3.jpg" alt="Visiting Scientist Program" />
+        <div class="news-content">
+          <h3>Visiting Scientist Program</h3>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          <a href="#" class="news-link">
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- News Card 4 -->
+      <div class="news-card">
+        <img src="../../../public/assets/img/news4.jpg" alt="Visiting Scientist Program" />
+        <div class="news-content">
+          <h3>Visiting Scientist Program</h3>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          <a href="#" class="news-link">
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- News Card 5 -->
+      <div class="news-card">
+        <img src="../../../public/assets/img/news5.jpg" alt="Visiting Scientist Program" />
+        <div class="news-content">
+          <h3>Visiting Scientist Program</h3>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          <a href="#" class="news-link">
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- News Card 6 -->
+      <div class="news-card">
+        <img src="../../../public/assets/img/news6.jpg" alt="Visiting Scientist Program" />
+        <div class="news-content">
+          <h3>Visiting Scientist Program</h3>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          <a href="#" class="news-link">
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- News Card 7 -->
+      <div class="news-card">
+        <img src="../../../public/assets/img/news7.jpg" alt="Visiting Scientist Program" />
+        <div class="news-content">
+          <h3>Visiting Scientist Program</h3>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          <a href="#" class="news-link">
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- News Card 8 -->
+      <div class="news-card">
+        <img src="../../../public/assets/img/news8.jpg" alt="Visiting Scientist Program" />
+        <div class="news-content">
+          <h3>Visiting Scientist Program</h3>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+          <a href="#" class="news-link">
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team Section -->
+  <section class="our-team" id="team">
+    <h2 class="section-title">Our Team</h2>
+    <div class="team-carousel">
+      <button class="carousel-btn prev-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="team-container">
+        <div class="team-card">
+          <div class="team-image">
+            <img src="../../../public/assets/img/team1.jpg" alt="Team Member" />
+          </div>
+          <h3>Gede Petra, M.Kom</h3>
+          <p>Head of Learning Engineering Lab.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-image">
+            <img src="../../../public/assets/img/team2.jpg" alt="Team Member" />
+          </div>
+          <h3>Gede Petra, M.Kom</h3>
+          <p>Head of Learning Engineering Lab.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-image">
+            <img src="../../../public/assets/img/team3.jpg" alt="Team Member" />
+          </div>
+          <h3>Water Lews, M.Kom</h3>
+          <p>Head of Learning Engineering Lab.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-image">
+            <img src="../../../public/assets/img/team4.jpg" alt="Team Member" />
+          </div>
+          <h3>Gede Petra, M.Kom</h3>
+          <p>Head of Learning Engineering Lab.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-image">
+            <img src="../../../public/assets/img/team5.jpg" alt="Team Member" />
+          </div>
+          <h3>Gede Petra, M.Kom</h3>
+          <p>Head of Learning Engineering Lab.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn next-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- Recorded Research Activities Section -->
+  <section class="research-activities" id="research">
+    <h2 class="section-title">Recorded Research Activities</h2>
+    <div class="research-grid">
+      <!-- Research Card 1 -->
+      <div class="research-card">
+        <div class="research-image">
+          <img src="../../../public/assets/img/research1.jpg" alt="Research Activity" />
+        </div>
+        <h3>Ethical Playwrighting 2025 competition winner</h3>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+      </div>
+      <!-- Research Card 2 -->
+      <div class="research-card">
+        <div class="research-image">
+          <img src="../../../public/assets/img/research2.jpg" alt="Research Activity" />
+        </div>
+        <h3>How to Solve Multiple Travelling Salesmen Problem</h3>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+      </div>
+      <!-- Research Card 3 -->
+      <div class="research-card">
+        <div class="research-image">
+          <img src="../../../public/assets/img/research3.jpg" alt="Research Activity" />
+        </div>
+        <h3>MANTRA Crypto: Domain HTTPS to HTTP 2025</h3>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+      </div>
+      <!-- Research Card 4 -->
+      <div class="research-card">
+        <div class="research-image">
+          <img src="../../../public/assets/img/research4.jpg" alt="Research Activity" />
+        </div>
+        <h3>Save Betting Podcast of Elkin Trudie 2020</h3>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+      </div>
+      <!-- Research Card 5 -->
+      <div class="research-card">
+        <div class="research-image">
+          <img src="../../../public/assets/img/research5.jpg" alt="Research Activity" />
+        </div>
+        <h3>SUARA SANGA 4: TROPICAL ISLAND SCENES! 2025 DILANARASANI</h3>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+      </div>
+      <!-- Research Card 6 -->
+      <div class="research-card">
+        <div class="research-image">
+          <img src="../../../public/assets/img/research6.jpg" alt="Research Activity" />
+        </div>
+        <h3>Kepuasan Manset Emerging, Sileer</h3>
+        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <h2 class="section-title">Watch Our Gallery</h2>
+    <div class="gallery-carousel">
+      <button class="gallery-btn prev-gallery-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="gallery-container">
+        <div class="gallery-slide">
+          <img src="../../../public/assets/img/gallery1.jpg" alt="Gallery Image" />
+          <p class="gallery-caption">Group Photo Session</p>
+          <p class="gallery-date">27 September 2023</p>
+        </div>
+      </div>
+      <button class="gallery-btn next-gallery-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="gallery-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <!-- Media Partner Section -->
+  <section class="media-partner">
+    <h2 class="section-title">Media Partner</h2>
+    <div class="partner-container">
+      <div class="partner-logos">
+        <img src="../../../public/assets/img/partner1.png" alt="Partner 1" />
+        <img src="../../../public/assets/img/partner2.png" alt="Hummatech" />
+        <img src="../../../public/assets/img/partner3.png" alt="ScaDS.AI" />
+        <img src="../../../public/assets/img/partner4.png" alt="Partner 4" />
+        <img src="../../../public/assets/img/partner5.png" alt="DFKI" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts Section -->
+  <section class="contacts-section" id="contacts">
+    <h2 class="section-title">Contacts</h2>
+    <div class="contacts-container">
+      <div class="contact-form">
+        <h3>Get in Touch</h3>
+        <p>One of our specialists will be in contact with you shortly.</p>
+        <form>
+          <input type="text" placeholder="Name" required />
+          <input type="email" placeholder="Email" required />
+          <textarea placeholder="Pesan..." rows="5" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <span>0 (800) 123 45 67</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <span>ilet@polinema.ac.id</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Jalan...</span>
+        </div>
+        <div class="map-container">
+          <img src="../../../public/assets/img/map.jpg" alt="Location Map" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© Copyright 2025 LETRIG POLNEMA All Rights Reserved.</p>
+  </footer>
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>

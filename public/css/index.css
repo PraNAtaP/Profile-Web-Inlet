@@ -19,6 +19,9 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .logo-container {
@@ -653,8 +656,8 @@ section {
 .media-partner {
   background: white;
   padding: 40px 5%;
-  border-radius: 50px 50px 0 0; /* Lengkungan di atas seperti desain */
-  margin-top: 50px;
+  border-radius: 50px 50px 50px 50px; /* Lengkungan di atas seperti desain */
+  margin: 50px;
 }
 
 .media-partner .section-title {

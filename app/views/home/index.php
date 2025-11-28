@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="../../../public/assets/img/LOGO-icon.png" />
-  <link rel="shortcut icon" href="../../../public/assets/img/LOGO-icon.png" />
+  <link rel="icon" type="image/png" href="../../../public/img/LOGO-icon.png" />
+  <link rel="shortcut icon" href="../../../public/img/LOGO-icon.png" />
   <title>Information and Learning Engineering Technology</title>
   <link
     rel="stylesheet"
@@ -17,7 +17,7 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
-      <img src="../../../public/assets/img/LOGO.png" alt="Logo" class="logo-image" />
+      <img src="../../../public/img/LOGO.png" alt="Logo" class="logo-image" />
     </div>
 
     <ul class="nav-menu">
@@ -79,7 +79,7 @@
     <div class="news-grid">
       <!-- News Card 1 -->
       <div class="news-card">
-        <img src="../../../public/assets/img/news1.jpg" alt="Visiting Scientist Program" />
+        <img src="img/news1.jpg" alt="Visiting Scientist Program" />
         <div class="news-content">
           <h3>Visiting Scientist Program</h3>
           <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -90,7 +90,7 @@
       </div>
       <!-- News Card 2 -->
       <div class="news-card">
-        <img src="../../../public/assets/img/news2.jpg" alt="Visiting Scientist Program" />
+        <img src="img/news2.jpg" alt="Visiting Scientist Program" />
         <div class="news-content">
           <h3>Visiting Scientist Program</h3>
           <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -101,7 +101,7 @@
       </div>
       <!-- News Card 3 -->
       <div class="news-card">
-        <img src="../../../public/assets/img/news3.jpg" alt="Visiting Scientist Program" />
+        <img src="img/news3.jpg" alt="Visiting Scientist Program" />
         <div class="news-content">
           <h3>Visiting Scientist Program</h3>
           <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -112,7 +112,7 @@
       </div>
       <!-- News Card 4 -->
       <div class="news-card">
-        <img src="../../../public/assets/img/news4.jpg" alt="Visiting Scientist Program" />
+        <img src="img/news4.jpg" alt="Visiting Scientist Program" />
         <div class="news-content">
           <h3>Visiting Scientist Program</h3>
           <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -123,7 +123,7 @@
       </div>
       <!-- News Card 5 -->
       <div class="news-card">
-        <img src="../../../public/assets/img/news5.jpg" alt="Visiting Scientist Program" />
+        <img src="img/news5.jpg" alt="Visiting Scientist Program" />
         <div class="news-content">
           <h3>Visiting Scientist Program</h3>
           <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -134,7 +134,7 @@
       </div>
       <!-- News Card 6 -->
       <div class="news-card">
-        <img src="../../../public/assets/img/news6.jpg" alt="Visiting Scientist Program" />
+        <img src="img/news6.jpg" alt="Visiting Scientist Program" />
         <div class="news-content">
           <h3>Visiting Scientist Program</h3>
           <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -145,7 +145,7 @@
       </div>
       <!-- News Card 7 -->
       <div class="news-card">
-        <img src="../../../public/assets/img/news7.jpg" alt="Visiting Scientist Program" />
+        <img src="img/news7.jpg" alt="Visiting Scientist Program" />
         <div class="news-content">
           <h3>Visiting Scientist Program</h3>
           <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -156,7 +156,7 @@
       </div>
       <!-- News Card 8 -->
       <div class="news-card">
-        <img src="../../../public/assets/img/news8.jpg" alt="Visiting Scientist Program" />
+        <img src="img/news8.jpg" alt="Visiting Scientist Program" />
         <div class="news-content">
           <h3>Visiting Scientist Program</h3>
           <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -178,7 +178,7 @@
       <div class="team-container">
         <div class="team-card">
           <div class="team-image">
-            <img src="../../../public/assets/img/team1.jpg" alt="Team Member" />
+            <img src="img/team1.jpg" alt="Team Member" />
           </div>
           <h3>Gede Petra, M.Kom</h3>
           <p>Head of Learning Engineering Lab.</p>
@@ -190,7 +190,7 @@
         </div>
         <div class="team-card">
           <div class="team-image">
-            <img src="../../../public/assets/img/team2.jpg" alt="Team Member" />
+            <img src="img/team2.jpg" alt="Team Member" />
           </div>
           <h3>Gede Petra, M.Kom</h3>
           <p>Head of Learning Engineering Lab.</p>
@@ -202,7 +202,7 @@
         </div>
         <div class="team-card">
           <div class="team-image">
-            <img src="../../../public/assets/img/team3.jpg" alt="Team Member" />
+            <img src="img/team3.jpg" alt="Team Member" />
           </div>
           <h3>Water Lews, M.Kom</h3>
           <p>Head of Learning Engineering Lab.</p>
@@ -214,7 +214,7 @@
         </div>
         <div class="team-card">
           <div class="team-image">
-            <img src="../../../public/assets/img/team4.jpg" alt="Team Member" />
+            <img src="img/team4.jpg" alt="Team Member" />
           </div>
           <h3>Gede Petra, M.Kom</h3>
           <p>Head of Learning Engineering Lab.</p>
@@ -226,7 +226,7 @@
         </div>
         <div class="team-card">
           <div class="team-image">
-            <img src="../../../public/assets/img/team5.jpg" alt="Team Member" />
+            <img src="img/team5.jpg" alt="Team Member" />
           </div>
           <h3>Gede Petra, M.Kom</h3>
           <p>Head of Learning Engineering Lab.</p>
@@ -250,7 +250,7 @@
       <!-- Research Card 1 -->
       <div class="research-card">
         <div class="research-image">
-          <img src="../../../public/assets/img/research1.jpg" alt="Research Activity" />
+          <img src="img/research1.jpg" alt="Research Activity" />
         </div>
         <h3>Ethical Playwrighting 2025 competition winner</h3>
         <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -258,7 +258,7 @@
       <!-- Research Card 2 -->
       <div class="research-card">
         <div class="research-image">
-          <img src="../../../public/assets/img/research2.jpg" alt="Research Activity" />
+          <img src="img/research2.jpg" alt="Research Activity" />
         </div>
         <h3>How to Solve Multiple Travelling Salesmen Problem</h3>
         <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -266,7 +266,7 @@
       <!-- Research Card 3 -->
       <div class="research-card">
         <div class="research-image">
-          <img src="../../../public/assets/img/research3.jpg" alt="Research Activity" />
+          <img src="img/research3.jpg" alt="Research Activity" />
         </div>
         <h3>MANTRA Crypto: Domain HTTPS to HTTP 2025</h3>
         <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -274,7 +274,7 @@
       <!-- Research Card 4 -->
       <div class="research-card">
         <div class="research-image">
-          <img src="../../../public/assets/img/research4.jpg" alt="Research Activity" />
+          <img src="img/research4.jpg" alt="Research Activity" />
         </div>
         <h3>Save Betting Podcast of Elkin Trudie 2020</h3>
         <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -282,7 +282,7 @@
       <!-- Research Card 5 -->
       <div class="research-card">
         <div class="research-image">
-          <img src="../../../public/assets/img/research5.jpg" alt="Research Activity" />
+          <img src="img/research5.jpg" alt="Research Activity" />
         </div>
         <h3>SUARA SANGA 4: TROPICAL ISLAND SCENES! 2025 DILANARASANI</h3>
         <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -290,7 +290,7 @@
       <!-- Research Card 6 -->
       <div class="research-card">
         <div class="research-image">
-          <img src="../../../public/assets/img/research6.jpg" alt="Research Activity" />
+          <img src="img/research6.jpg" alt="Research Activity" />
         </div>
         <h3>Kepuasan Manset Emerging, Sileer</h3>
         <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
@@ -307,7 +307,7 @@
       </button>
       <div class="gallery-container">
         <div class="gallery-slide">
-          <img src="../../../public/assets/img/gallery1.jpg" alt="Gallery Image" />
+          <img src="img/gallery1.jpg" alt="Gallery Image" />
           <p class="gallery-caption">Group Photo Session</p>
           <p class="gallery-date">27 September 2023</p>
         </div>
@@ -331,11 +331,11 @@
     <h2 class="section-title">Media Partner</h2>
     <div class="partner-container">
       <div class="partner-logos">
-        <img src="../../../public/assets/img/partner1.png" alt="Partner 1" />
-        <img src="../../../public/assets/img/partner2.png" alt="Hummatech" />
-        <img src="../../../public/assets/img/partner3.png" alt="ScaDS.AI" />
-        <img src="../../../public/assets/img/partner4.png" alt="Partner 4" />
-        <img src="../../../public/assets/img/partner5.png" alt="DFKI" />
+        <img src="img/partner1.png" alt="Partner 1" />
+        <img src="img/partner2.png" alt="Hummatech" />
+        <img src="img/partner3.png" alt="ScaDS.AI" />
+        <img src="img/partner4.png" alt="Partner 4" />
+        <img src="img/partner5.png" alt="DFKI" />
       </div>
     </div>
   </section>
@@ -368,7 +368,7 @@
           <span>Jalan...</span>
         </div>
         <div class="map-container">
-          <img src="../../../public/assets/img/map.jpg" alt="Location Map" />
+          <img src="img/map.jpg" alt="Location Map" />
         </div>
       </div>
     </div>

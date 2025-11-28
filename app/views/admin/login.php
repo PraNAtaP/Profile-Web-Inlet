@@ -5,11 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="../../../public/css/login.css">
+    <style>
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <img src="../../../public/assets/img/LOGO.png" alt="">
-        <form action="/admin/login" method="POST">
+        <img src="../../../public/img/LOGO.png" alt="Logo">
+        <form action="<?= BASEURL; ?>/admin/auth" method="POST">
+            <?php if (isset($_SESSION['login_error'])) : ?>
+                <div class="error-message">
+                    <?= $_SESSION['login_error']; ?>
+                </div>
+                <?php unset($_SESSION['login_error']); ?>
+            <?php endif; ?>
             <h2>Admin Login</h2>
             <div class="form-group">
                 <label for="username">Username</label>

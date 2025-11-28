@@ -22,9 +22,10 @@
 
     <ul class="nav-menu">
       <li><a href="#home">Home</a></li>
-      <li><a href="#home">Our News</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#team">Our Team</a></li>
+      <li><a href="#news">Our News</a></li>
+      <li><a href="#team">Our Team</a></li> 
+      <li><a href="#research">Research</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contacts">Contacts</a></li>
     </ul>
   </nav>
@@ -77,94 +78,23 @@
     <h2 class="section-title">Our News</h2>
     <p class="section-subtitle">Read the recent blog posts about our work</p>
     <div class="news-grid">
-      <!-- News Card 1 -->
-      <div class="news-card">
-        <img src="img/news1.jpg" alt="Visiting Scientist Program" />
-        <div class="news-content">
-          <h3>Visiting Scientist Program</h3>
-          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-          <a href="#" class="news-link">
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- News Card 2 -->
-      <div class="news-card">
-        <img src="img/news2.jpg" alt="Visiting Scientist Program" />
-        <div class="news-content">
-          <h3>Visiting Scientist Program</h3>
-          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-          <a href="#" class="news-link">
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- News Card 3 -->
-      <div class="news-card">
-        <img src="img/news3.jpg" alt="Visiting Scientist Program" />
-        <div class="news-content">
-          <h3>Visiting Scientist Program</h3>
-          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-          <a href="#" class="news-link">
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- News Card 4 -->
-      <div class="news-card">
-        <img src="img/news4.jpg" alt="Visiting Scientist Program" />
-        <div class="news-content">
-          <h3>Visiting Scientist Program</h3>
-          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-          <a href="#" class="news-link">
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- News Card 5 -->
-      <div class="news-card">
-        <img src="img/news5.jpg" alt="Visiting Scientist Program" />
-        <div class="news-content">
-          <h3>Visiting Scientist Program</h3>
-          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-          <a href="#" class="news-link">
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- News Card 6 -->
-      <div class="news-card">
-        <img src="img/news6.jpg" alt="Visiting Scientist Program" />
-        <div class="news-content">
-          <h3>Visiting Scientist Program</h3>
-          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-          <a href="#" class="news-link">
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- News Card 7 -->
-      <div class="news-card">
-        <img src="img/news7.jpg" alt="Visiting Scientist Program" />
-        <div class="news-content">
-          <h3>Visiting Scientist Program</h3>
-          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-          <a href="#" class="news-link">
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- News Card 8 -->
-      <div class="news-card">
-        <img src="img/news8.jpg" alt="Visiting Scientist Program" />
-        <div class="news-content">
-          <h3>Visiting Scientist Program</h3>
-          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-          <a href="#" class="news-link">
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
+      <?php if (isset($berita) && !empty($berita)) : ?>
+        <?php foreach ($berita as $brt) : ?>
+          <!-- News Card -->
+          <div class="news-card">
+            <img src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($brt['video_embed']); ?>" alt="<?= htmlspecialchars($brt['judul']); ?>" />
+            <div class="news-content">
+              <h3><a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-title-link"><?= htmlspecialchars($brt['judul']); ?></a></h3>
+              <p><?= htmlspecialchars(substr(strip_tags($brt['isi']), 0, 100)); ?>...</p>
+              <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-link">
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      <?php else : ?>
+        <p>Belum ada berita yang dipublikasikan.</p>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -299,7 +229,7 @@
   </section>
 
   <!-- Gallery Section -->
-  <section class="gallery-section">
+  <section class="gallery-section" id="gallery">
     <h2 class="section-title">Watch Our Gallery</h2>
     <div class="gallery-carousel">
       <button class="gallery-btn prev-gallery-btn">

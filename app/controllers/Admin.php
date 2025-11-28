@@ -21,8 +21,10 @@ class Admin extends Controller
         $data['judul'] = 'Dashboard';
         $data['admin_name'] = $_SESSION['admin_name'];
 
-        // Memuat view dashboard
+        // Memuat view dashboard dengan template
+        $this->view('templates/header_admin', $data);
         $this->view('admin/dashboard', $data);
+        $this->view('templates/footer_admin');
     }
 
     /**

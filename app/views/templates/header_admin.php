@@ -38,6 +38,7 @@
         .btn-edit { background-color: #ffc107; color: #212529 !important; }
         .btn-delete { background-color: #dc3545; }
         .clearfix::after { content: ""; clear: both; display: table; }
+        .sidebar-menu { margin-top: 20px; color:#f2f2f2;}
     </style>
 </head>
 <body>
@@ -49,6 +50,7 @@
     <ul class="sidebar-menu">
         <li><a href="<?= BASEURL; ?>/admin/dashboard">Dashboard</a></li>
         <li><a href="<?= BASEURL; ?>/berita">Berita</a></li>
+        <li><a href="<?= BASEURL; ?>/riset">Riset Activities</a></li>
         <li><a href="<?= BASEURL; ?>/anggota">Anggota Lab</a></li>
     </ul>
     <div class="sidebar-footer">

@@ -21,9 +21,9 @@
     </div>
 
     <ul class="nav-menu">
-      <li><a href="#home">Home</a></li>
+      <li><a href="#">Home</a></li>
       <li><a href="#news">Our News</a></li>
-      <li><a href="#team">Our Team</a></li> 
+      <li><a href="#team">Our Team</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contacts">Contacts</a></li>
@@ -106,66 +106,24 @@
         <i class="fas fa-chevron-left"></i>
       </button>
       <div class="team-container">
-        <div class="team-card">
-          <div class="team-image">
-            <img src="img/team1.jpg" alt="Team Member" />
-          </div>
-          <h3>Gede Petra, M.Kom</h3>
-          <p>Head of Learning Engineering Lab.</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-image">
-            <img src="img/team2.jpg" alt="Team Member" />
-          </div>
-          <h3>Gede Petra, M.Kom</h3>
-          <p>Head of Learning Engineering Lab.</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-image">
-            <img src="img/team3.jpg" alt="Team Member" />
-          </div>
-          <h3>Water Lews, M.Kom</h3>
-          <p>Head of Learning Engineering Lab.</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-image">
-            <img src="img/team4.jpg" alt="Team Member" />
-          </div>
-          <h3>Gede Petra, M.Kom</h3>
-          <p>Head of Learning Engineering Lab.</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-image">
-            <img src="img/team5.jpg" alt="Team Member" />
-          </div>
-          <h3>Gede Petra, M.Kom</h3>
-          <p>Head of Learning Engineering Lab.</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </div>
+        <?php if (isset($anggota) && !empty($anggota)) : ?>
+          <?php foreach ($anggota as $a) : ?>
+            <div class="team-card">
+              <div class="team-image">
+                <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
+              </div>
+              <h3><?= htmlspecialchars($a['nama']); ?></h3>
+              <p><?= htmlspecialchars($a['jabatan']); ?></p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <p style="text-align: center; width: 100%;">Belum ada anggota tim yang ditambahkan.</p>
+        <?php endif; ?>
       </div>
       <button class="carousel-btn next-btn">
         <i class="fas fa-chevron-right"></i>

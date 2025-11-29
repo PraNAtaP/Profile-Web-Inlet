@@ -1,0 +1,189 @@
+/* --- RESET & VARIABLES --- */
+:root {
+    --sidebar-bg: #1e2a78; /* Biru Gelap sesuai gambar */
+    --active-bg: #ffffff;  /* Putih */
+    --text-inactive: #ffffff;
+    --text-active: #2980b9; /* Biru Muda teks active */
+    --sidebar-width: 110px; /* Sidebar ramping */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--active-bg); /* Body putih biar nyatu sama active tab */
+}
+
+/* --- SIDEBAR CONTAINER --- */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: var(--text-inactive);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    padding-top: 20px;
+    overflow-y: auto; /* Antisipasi kalau menu kepanjangan */
+}
+
+/* Scrollbar sidebar disembunyikan biar rapi */
+.sidebar::-webkit-scrollbar {
+    width: 0; 
+}
+
+/* --- LOGO HEADER --- */
+.sidebar-header {
+    text-align: center;
+    padding: 0 10px 30px 10px;
+    margin-bottom: 10px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.sidebar-header h3 {
+    font-size: 0.6rem; /* Font kecil sesuai gambar */
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+/* --- NAVIGATION MENU --- */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1; /* Isi sisa ruang */
+}
+
+.nav-menu li {
+    position: relative;
+    width: 100%;
+}
+
+.nav-menu li a {
+    display: flex;
+    flex-direction: column; /* Icon atas, teks bawah */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-inactive);
+    padding: 15px 5px;
+    transition: 0.3s;
+}
+
+.nav-icon {
+    width: 32px; /* Icon besar */
+    height: 32px;
+    margin-bottom: 5px;
+}
+
+.nav-menu li a span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* --- HOVER EFFECT (SIMPLE) --- */
+.nav-menu li:not(.active) a:hover {
+    opacity: 0.8;
+}
+
+/* --- ACTIVE STATE (THE MAGIC HAPPENS HERE) --- */
+.nav-menu li.active {
+    background-color: var(--active-bg); /* Background Putih */
+    border-top-left-radius: 30px; /* Lengkungan kiri atas */
+    border-bottom-left-radius: 30px; /* Lengkungan kiri bawah */
+    margin-left: 10px; /* Geser dikit biar gak nempel kiri banget */
+    width: calc(100% - 10px); /* Isi sisa lebar ke kanan */
+    z-index: 10;
+}
+
+.nav-menu li.active a {
+    color: var(--text-active); /* Teks jadi Biru */
+}
+
+/* --- MAGIC CURVES (Lengkungan Pemanis di Luar Kotak Putih) --- */
+/* Kotak biru di atas item active untuk bikin lengkungan */
+.nav-menu li.active .curve-top {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--sidebar-bg); /* Warna Biru */
+    z-index: 5;
+}
+/* Timpa kotak biru tadi dengan lingkaran putih biar jadi melengkung ke dalam */
+.nav-menu li.active .curve-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--active-bg); /* Warna Putih */
+    border-bottom-right-radius: 20px; /* Lengkungan kuncinya di sini */
+}
+
+/* Sama kayak atas, tapi buat bagian bawah */
+.nav-menu li.active .curve-bottom {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--sidebar-bg);
+    z-index: 5;
+}
+
+.nav-menu li.active .curve-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--active-bg);
+    border-top-right-radius: 20px;
+}
+
+/* --- LOGOUT BUTTON --- */
+.logout-item {
+    margin-top: auto; /* Dorong ke paling bawah */
+    margin-bottom: 20px;
+}
+
+.logout-item a {
+    flex-direction: row; /* Logout icon di kiri teks */
+    gap: 5px;
+}
+.logout-item .nav-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 0;
+}
+
+/* --- MAIN CONTENT ADJUSTMENT --- */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 30px;
+    width: calc(100% - var(--sidebar-width));
+    background-color: #ffffff; /* Pastikan putih biar nyatu sama active tab */
+}

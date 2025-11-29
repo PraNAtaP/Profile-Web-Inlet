@@ -75,4 +75,11 @@ class Berita_model
 
         return $this->db->rowCount();
     }
+
+    public function countAllBerita()
+    {
+        $this->db->query('SELECT COUNT(*) as total FROM ' . $this->table);
+        $result = $this->db->single();
+        return $result['total'];
+    }
 }

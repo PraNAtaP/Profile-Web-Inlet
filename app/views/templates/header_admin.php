@@ -51,6 +51,7 @@
         <li><a href="<?= BASEURL; ?>/admin/dashboard">Dashboard</a></li>
         <li><a href="<?= BASEURL; ?>/berita">Berita</a></li>
         <li><a href="<?= BASEURL; ?>/riset">Riset Activities</a></li>
+        <li><a href="<?= BASEURL; ?>/galeri">Kelola Galeri</a></li>
         <li><a href="<?= BASEURL; ?>/anggota">Anggota Lab</a></li>
     </ul>
     <div class="sidebar-footer">

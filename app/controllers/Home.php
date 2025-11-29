@@ -16,6 +16,9 @@ class Home extends Controller
         // Memuat model riset dan mengambil semua data riset
         $data['riset'] = $this->model('Riset_model')->getAllRiset();
 
+        // Memuat model galeri dan mengambil semua data galeri
+        $data['galeri'] = $this->model('Galeri_model')->getAllGaleri();
+
         // Memuat view dengan data judul dan berita
         $this->view('home/index', $data);
     }

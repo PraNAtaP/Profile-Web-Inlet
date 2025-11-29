@@ -132,57 +132,40 @@
   </section>
 
   <!-- Recorded Research Activities Section -->
+  <style>
+    .research-card .btn-detail {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: background-color 0.3s;
+    }
+    .research-card .btn-detail:hover {
+        background-color: #0056b3;
+    }
+  </style>
   <section class="research-activities" id="research">
     <h2 class="section-title">Recorded Research Activities</h2>
     <div class="research-grid">
-      <!-- Research Card 1 -->
-      <div class="research-card">
-        <div class="research-image">
-          <img src="img/research1.jpg" alt="Research Activity" />
-        </div>
-        <h3>Ethical Playwrighting 2025 competition winner</h3>
-        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-      </div>
-      <!-- Research Card 2 -->
-      <div class="research-card">
-        <div class="research-image">
-          <img src="img/research2.jpg" alt="Research Activity" />
-        </div>
-        <h3>How to Solve Multiple Travelling Salesmen Problem</h3>
-        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-      </div>
-      <!-- Research Card 3 -->
-      <div class="research-card">
-        <div class="research-image">
-          <img src="img/research3.jpg" alt="Research Activity" />
-        </div>
-        <h3>MANTRA Crypto: Domain HTTPS to HTTP 2025</h3>
-        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-      </div>
-      <!-- Research Card 4 -->
-      <div class="research-card">
-        <div class="research-image">
-          <img src="img/research4.jpg" alt="Research Activity" />
-        </div>
-        <h3>Save Betting Podcast of Elkin Trudie 2020</h3>
-        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-      </div>
-      <!-- Research Card 5 -->
-      <div class="research-card">
-        <div class="research-image">
-          <img src="img/research5.jpg" alt="Research Activity" />
-        </div>
-        <h3>SUARA SANGA 4: TROPICAL ISLAND SCENES! 2025 DILANARASANI</h3>
-        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-      </div>
-      <!-- Research Card 6 -->
-      <div class="research-card">
-        <div class="research-image">
-          <img src="img/research6.jpg" alt="Research Activity" />
-        </div>
-        <h3>Kepuasan Manset Emerging, Sileer</h3>
-        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</p>
-      </div>
+      <?php if (isset($data['riset']) && !empty($data['riset'])) : ?>
+        <?php foreach ($data['riset'] as $riset) : ?>
+          <div class="research-card">
+            <div class="research-image">
+              <img src="<?= BASEURL; ?>/img/riset/<?= htmlspecialchars($riset['file_dokumen']); ?>" alt="<?= htmlspecialchars($riset['judul_riset']); ?>" />
+            </div>
+            <h3><?= htmlspecialchars($riset['judul_riset']); ?></h3>
+            <p><strong>Peneliti:</strong> <?= htmlspecialchars($riset['peneliti']); ?></p>
+            <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 120)); ?>...</p>
+            <a href="<?= BASEURL; ?>/home/detail_riset/<?= $riset['id_riset']; ?>" class="btn-detail">Lihat Detail</a>
+          </div>
+        <?php endforeach; ?>
+      <?php else : ?>
+        <p style="text-align: center; width: 100%;">Belum ada riset yang dipublikasikan.</p>
+      <?php endif; ?>
     </div>
   </section>
 

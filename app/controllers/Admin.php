@@ -21,6 +21,17 @@ class Admin extends Controller
         $data['judul'] = 'Dashboard';
         $data['admin_name'] = $_SESSION['admin_name'];
 
+        // Memuat model
+        $beritaModel = $this->model('Berita_model');
+        $adminModel = $this->model('Admin_model');
+
+        // Menghitung data
+        $data['total_berita'] = $beritaModel->countAllBerita();
+        $data['total_anggota'] = $adminModel->countAllAdmins();
+        $data['total_galeri'] = 0; // Fitur belum ada
+        $data['total_riset'] = 0; // Fitur belum ada
+
+
         // Memuat view dashboard dengan template
         $this->view('templates/header_admin', $data);
         $this->view('admin/dashboard', $data);

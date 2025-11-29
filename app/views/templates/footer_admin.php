@@ -1,3 +1,3 @@
-    </div>
+</div> <!-- .main-content -->
 </body>
 </html>

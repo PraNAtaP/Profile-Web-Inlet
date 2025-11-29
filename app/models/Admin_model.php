@@ -16,4 +16,11 @@ class Admin_model
         $this->db->bind('username', $username);
         return $this->db->single();
     }
+
+    public function countAllAdmins()
+    {
+        $this->db->query('SELECT COUNT(*) as total FROM ' . $this->table);
+        $result = $this->db->single();
+        return $result['total'];
+    }
 }

@@ -31,7 +31,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-content">
       <h1>INFORMATION AND LEARNING<br />ENGINEERING TECHNOLOGY</h1>
       <p class="hero-subtitle">
@@ -134,18 +134,19 @@
   <!-- Recorded Research Activities Section -->
   <style>
     .research-card .btn-detail {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 8px 15px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 14px;
-        transition: background-color 0.3s;
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: background-color 0.3s;
     }
+
     .research-card .btn-detail:hover {
-        background-color: #0056b3;
+      background-color: #0056b3;
     }
   </style>
   <section class="research-activities" id="research">
@@ -177,13 +178,20 @@
         <i class="fas fa-chevron-left"></i>
       </button>
       <div class="gallery-container">
-        <div class="gallery-slide">
-          <img src="img/gallery1.jpg" alt="Gallery Image" />
-          <p class="gallery-caption">Group Photo Session</p>
-          <p class="gallery-date">27 September 2023</p>
-        </div>
-      </div>
-      <button class="gallery-btn next-gallery-btn">
+        <?php if (isset($data['galeri']) && !empty($data['galeri'])): ?>
+          <?php foreach ($data['galeri'] as $g): ?>
+            <div class="gallery-slide">
+              <img src="<?= BASEURL; ?>/img/galeri/<?= htmlspecialchars($g['foto']); ?>" alt="<?= htmlspecialchars($g['judul']); ?>" />
+              <p class="gallery-caption"><?= htmlspecialchars($g['judul']); ?></p>
+              <p class="gallery-date"><?= date('d F Y', strtotime($g['tanggal_publikasi'])); ?></p>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <div class="gallery-slide">
+            <p style="text-align: center; width: 100%;">Tidak ada foto di galeri untuk ditampilkan.</p>
+          </div>
+        <?php endif; ?>
+      </div> <button class="gallery-btn next-gallery-btn">
         <i class="fas fa-chevron-right"></i>
       </button>
     </div>

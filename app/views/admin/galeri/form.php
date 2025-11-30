@@ -1,16 +1,3 @@
-<style>
-    .container-fluid { padding: 2rem; }
-    .form-container { background-color: #fff; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto; }
-    .form-title { margin-bottom: 2rem; font-size: 1.8rem; color: #333; text-align: center; }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #495057; }
-    .form-control { width: 100%; padding: 0.75rem; border: 1px solid #ced4da; border-radius: 4px; font-size: 1rem; }
-    textarea.form-control { min-height: 120px; resize: vertical; }
-    .btn-submit { background-color: #007bff; color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 500; border: none; cursor: pointer; font-size: 1rem; width: 100%; }
-    .file-info { font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem; }
-    .image-preview { max-width: 200px; margin-top: 1rem; border-radius: 5px; border: 1px solid #ddd; padding: 5px; }
-</style>
-
 <?php
 $isEdit = isset($data['galeri']);
 $actionUrl = $isEdit ? BASEURL . '/galeri/update' : BASEURL . '/galeri/simpan';

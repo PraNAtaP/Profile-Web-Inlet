@@ -13,26 +13,26 @@ class Admin extends Controller
      */
     public function index()
     {
-        if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-            header('Location: ' . BASEURL . '/../admin/login');
+        if (!isset($_SESSION['admin_id'])) {
+            header('Location: ' . BASEURL . '/admin/login');
             exit;
         }
 
         $data['judul'] = 'Dashboard';
-        $data['admin_name'] = $_SESSION['admin_name'];
+        $data['admin_name'] = $_SESSION['admin_name']; // Ambil nama dari session
 
-        // Memuat model
-        $beritaModel = $this->model('Berita_model');
-        $adminModel = $this->model('Admin_model');
+        // Hitung Data (Pastikan method countData di Admin_model sudah fix pakai PDO)
+        $data['online_users'] = 0; // Default
+        if (file_exists('../app/models/Visitor_model.php')) {
+            $data['online_users'] = $this->model('Visitor_model')->countOnlineUsers();
+        }
+        $data['total_berita'] = $this->model('Admin_model')->countData('berita');
+        $data['total_galeri'] = $this->model('Admin_model')->countData('galeri');
+        $data['total_riset']  = $this->model('Admin_model')->countData('riset');
+        $data['total_anggota'] = $this->model('Admin_model')->countData('anggota_lab');
+        $data['total_produk'] = $this->model('Admin_model')->countData('produk_lab'); // Tambahan
+        $data['total_admin']  = $this->model('Admin_model')->countData('admin');
 
-        // Menghitung data
-        $data['total_berita'] = $beritaModel->countAllBerita();
-        $data['total_anggota'] = $adminModel->countAllAdmins();
-        $data['total_galeri'] = 0; // Fitur belum ada
-        $data['total_riset'] = 0; // Fitur belum ada
-
-
-        // Memuat view dashboard dengan template
         $this->view('templates/header_admin', $data);
         $this->view('admin/dashboard', $data);
         $this->view('templates/footer_admin');
@@ -44,8 +44,8 @@ class Admin extends Controller
     public function login()
     {
         // Jika sudah login, redirect ke dashboard
-        if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-            header('Location: ' . BASEURL . '/../admin');
+        if (isset($_SESSION['admin_id'])) {
+            header('Location: ' . BASEURL . '/admin');
             exit;
         }
         
@@ -65,24 +65,16 @@ class Admin extends Controller
             $adminModel = $this->model('Admin_model');
             $adminData = $adminModel->getAdminByUsername($username);
 
-            // FIX 1: Gunakan key 'password_hash' sesuai nama kolom di tabel DB kamu
-            // FIX 2: Pastikan $adminData tidak kosong sebelum cek password
             if ($adminData && password_verify($password, $adminData['password_hash'])) {
-
                 // Login sukses, set session
-                $_SESSION['admin_logged_in'] = true;
-                $_SESSION['admin_id'] = $adminData['id_admin']; // Sesuaikan PK juga (id atau id_admin?)
+                $_SESSION['admin_logged_in'] = true; // Dipertahankan untuk backward compatibility jika ada
+                $_SESSION['admin_id'] = $adminData['id_admin'];
                 $_SESSION['admin_name'] = $adminData['nama'];
 
-                // FIX 3: Redirectnya jangan pake '/../', langsung aja append
-                // Karena BASEURL udah '.../public', jadi hasilnya '.../public/admin'
                 header('Location: ' . BASEURL . '/admin');
                 exit;
             } else {
                 // Login gagal
-                // Debugging: Boleh nyalakan ini kalau mau liat errornya (hapus nanti)
-                // var_dump($adminData, $password); die; 
-
                 $_SESSION['login_error'] = 'Username atau password salah!';
                 header('Location: ' . BASEURL . '/admin/login');
                 exit;
@@ -100,7 +92,7 @@ class Admin extends Controller
     {
         session_unset();
         session_destroy();
-        header('Location: ' . BASEURL . '/../admin/login');
+        header('Location: ' . BASEURL . '/admin/login');
         exit;
     }
 

@@ -1,13 +1,3 @@
-        <header>
-            <h2>Dashboard</h2>
-            <div class="user-info">
-                <span>Halo, <b><?= htmlspecialchars($data['admin_name'] ?? 'Admin'); ?></b></span>
-                <div class="avatar">
-                    <img src="https://ui-avatars.com/api/?name=<?= urlencode($data['admin_name'] ?? 'Admin'); ?>&background=0D8ABC&color=fff" alt="Profile">
-                </div>
-            </div>
-        </header>
-
         <main>
             <div class="welcome-card">
                 <div class="welcome-text">
@@ -17,6 +7,13 @@
             </div>
 
             <div class="stats-container">
+                <div class="stat-card green">
+                    <div class="card-head">
+                        <h3>Visitor Online</h3>
+                        <span class="icon">👀</span>
+                    </div>
+                    <p class="number"><?= htmlspecialchars($data['online_users']); ?></p>
+                </div>
                 <div class="stat-card blue">
                     <div class="card-head">
                         <h3>Total Berita</h3>
@@ -43,7 +40,7 @@
 
                 <div class="stat-card red">
                     <div class="card-head">
-                        <h3>Jumlah Anggota Lab</h3>
+                        <h3>Anggota Lab</h3>
                         <span class="icon">👥</span>
                     </div>
                     <p class="number"><?= htmlspecialchars($data['total_anggota']); ?></p>
@@ -52,9 +49,9 @@
                 <div class="stat-card orange">
                     <div class="card-head">
                         <h3>Jumlah Admin</h3>
-                        <span class="icon">👥</span>
+                        <span class="icon">👑</span>
                     </div>
-                    <p class="number"><?= htmlspecialchars($data['total_anggota']); ?></p>
+                    <p class="number"><?= htmlspecialchars($data['total_admin']); ?></p>
                 </div>
             </div>
         </main>

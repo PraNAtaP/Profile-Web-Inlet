@@ -1,264 +1,263 @@
-<!DOCTYPE html>
-<html lang="id">
+<style>
+  /* Paksa Grid/Flex biar item di tengah kalau jumlahnya sedikit */
+  .news-grid,
+  .research-grid,
+  .products-grid,
+  .partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* INI KUNCINYA KING */
+    gap: 30px;
+  }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="../../../public/img/LOGO-icon.png" />
-  <link rel="shortcut icon" href="../../../public/img/LOGO-icon.png" />
-  <title>Information and Learning Engineering Technology</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="../../../public/css/index.css" />
-</head>
+  /* Reset lebar card biar gak melar kegedean kalau sendirian */
+  .news-card,
+  .research-card,
+  .product-card {
+    flex: 0 1 300px;
+    /* Basis width 300px, bisa mengecil tapi gak melar habis */
+    max-width: 350px;
+    margin: 0 auto;
+    /* Safety centering */
+  }
 
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="../../../public/img/LOGO.png" alt="Logo" class="logo-image" />
+  /* Style tambahan produk & partner */
+  .products-section,
+  .media-partner {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .product-content {
+    padding: 20px;
+  }
+
+  .product-content .btn-lihat {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .partner-logo-item img {
+    max-height: 80px;
+    max-width: 180px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+  }
+
+  .partner-logo-item:hover img {
+    filter: grayscale(0%);
+  }
+</style>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>INFORMATION AND LEARNING<br />ENGINEERING TECHNOLOGY</h1>
+    <p class="hero-subtitle">Find amazing Learning application tailored for you.</p>
+    <p class="hero-description">Handy connects you with amazing Learning Engineering professionals.</p>
+  </div>
+</section>
+
+<div class="cards-container">
+  <div class="glass-container">
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-newspaper"></i></div>
+      <h3>News</h3>
     </div>
-
-    <ul class="nav-menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#news">Our News</a></li>
-      <li><a href="#team">Our Team</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contacts">Contacts</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>INFORMATION AND LEARNING<br />ENGINEERING TECHNOLOGY</h1>
-      <p class="hero-subtitle">
-        Find amazing Learning application tailored for you.
-      </p>
-      <p class="hero-description">
-        Handy connects you with amazing Learning Engineering professionals.
-      </p>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-users"></i></div>
+      <h3>Our Team</h3>
     </div>
-  </section>
-
-  <!-- Cards Section -->
-  <div class="cards-container">
-    <div class="glass-container">
-      <div class="card">
-        <div class="card-icon">
-          <i class="fas fa-newspaper"></i>
-        </div>
-        <h3>News</h3>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <i class="fas fa-users"></i>
-        </div>
-        <h3>Our Team</h3>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <i class="fas fa-lightbulb"></i>
-        </div>
-        <h3>Research</h3>
-      </div>
-      <div class="card">
-        <div class="card-icon">
-          <i class="fas fa-envelope"></i>
-        </div>
-        <h3>Contact Us</h3>
-      </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+      <h3>Research</h3>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-envelope"></i></div>
+      <h3>Contact Us</h3>
     </div>
   </div>
+</div>
 
-  <!-- Our News Section -->
-  <section class="our-news" id="news">
-    <h2 class="section-title">Our News</h2>
-    <p class="section-subtitle">Read the recent blog posts about our work</p>
-    <div class="news-grid">
-      <?php if (isset($berita) && !empty($berita)) : ?>
-        <?php foreach ($berita as $brt) : ?>
-          <!-- News Card -->
-          <div class="news-card">
-            <img src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($brt['video_embed']); ?>" alt="<?= htmlspecialchars($brt['judul']); ?>" />
-            <div class="news-content">
-              <h3><a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-title-link"><?= htmlspecialchars($brt['judul']); ?></a></h3>
-              <p><?= htmlspecialchars(substr(strip_tags($brt['isi']), 0, 100)); ?>...</p>
-              <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-link">
-                <i class="fas fa-arrow-right"></i>
-              </a>
+<section class="our-news" id="news">
+  <h2 class="section-title">Our News</h2>
+  <p class="section-subtitle">Read the recent blog posts about our work</p>
+  <div class="news-grid">
+    <?php if (isset($data['berita']) && !empty($data['berita'])) : ?>
+      <?php foreach ($data['berita'] as $brt) : ?>
+        <div class="news-card">
+          <img src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($brt['video_embed']); ?>" alt="<?= htmlspecialchars($brt['judul']); ?>" />
+          <div class="news-content">
+            <h3><a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-title-link"><?= htmlspecialchars($brt['judul']); ?></a></h3>
+            <p><?= htmlspecialchars(substr(strip_tags($brt['isi']), 0, 100)); ?>...</p>
+            <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-link"><i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    <?php else : ?>
+      <p>Belum ada berita yang dipublikasikan.</p>
+    <?php endif; ?>
+  </div>
+</section>
+
+<section class="our-team" id="team">
+  <h2 class="section-title">Our Team</h2>
+  <div class="team-carousel">
+    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+    <div class="team-container">
+      <?php if (isset($data['anggota']) && !empty($data['anggota'])) : ?>
+        <?php foreach ($data['anggota'] as $a) : ?>
+          <div class="team-card">
+            <div class="team-image">
+              <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
             </div>
+            <h3><?= htmlspecialchars($a['nama']); ?></h3>
+            <p><?= htmlspecialchars($a['jabatan']); ?></p>
           </div>
         <?php endforeach; ?>
       <?php else : ?>
-        <p>Belum ada berita yang dipublikasikan.</p>
+        <p style="text-align: center; width: 100%;">Belum ada anggota tim.</p>
       <?php endif; ?>
     </div>
-  </section>
+    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</section>
 
-  <!-- Our Team Section -->
-  <section class="our-team" id="team">
-    <h2 class="section-title">Our Team</h2>
-    <div class="team-carousel">
-      <button class="carousel-btn prev-btn">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <div class="team-container">
-        <?php if (isset($anggota) && !empty($anggota)) : ?>
-          <?php foreach ($anggota as $a) : ?>
-            <div class="team-card">
-              <div class="team-image">
-                <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
-              </div>
-              <h3><?= htmlspecialchars($a['nama']); ?></h3>
-              <p><?= htmlspecialchars($a['jabatan']); ?></p>
-              <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        <?php else : ?>
-          <p style="text-align: center; width: 100%;">Belum ada anggota tim yang ditambahkan.</p>
-        <?php endif; ?>
-      </div>
-      <button class="carousel-btn next-btn">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
-  </section>
-
-  <!-- Recorded Research Activities Section -->
-  <style>
-    .research-card .btn-detail {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 8px 15px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 14px;
-      transition: background-color 0.3s;
-    }
-
-    .research-card .btn-detail:hover {
-      background-color: #0056b3;
-    }
-  </style>
-  <section class="research-activities" id="research">
-    <h2 class="section-title">Recorded Research Activities</h2>
-    <div class="research-grid">
-      <?php if (isset($data['riset']) && !empty($data['riset'])) : ?>
-        <?php foreach ($data['riset'] as $riset) : ?>
-          <div class="research-card">
-            <div class="research-image">
-              <img src="<?= BASEURL; ?>/img/riset/<?= htmlspecialchars($riset['file_dokumen']); ?>" alt="<?= htmlspecialchars($riset['judul_riset']); ?>" />
-            </div>
-            <h3><?= htmlspecialchars($riset['judul_riset']); ?></h3>
-            <p><strong>Peneliti:</strong> <?= htmlspecialchars($riset['peneliti']); ?></p>
-            <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 120)); ?>...</p>
-            <a href="<?= BASEURL; ?>/home/detail_riset/<?= $riset['id_riset']; ?>" class="btn-detail">Lihat Detail</a>
+<section class="research-activities" id="research">
+  <h2 class="section-title">Recorded Research Activities</h2>
+  <div class="research-grid">
+    <?php if (isset($data['riset']) && !empty($data['riset'])) : ?>
+      <?php foreach ($data['riset'] as $riset) : ?>
+        <div class="research-card">
+          <div class="research-image">
+            <img src="<?= BASEURL; ?>/img/riset/<?= htmlspecialchars($riset['file_dokumen']); ?>" alt="<?= htmlspecialchars($riset['judul_riset']); ?>" />
           </div>
-        <?php endforeach; ?>
-      <?php else : ?>
-        <p style="text-align: center; width: 100%;">Belum ada riset yang dipublikasikan.</p>
-      <?php endif; ?>
-    </div>
-  </section>
+          <h3><?= htmlspecialchars($riset['judul_riset']); ?></h3>
+          <p><strong>Peneliti:</strong> <?= htmlspecialchars($riset['peneliti']); ?></p>
+          <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 100)); ?>...</p>
+          <a href="<?= BASEURL; ?>/home/detail_riset/<?= $riset['id_riset']; ?>" class="btn-detail" style="display:inline-block; margin-top:10px; padding:5px 15px; background:#007bff; color:white; border-radius:5px; text-decoration:none;">Lihat Detail</a>
+        </div>
+      <?php endforeach; ?>
+    <?php else : ?>
+      <p style="text-align: center; width: 100%;">Belum ada riset.</p>
+    <?php endif; ?>
+  </div>
+</section>
 
-  <!-- Gallery Section -->
-  <section class="gallery-section" id="gallery">
-    <h2 class="section-title">Watch Our Gallery</h2>
-    <div class="gallery-carousel">
-      <button class="gallery-btn prev-gallery-btn">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <div class="gallery-container">
-        <?php if (isset($data['galeri']) && !empty($data['galeri'])): ?>
-          <?php foreach ($data['galeri'] as $g): ?>
-            <div class="gallery-slide">
-              <img src="<?= BASEURL; ?>/img/galeri/<?= htmlspecialchars($g['foto']); ?>" alt="<?= htmlspecialchars($g['judul']); ?>" />
-              <p class="gallery-caption"><?= htmlspecialchars($g['judul']); ?></p>
-              <p class="gallery-date"><?= date('d F Y', strtotime($g['tanggal_publikasi'])); ?></p>
-            </div>
-          <?php endforeach; ?>
-        <?php else: ?>
+<section class="gallery-section" id="gallery">
+  <h2 class="section-title">Watch Our Gallery</h2>
+  <div class="gallery-carousel">
+    <button class="gallery-btn prev-gallery-btn"><i class="fas fa-chevron-left"></i></button>
+    <div class="gallery-container">
+      <?php if (isset($data['galeri']) && !empty($data['galeri'])): ?>
+        <?php foreach ($data['galeri'] as $g): ?>
           <div class="gallery-slide">
-            <p style="text-align: center; width: 100%;">Tidak ada foto di galeri untuk ditampilkan.</p>
+            <img src="<?= BASEURL; ?>/img/galeri/<?= htmlspecialchars($g['foto']); ?>" alt="<?= htmlspecialchars($g['judul']); ?>" />
+            <p class="gallery-caption"><?= htmlspecialchars($g['judul']); ?></p>
           </div>
-        <?php endif; ?>
-      </div> <button class="gallery-btn next-gallery-btn">
-        <i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
-    <div class="gallery-dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </section>
-
-  <!-- Media Partner Section -->
-  <section class="media-partner">
-    <h2 class="section-title">Media Partner</h2>
-    <div class="partner-container">
-      <div class="partner-logos">
-        <img src="img/partner1.png" alt="Partner 1" />
-        <img src="img/partner2.png" alt="Hummatech" />
-        <img src="img/partner3.png" alt="ScaDS.AI" />
-        <img src="img/partner4.png" alt="Partner 4" />
-        <img src="img/partner5.png" alt="DFKI" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacts Section -->
-  <section class="contacts-section" id="contacts">
-    <h2 class="section-title">Contacts</h2>
-    <div class="contacts-container">
-      <div class="contact-form">
-        <h3>Get in Touch</h3>
-        <p>One of our specialists will be in contact with you shortly.</p>
-        <form>
-          <input type="text" placeholder="Name" required />
-          <input type="email" placeholder="Email" required />
-          <textarea placeholder="Pesan..." rows="5" required></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      <div class="contact-info">
-        <div class="info-item">
-          <i class="fas fa-phone"></i>
-          <span>0 (800) 123 45 67</span>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <div class="gallery-slide">
+          <p>Tidak ada foto.</p>
         </div>
-        <div class="info-item">
-          <i class="fas fa-envelope"></i>
-          <span>ilet@polinema.ac.id</span>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Jalan...</span>
-        </div>
-        <div class="map-container">
-          <img src="img/map.jpg" alt="Location Map" />
-        </div>
-      </div>
+      <?php endif; ?>
     </div>
-  </section>
+    <button class="gallery-btn next-gallery-btn"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="gallery-dots">
+    <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© Copyright 2025 LETRIG POLNEMA All Rights Reserved.</p>
-  </footer>
+<section class="products-section" id="products">
+  <h2 class="section-title">Our Products</h2>
+  <p class="section-subtitle">Check out the innovative products from our lab.</p>
+  <div class="products-grid">
+    <?php if (isset($data['produk']) && !empty($data['produk'])) : ?>
+      <?php foreach ($data['produk'] as $p) : ?>
+        <div class="product-card">
+          <img src="<?= BASEURL; ?>/img/produk/<?= htmlspecialchars($p['gambar']); ?>" alt="<?= htmlspecialchars($p['judul']); ?>">
+          <div class="product-content">
+            <h3><?= htmlspecialchars($p['judul']); ?></h3>
+            <p><?= htmlspecialchars(substr(strip_tags($p['deskripsi']), 0, 80)); ?>...</p>
+            <a href="<?= htmlspecialchars($p['link']); ?>" target="_blank" class="btn-lihat">Lihat Produk</a>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    <?php else : ?>
+      <p style="text-align: center; width: 100%;">Belum ada produk.</p>
+    <?php endif; ?>
+  </div>
+</section>
 
-  <script src="js/index.js"></script>
-</body>
+<section class="media-partner" id="partners">
+  <h2 class="section-title">Media Partner</h2>
+  <p class="section-subtitle">We are proud to collaborate with</p>
 
-</html>
+  <div class="partner-container">
+    <div class="partner-logos">
+      <?php if (isset($data['partner']) && !empty($data['partner'])) : ?>
+        <?php foreach ($data['partner'] as $p) : ?>
+          <a href="<?= htmlspecialchars($p['link']); ?>" target="_blank" class="partner-logo-item" title="<?= htmlspecialchars($p['nama']); ?>">
+            <img src="<?= BASEURL; ?>/img/partner/<?= htmlspecialchars($p['logo']); ?>" alt="<?= htmlspecialchars($p['nama']); ?>">
+          </a>
+        <?php endforeach; ?>
+      <?php else : ?>
+        <p style="text-align: center; width: 100%;">Belum ada media partner.</p>
+      <?php endif; ?>
+    </div>
+  </div>
+</section>
+
+<section class="contacts-section" id="contacts">
+  <h2 class="section-title">Contacts</h2>
+  <div class="contacts-container">
+    <div class="contact-form">
+      <h3>Get in Touch</h3>
+      <p>One of our specialists will be in contact with you shortly.</p>
+      <form action="<?= BASEURL; ?>/home/kirim_kontak" method="post">
+        <input type="text" name="nama" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="pesan" placeholder="Pesan..." rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <div class="info-item"><i class="fas fa-phone"></i><span>0 (800) 123 45 67</span></div>
+      <div class="info-item"><i class="fas fa-envelope"></i><span>ando@polinema.ac.id</span></div>
+      <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Politeknik Negeri Malang</span></div>
+    </div>
+  </div>
+</section>

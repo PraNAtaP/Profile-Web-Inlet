@@ -4,7 +4,7 @@ class Anggota extends Controller
 {
     public function __construct()
     {
-        if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+        if (!isset($_SESSION['admin_id'])) {
             header('Location: ' . BASEURL . '/admin/login');
             exit;
         }
@@ -29,29 +29,41 @@ class Anggota extends Controller
 
     public function simpan()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $nama_foto_baru = $this->uploadFoto();
-            
-            if ($nama_foto_baru === false) {
-                // Ada error saat upload
-                // (opsional) tambahkan flash message di sini
-                header('Location: ' . BASEURL . '/anggota/tambah');
-                exit;
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: ' . BASEURL . '/anggota');
+            exit;
+        }
+
+        $namaFileFoto = null;
+        if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
+            $tmpName = $_FILES['foto']['tmp_name'];
+            $namaFile = $_FILES['foto']['name'];
+            $ekstensi = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
+            $namaFileBaru = uniqid('anggota_') . '.' . $ekstensi;
+
+            $targetDir = __DIR__ . '/../../public/img/anggota/';
+            $targetFile = $targetDir . $namaFileBaru;
+
+            if (!file_exists($targetDir)) {
+                mkdir($targetDir, 0777, true);
             }
 
-            $data = $_POST;
-            $data['foto'] = $nama_foto_baru;
-            $data['id_admin'] = $_SESSION['admin_id'];
-
-            if ($this->model('Anggota_model')->tambahAnggota($data) > 0) {
-                header('Location: ' . BASEURL . '/anggota');
-                exit;
+            if (move_uploaded_file($tmpName, $targetFile)) {
+                $namaFileFoto = $namaFileBaru;
             } else {
-                // (opsional) tambahkan flash message kegagalan
                 header('Location: ' . BASEURL . '/anggota');
                 exit;
             }
         }
+        
+        $_POST['foto'] = $namaFileFoto;
+        $_POST['id_admin'] = $_SESSION['admin_id'];
+
+        if ($this->model('Anggota_model')->tambahAnggota($_POST) > 0) {
+            $this->model('Log_model')->catat('TAMBAH', "Menambah Anggota: " . $_POST['nama']);
+        }
+        header('Location: ' . BASEURL . '/anggota');
+        exit;
     }
 
     public function edit($id)
@@ -65,92 +77,56 @@ class Anggota extends Controller
 
     public function update()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $nama_foto_baru = $this->uploadFoto();
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: ' . BASEURL . '/anggota');
+            exit;
+        }
 
-            if ($nama_foto_baru === false) {
-                // Error upload, redirect kembali
-                header('Location: ' . BASEURL . '/anggota/edit/' . $_POST['id_anggota']);
-                exit;
+        $namaFileFoto = $_POST['foto_lama'];
+
+        if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
+            $tmpName = $_FILES['foto']['tmp_name'];
+            $namaFile = $_FILES['foto']['name'];
+            $ekstensi = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
+            $namaFileBaru = uniqid('anggota_') . '.' . $ekstensi;
+
+            $targetDir = __DIR__ . '/../../public/img/anggota/';
+            $targetFile = $targetDir . $namaFileBaru;
+
+            if (!file_exists($targetDir)) {
+                mkdir($targetDir, 0777, true);
             }
-            
-            $data = $_POST;
 
-            if ($nama_foto_baru === null) {
-                // Tidak ada foto baru, pakai yang lama
-                $data['foto'] = $_POST['foto_lama'];
-            } else {
-                // Ada foto baru, hapus foto lama jika ada
-                $data['foto'] = $nama_foto_baru;
-                if (!empty($_POST['foto_lama'])) {
-                    $pathFotoLama = 'img/anggota/' . $_POST['foto_lama'];
-                    if (file_exists($pathFotoLama)) {
-                        unlink($pathFotoLama);
-                    }
+            if (move_uploaded_file($tmpName, $targetFile)) {
+                $namaFileFoto = $namaFileBaru;
+                $old_image_path = $targetDir . $_POST['foto_lama'];
+                if (!empty($_POST['foto_lama']) && file_exists($old_image_path)) {
+                    unlink($old_image_path);
                 }
-            }
-
-            if ($this->model('Anggota_model')->updateAnggota($data) >= 0) { // >= 0 untuk handle jika tidak ada perubahan
-                header('Location: ' . BASEURL . '/anggota');
-                exit;
             } else {
-                header('Location: ' . BASEURL . '/anggota/edit/' . $_POST['id_anggota']);
+                header('Location: ' . BASEURL . '/anggota');
                 exit;
             }
         }
+        
+        $_POST['foto'] = $namaFileFoto;
+
+        if ($this->model('Anggota_model')->updateAnggota($_POST) > 0) {
+            $this->model('Log_model')->catat('UPDATE', "Mengupdate Anggota: " . $_POST['nama']);
+        }
+        header('Location: ' . BASEURL . '/anggota');
+        exit;
     }
 
     public function hapus($id)
     {
+        // The model should be responsible for deleting the file from storage
         if ($this->model('Anggota_model')->hapusAnggota($id) > 0) {
-            header('Location: ' . BASEURL . '/anggota');
-            exit;
+            $this->model('Log_model')->catat('HAPUS', "Menghapus Anggota ID: " . $id);
         } else {
-            header('Location: ' . BASEURL . '/anggota');
-            exit;
+            // error
         }
-    }
-
-    private function uploadFoto()
-    {
-        if (!isset($_FILES['foto']) || $_FILES['foto']['error'] === UPLOAD_ERR_NO_FILE) {
-            return null; // Tidak ada file diupload, ini bukan error
-        }
-
-        if ($_FILES['foto']['error'] !== UPLOAD_ERR_OK) {
-            return false; // Error saat upload
-        }
-
-        $namaFile = $_FILES['foto']['name'];
-        $tmpName = $_FILES['foto']['tmp_name'];
-        $ukuranFile = $_FILES['foto']['size'];
-
-        // Validasi ekstensi
-        $ekstensiValid = ['jpg', 'jpeg', 'png'];
-        $ekstensiFile = strtolower(pathinfo($namaFile, PATHINFO_EXTENSION));
-        if (!in_array($ekstensiFile, $ekstensiValid)) {
-            return false; // Ekstensi tidak diizinkan
-        }
-
-        // Validasi ukuran (misal: maks 2MB)
-        if ($ukuranFile > 2000000) {
-            return false; // File terlalu besar
-        }
-        
-        // Buat folder jika belum ada
-        $uploadDir = 'img/anggota/';
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true);
-        }
-
-        // Generate nama file unik
-        $namaFileBaru = uniqid('anggota_') . '.' . $ekstensiFile;
-        
-        // Pindahkan file
-        if (move_uploaded_file($tmpName, $uploadDir . $namaFileBaru)) {
-            return $namaFileBaru;
-        } else {
-            return false; // Gagal memindahkan file
-        }
+        header('Location: ' . BASEURL . '/anggota');
+        exit;
     }
 }

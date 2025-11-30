@@ -19,8 +19,16 @@ class Home extends Controller
         // Memuat model galeri dan mengambil semua data galeri
         $data['galeri'] = $this->model('Galeri_model')->getAllGaleri();
 
-        // Memuat view dengan data judul dan berita
+        // Memuat model produk dan mengambil semua data produk
+        $data['produk'] = $this->model('Produk_model')->getAllProduk();
+
+        // Memuat model partner dan mengambil semua data partner (FIXED)
+        $data['partner'] = $this->model('Partner_model')->getAllPartner();
+
+        // Memuat view dengan data
+        $this->view('templates/header_public', $data);
         $this->view('home/index', $data);
+        $this->view('templates/footer_public', $data);
     }
 
     public function detail($id)
@@ -28,14 +36,36 @@ class Home extends Controller
         $data['judul'] = 'Detail Berita';
         $data['berita'] = $this->model('Berita_model')->getBeritaById($id);
 
-        // Nanti kita buat viewnya
+        $this->view('templates/header_public', $data);
         $this->view('home/detail', $data);
+        $this->view('templates/footer_public', $data);
     }
 
     public function detail_riset($id)
     {
         $data['judul'] = 'Detail Riset';
         $data['riset'] = $this->model('Riset_model')->getRisetById($id);
-        $this->view('home/detail_riset', $data);
+        
+        $this->view('templates/header_public', $data);
+        $this->view('home/detail_riset', $data); // Corrected typo
+        $this->view('templates/footer_public', $data);
+    }
+
+    public function kirim_kontak()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($this->model('Contact_model')->kirimPesan($_POST) > 0) {
+                // Flasher::setFlash('Pesan', 'berhasil', 'dikirim', 'success');
+                header('Location: ' . BASEURL . '/#contacts');
+                exit;
+            } else {
+                // Flasher::setFlash('Pesan', 'gagal', 'dikirim', 'danger');
+                header('Location: ' . BASEURL . '/#contacts');
+                exit;
+            }
+        } else {
+            header('Location: ' . BASEURL);
+            exit;
+        }
     }
 }

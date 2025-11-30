@@ -10,18 +10,22 @@ class App
     {
         $url = $this->parseURL();
 
-        // Controller
+        // 1. Cek Controller dengan ABSOLUTE PATH (__DIR__)
+        // __DIR__ mengacu pada folder 'app/core', jadi kita naik satu level ke 'controllers'
         if (isset($url[0])) {
-            if (file_exists('../app/controllers/' . ucfirst($url[0]) . '.php')) {
+            $targetFile = __DIR__ . '/../controllers/' . ucfirst($url[0]) . '.php';
+            
+            if (file_exists($targetFile)) {
                 $this->controller = ucfirst($url[0]);
                 unset($url[0]);
             }
         }
 
-        require_once '../app/controllers/' . $this->controller . '.php';
+        // Require Controller juga pakai Absolute Path biar aman
+        require_once __DIR__ . '/../controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
 
-        // Method
+        // 2. Cek Method
         if (isset($url[1])) {
             if (method_exists($this->controller, $url[1])) {
                 $this->method = $url[1];
@@ -29,23 +33,31 @@ class App
             }
         }
 
-        // Params
+        // 3. Cek Params
         if (!empty($url)) {
             $this->params = array_values($url);
         }
 
-        // Jalankan controller & method, serta kirimkan params jika ada
+        // Jalankan
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
     public function parseURL()
     {
-        if (isset($_GET['url'])) {
-            $url = rtrim($_GET['url'], '/');
-            $url = filter_var($url, FILTER_SANITIZE_URL);
-            $url = explode('/', $url);
-            return $url;
+        $url = $_SERVER['REQUEST_URI'];
+        
+        // Bersihkan query string
+        if ($pos = strpos($url, '?')) {
+            $url = substr($url, 0, $pos);
         }
+
+        $url = trim($url, '/');
+        $url = filter_var($url, FILTER_SANITIZE_URL);
+
+        if($url != "") {
+             return explode('/', $url);
+        }
+        
         return [];
     }
 }

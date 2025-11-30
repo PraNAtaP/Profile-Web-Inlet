@@ -41,6 +41,14 @@
                     <p class="number"><?= htmlspecialchars($data['total_riset']); ?></p>
                 </div>
 
+                <div class="stat-card red">
+                    <div class="card-head">
+                        <h3>Jumlah Anggota Lab</h3>
+                        <span class="icon">👥</span>
+                    </div>
+                    <p class="number"><?= htmlspecialchars($data['total_anggota']); ?></p>
+                </div>
+
                 <div class="stat-card orange">
                     <div class="card-head">
                         <h3>Jumlah Admin</h3>

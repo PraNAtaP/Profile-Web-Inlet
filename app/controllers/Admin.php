@@ -17,22 +17,29 @@ class Admin extends Controller
             header('Location: ' . BASEURL . '/admin/login');
             exit;
         }
-
+    
         $data['judul'] = 'Dashboard';
-        $data['admin_name'] = $_SESSION['admin_name']; // Ambil nama dari session
-
-        // Hitung Data (Pastikan method countData di Admin_model sudah fix pakai PDO)
-        $data['online_users'] = 0; // Default
+        $data['admin_name'] = $_SESSION['admin_name'] ?? 'Admin';
+    
+        // Panggil Model
+        $adminModel = $this->model('Admin_model');
+    
+        // Cek jika Visitor_model ada sebelum memanggil
+        $visitorModel = null;
         if (file_exists('../app/models/Visitor_model.php')) {
-            $data['online_users'] = $this->model('Visitor_model')->countOnlineUsers();
+            $visitorModel = $this->model('Visitor_model');
         }
-        $data['total_berita'] = $this->model('Admin_model')->countData('berita');
-        $data['total_galeri'] = $this->model('Admin_model')->countData('galeri');
-        $data['total_riset']  = $this->model('Admin_model')->countData('riset');
-        $data['total_anggota'] = $this->model('Admin_model')->countData('anggota_lab');
-        $data['total_produk'] = $this->model('Admin_model')->countData('produk_lab'); // Tambahan
-        $data['total_admin']  = $this->model('Admin_model')->countData('admin');
-
+    
+        // Isi Semua Variable Data yang diminta View
+        $data['online_users']  = $visitorModel ? $visitorModel->countOnlineUsers() : 0;
+        $data['total_berita']  = $adminModel->countData('berita');
+        $data['total_galeri']  = $adminModel->countData('galeri');
+        $data['total_riset']   = $adminModel->countData('riset');
+        $data['total_anggota'] = $adminModel->countData('anggota_lab');
+        $data['total_produk']  = $adminModel->countData('produk_lab');
+        $data['total_partner'] = $adminModel->countData('media_partner');
+        $data['total_admin']   = $adminModel->countData('admin');
+    
         $this->view('templates/header_admin', $data);
         $this->view('admin/dashboard', $data);
         $this->view('templates/footer_admin');

@@ -21,6 +21,7 @@
             <li><a href="<?= BASEURL; ?>/partner">Media Partner</a></li>
             <li><a href="<?= BASEURL; ?>/galeri">Kelola Galeri</a></li>
             <li><a href="<?= BASEURL; ?>/anggota">Anggota Lab</a></li>
+            <li><a href="<?= BASEURL; ?>/pengguna">Kelola Admin</a></li>
             <li><a href="<?= BASEURL; ?>/pesan">Pesan Masuk</a></li>
             <li><a href="<?= BASEURL; ?>/log">Activity Log</a></li>
         </ul>
@@ -31,11 +32,13 @@
 
     <div class="main-content">
         <header>
-            <h2>Dashboard</h2>
-            <div class="user-info">
-                <span>Halo, <b><?= htmlspecialchars($data['admin_name'] ?? 'Admin'); ?></b></span>
-                <div class="avatar">
-                    <img src="https://ui-avatars.com/api/?name=<?= urlencode($data['admin_name'] ?? 'Admin'); ?>&background=0D8ABC&color=fff" alt="Profile">
+            <h2><?= htmlspecialchars($data['judul']); ?></h2>
+            <a href="<?= BASEURL; ?>/profile" class="user-info-link">
+                <div class="user-info">
+                    <span>Halo, <b><?= htmlspecialchars($_SESSION['admin_name'] ?? 'Admin'); ?></b></span>
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=<?= urlencode($_SESSION['admin_name'] ?? 'Admin'); ?>&background=0D8ABC&color=fff" alt="Profile">
+                    </div>
                 </div>
-            </div>
+            </a>
         </header>

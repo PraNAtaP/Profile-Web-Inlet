@@ -21,7 +21,9 @@
             <li><a href="<?= BASEURL; ?>/partner">Media Partner</a></li>
             <li><a href="<?= BASEURL; ?>/galeri">Kelola Galeri</a></li>
             <li><a href="<?= BASEURL; ?>/anggota">Anggota Lab</a></li>
+            <?php if (isset($_SESSION['admin_role']) && $_SESSION['admin_role'] == 'super_admin') : ?>
             <li><a href="<?= BASEURL; ?>/pengguna">Kelola Admin</a></li>
+            <?php endif; ?>
             <li><a href="<?= BASEURL; ?>/pesan">Pesan Masuk</a></li>
             <li><a href="<?= BASEURL; ?>/log">Activity Log</a></li>
         </ul>
@@ -35,7 +37,12 @@
             <h2><?= htmlspecialchars($data['judul']); ?></h2>
             <a href="<?= BASEURL; ?>/profile" class="user-info-link">
                 <div class="user-info">
-                    <span>Halo, <b><?= htmlspecialchars($_SESSION['admin_name'] ?? 'Admin'); ?></b></span>
+                    <div class="d-flex flex-column align-items-end">
+                        <span class="fw-bold"><?= $_SESSION['admin_name']; ?></span>
+                        <span class="badge bg-<?= ($_SESSION['admin_role'] == 'super_admin') ? 'danger' : 'secondary'; ?> btn-sm">
+                            <?= str_replace('_', ' ', strtoupper($_SESSION['admin_role'])); ?>
+                        </span>
+                    </div>
                     <div class="avatar">
                         <img src="https://ui-avatars.com/api/?name=<?= urlencode($_SESSION['admin_name'] ?? 'Admin'); ?>&background=0D8ABC&color=fff" alt="Profile">
                     </div>

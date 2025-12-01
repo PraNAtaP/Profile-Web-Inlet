@@ -77,6 +77,7 @@ class Admin extends Controller
                 $_SESSION['admin_logged_in'] = true; // Dipertahankan untuk backward compatibility jika ada
                 $_SESSION['admin_id'] = $adminData['id_admin'];
                 $_SESSION['admin_name'] = $adminData['nama'];
+                $_SESSION['admin_role'] = $adminData['roles']; // PENTING: Simpan Role
 
                 header('Location: ' . BASEURL . '/admin');
                 exit;

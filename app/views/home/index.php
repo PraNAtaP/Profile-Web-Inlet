@@ -1,87 +1,3 @@
-<style>
-  /* Paksa Grid/Flex biar item di tengah kalau jumlahnya sedikit */
-  .news-grid,
-  .research-grid,
-  .products-grid,
-  .partner-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* INI KUNCINYA KING */
-    gap: 30px;
-  }
-
-  /* Reset lebar card biar gak melar kegedean kalau sendirian */
-  .news-card,
-  .research-card,
-  .product-card {
-    flex: 0 1 300px;
-    /* Basis width 300px, bisa mengecil tapi gak melar habis */
-    max-width: 350px;
-    margin: 0 auto;
-    /* Safety centering */
-  }
-
-  /* Style tambahan produk & partner */
-  .products-section,
-  .media-partner {
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .product-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
-
-  .product-card:hover {
-    transform: translateY(-10px);
-  }
-
-  .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-
-  .product-content {
-    padding: 20px;
-  }
-
-  .product-content .btn-lihat {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-  }
-
-  .partner-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin-top: 40px;
-  }
-
-  .partner-logo-item img {
-    max-height: 80px;
-    max-width: 180px;
-    filter: grayscale(100%);
-    transition: filter 0.3s;
-  }
-
-  .partner-logo-item:hover img {
-    filter: grayscale(0%);
-  }
-</style>
-
 <section class="hero" id="home">
   <div class="hero-content">
     <h1>INFORMATION AND LEARNING<br />ENGINEERING TECHNOLOGY</h1>
@@ -258,6 +174,17 @@
       <div class="info-item"><i class="fas fa-phone"></i><span>0 (800) 123 45 67</span></div>
       <div class="info-item"><i class="fas fa-envelope"></i><span>ando@polinema.ac.id</span></div>
       <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Politeknik Negeri Malang</span></div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.448906935932!2d112.61502431744384!3d-7.941602994276722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sPoliteknik%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1678901234567!5m2!1sid!2sid"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </div>
   </div>
 </section>

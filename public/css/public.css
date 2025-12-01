@@ -772,41 +772,25 @@ section {
 }
 
 .contact-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 1.1rem;
-}
-
-.info-item i {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffd700;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1; /* Biar lebarnya seimbang sama form */
 }
 
 .map-container {
-  margin-top: auto;
-  border-radius: 15px;
-  overflow: hidden;
-  height: 200px;
+    width: 100%;       /* Full width mengikuti container parent (contact-info) */
+    height: 300px;     /* Tinggi yang pas */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 10px;  /* Jarak dari tulisan alamat */
 }
 
-.map-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 /* --- FOOTER --- */

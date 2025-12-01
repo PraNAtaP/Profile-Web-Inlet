@@ -174,6 +174,17 @@
       <div class="info-item"><i class="fas fa-phone"></i><span>0 (800) 123 45 67</span></div>
       <div class="info-item"><i class="fas fa-envelope"></i><span>ando@polinema.ac.id</span></div>
       <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Politeknik Negeri Malang</span></div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.448906935932!2d112.61502431744384!3d-7.941602994276722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78827687d272e7%3A0x789ce9a636cd3aa2!2sPoliteknik%20Negeri%20Malang!5e0!3m2!1sid!2sid!4v1678901234567!5m2!1sid!2sid"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </div>
   </div>
 </section>

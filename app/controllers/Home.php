@@ -51,6 +51,26 @@ class Home extends Controller
         $this->view('templates/footer_public', $data);
     }
 
+    public function detail_galeri()
+    {
+        $data['judul'] = 'Detail Galeri';
+        $data['galeri'] = $this->model('Galeri_model')->getAllGaleri();
+
+        $this->view('templates/header_public', $data);
+        $this->view('home/detail_galeri', $data);
+        $this->view('templates/footer_public', $data);
+    }
+
+    public function galeri()
+    {
+        $data['judul'] = 'Galeri Kegiatan';
+        $data['galeri'] = $this->model('Galeri_model')->getAllGaleri();
+
+        $this->view('templates/header_public', $data);
+        $this->view('home/galeri', $data);
+        $this->view('templates/footer_public', $data);
+    }
+
     public function kirim_kontak()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

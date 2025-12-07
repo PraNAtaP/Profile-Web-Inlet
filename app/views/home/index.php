@@ -147,24 +147,39 @@
 
 <section class="gallery-section" id="gallery">
   <h2 class="section-title">Watch Our Gallery</h2>
-  <div class="swiper myGallerySwiper">
-    <div class="swiper-wrapper">
-      <?php if (isset($data['galeri']) && !empty($data['galeri'])): ?>
-        <?php foreach ($data['galeri'] as $g): ?>
+
+  <div class="gallery-card-container">
+
+    <div class="swiper myGallerySwiper">
+      <div class="swiper-wrapper">
+        <?php if (isset($data['galeri']) && !empty($data['galeri'])): ?>
+          <?php foreach ($data['galeri'] as $g): ?>
+            <div class="swiper-slide">
+              <div class="gallery-image-wrapper">
+                <img src="<?= BASEURL; ?>/img/galeri/<?= htmlspecialchars($g['foto']); ?>" alt="<?= htmlspecialchars($g['judul']); ?>" />
+                <div class="gallery-overlay">
+                  <h3><?= htmlspecialchars($g['judul']); ?></h3>
+                  <p><?= date('d F Y'); ?></p>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
           <div class="swiper-slide">
-            <img src="<?= BASEURL; ?>/img/galeri/<?= htmlspecialchars($g['foto']); ?>" alt="<?= htmlspecialchars($g['judul']); ?>" />
-            <p class="gallery-caption"><?= htmlspecialchars($g['judul']); ?></p>
+            <div class="gallery-image-wrapper" style="background: #eee; display:flex; align-items:center; justify-content:center;">
+              <p style="color:#666;">Tidak ada foto galeri.</p>
+            </div>
           </div>
-        <?php endforeach; ?>
-      <?php else: ?>
-        <div class="swiper-slide">
-          <p>Tidak ada foto.</p>
-        </div>
-      <?php endif; ?>
+        <?php endif; ?>
+      </div>
+
+      <div class="swiper-pagination"></div>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
+
+    <a href="<?= BASEURL; ?>/home/detail_galeri/" class="btn-detail-gallery">
+      Detail Gallery <i class="fas fa-arrow-right"></i>
+    </a>
+
   </div>
 </section>
 
@@ -178,8 +193,8 @@
           <img src="<?= BASEURL; ?>/img/produk/<?= htmlspecialchars($p['gambar']); ?>" alt="<?= htmlspecialchars($p['judul']); ?>">
           <div class="product-content">
             <h3><?= htmlspecialchars($p['judul']); ?></h3>
-            <p><?= htmlspecialchars(substr(strip_tags($p['deskripsi']), 0, 80)); ?>...</p>
-            <a href="<?= htmlspecialchars($p['link']); ?>" target="_blank" class="btn-lihat">Lihat Produk</a>
+            <p><?= htmlspecialchars($p['deskripsi']); ?></p>
+            <a href="<?= htmlspecialchars($p['link']); ?>" target="_blank" class="btn-lihat">Try Now</a>
           </div>
         </div>
       <?php endforeach; ?>

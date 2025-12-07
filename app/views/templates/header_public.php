@@ -26,7 +26,7 @@
       <li><a href="<?= BASEURL; ?>#news">Our News</a></li>
       <li><a href="<?= BASEURL; ?>#team">Our Team</a></li>
       <li><a href="<?= BASEURL; ?>#research">Research</a></li>
-      <li><a href="<?= BASEURL; ?>#gallery">Gallery</a></li>
+      <li><a href="<?= BASEURL; ?>/home/galeri">Gallery</a></li>
       <li><a href="<?= BASEURL; ?>#products">Products</a></li>
       <li><a href="<?= BASEURL; ?>#contacts">Contacts</a></li>
     </ul>

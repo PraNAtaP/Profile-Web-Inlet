@@ -19,20 +19,17 @@ document.querySelectorAll(".card").forEach((card) => {
   });
 });
 
-const gallerySwiper = new Swiper(".myGallerySwiper", {
+var gallerySwiper = new Swiper(".myGallerySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 30,
   loop: true,
-  effect: "fade",
   autoplay: {
-    delay: 3500,
+    delay: 4000,
     disableOnInteraction: false,
   },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
   },
 });
 
@@ -80,12 +77,12 @@ var newsSwiper = new Swiper(".newsSwiper", {
 
 // Config Research Swiper (2x2 GIANT & TIGHT)
 var researchSwiper = new Swiper(".researchSwiper", {
-  slidesPerView: 1, // HP: 1 Kartu Full
+  slidesPerView: 1, 
   grid: {
     rows: 2,
     fill: "row",
   },
-  spaceBetween: 15, // JARAK RAPET (Sesuai Request)
+  spaceBetween: 20, 
   navigation: {
     nextEl: ".swiper-button-next-research",
     prevEl: ".swiper-button-prev-research",
@@ -94,12 +91,12 @@ var researchSwiper = new Swiper(".researchSwiper", {
     768: {
       slidesPerView: 2, // Tablet: 2 Kolom
       grid: { rows: 2 },
-      spaceBetween: 15,
+      spaceBetween: 20,
     },
     1024: {
       slidesPerView: 2, // Desktop: 2 Kolom (Biar LEBAR BANGET)
       grid: { rows: 2 },
-      spaceBetween: 15, // Jarak pas
+      spaceBetween: 20, // Jarak pas
     },
   },
 });

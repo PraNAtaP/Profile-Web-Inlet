@@ -7,24 +7,25 @@
 </section>
 <div class="cards-container">
   <div class="glass-container">
-    <div class="card">
+    <a href="#news" class="card">
       <div class="card-icon"><i class="fas fa-newspaper"></i></div>
       <h3>News</h3>
-    </div>
-    <div class="card">
+    </a>
+    <a href="#team" class="card">
       <div class="card-icon"><i class="fas fa-users"></i></div>
       <h3>Our Team</h3>
-    </div>
-    <div class="card">
+    </a>
+    <a href="#research" class="card">
       <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
       <h3>Research</h3>
-    </div>
-    <div class="card">
+    </a>
+    <a href="#contacts" class="card">
       <div class="card-icon"><i class="fas fa-envelope"></i></div>
       <h3>Contact Us</h3>
-    </div>
+    </a>
   </div>
 </div>
+
 <section class="our-news" id="news">
   <h2 class="section-title">Our News</h2>
   <p class="section-subtitle">Read the recent blog posts about our work</p>

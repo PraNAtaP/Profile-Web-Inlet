@@ -147,7 +147,7 @@ body {
   color: #4a5f8f;
 }
 
-/* Cards Section */
+/* --- CARDS SECTION (Floating Menu) --- */
 .cards-container {
   display: flex;
   justify-content: center;
@@ -242,6 +242,7 @@ body {
   }
 }
 
+/* ITEM CARD (Link Style Fixed) */
 .card {
   background: white;
   width: 200px;
@@ -251,6 +252,11 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
   cursor: pointer;
+
+  /* WAJIB: Biar tag <a> tetep kelihatan kotak & gak biru */
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .card:hover {
@@ -278,6 +284,7 @@ body {
   font-size: 1.1rem;
   color: #2c3e5f;
   font-weight: 600;
+  margin-top: 10px;
 }
 
 /* Responsive */
@@ -285,15 +292,12 @@ body {
   .hero h1 {
     font-size: 2rem;
   }
-
   .nav-menu {
     gap: 15px;
   }
-
   .cards-container {
     gap: 20px;
   }
-
   .glass-container {
     padding: 30px 20px;
     flex-wrap: wrap;

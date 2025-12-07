@@ -1,10 +1,8 @@
 <div class="container">
     <h1>Manajemen Anggota Lab</h1>
-
     <div class="clearfix">
         <a href="<?= BASEURL; ?>/anggota/tambah" class="btn btn-add">Tambah Anggota</a>
     </div>
-
     <div class="table-wrapper">
         <table class="table">
             <thead>

@@ -10,7 +10,6 @@
                         <?php if (isset($data['admin'])) : ?>
                             <input type="hidden" name="id_admin" value="<?= $data['admin']['id_admin']; ?>">
                         <?php endif; ?>
-
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" class="form-control" id="nama" name="nama" value="<?= isset($data['admin']) ? htmlspecialchars($data['admin']['nama']) : ''; ?>" required>
@@ -30,7 +29,6 @@
                                 <small class="form-text text-muted">Kosongkan jika tidak ingin mengganti password.</small>
                             <?php endif; ?>
                         </div>
-
                         <a href="<?= BASEURL; ?>/pengguna" class="btn btn-secondary">Batal</a>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>

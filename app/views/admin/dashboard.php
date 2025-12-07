@@ -5,7 +5,6 @@
             <p>Selamat datang di halaman administrasi website. Semangat kerjanya!</p>
         </div>
     </div>
-
     <div class="stats-container">
         <div class="stat-card green">
             <div class="card-head">
@@ -21,7 +20,6 @@
             </div>
             <p class="number"><?= htmlspecialchars($data['total_berita'] ?? 0); ?></p>
         </div>
-
         <div class="stat-card green">
             <div class="card-head">
                 <h3>Total Galeri</h3>
@@ -29,7 +27,6 @@
             </div>
             <p class="number"><?= htmlspecialchars($data['total_galeri'] ?? 0); ?></p>
         </div>
-
         <div class="stat-card purple">
             <div class="card-head">
                 <h3>Total Riset</h3>
@@ -37,7 +34,6 @@
             </div>
             <p class="number"><?= htmlspecialchars($data['total_riset'] ?? 0); ?></p>
         </div>
-
         <div class="stat-card red">
             <div class="card-head">
                 <h3>Anggota Lab</h3>
@@ -45,7 +41,6 @@
             </div>
             <p class="number"><?= htmlspecialchars($data['total_anggota'] ?? 0); ?></p>
         </div>
-
         <div class="stat-card yellow">
             <div class="card-head">
                 <h3>Produk Lab</h3>
@@ -53,7 +48,6 @@
             </div>
             <p class="number"><?= htmlspecialchars($data['total_produk'] ?? 0); ?></p>
         </div>
-
         <div class="stat-card orange">
             <div class="card-head">
                 <h3>Partner</h3>
@@ -62,7 +56,6 @@
             <p class="number"><?= htmlspecialchars($data['total_partner'] ?? 0); ?></p>
         </div>
     </div>
-
     <!-- Visitor Analytics Card -->
     <div class="analytics-card">
         <div class="card-header">
@@ -75,23 +68,20 @@
             $totalVisitors = $visitorStats['total'] ?? 0;
             $monthlyData = $visitorStats['data'] ?? [];
             $averageVisitors = count($monthlyData) > 0 ? round($totalVisitors / count($monthlyData)) : 0;
-
-            // Trend Analysis
             $trendText = 'N/A';
             $trendIcon = '';
             $trendColor = '';
             $lastMonthVisitors = count($monthlyData) > 0 ? end($monthlyData) : 0;
             $prevMonthVisitors = count($monthlyData) > 1 ? prev($monthlyData) : 0;
-
             if ($prevMonthVisitors > 0) {
                 $percentageChange = (($lastMonthVisitors - $prevMonthVisitors) / $prevMonthVisitors) * 100;
                 if ($percentageChange > 0) {
                     $trendText = 'Naik ' . round($percentageChange, 1) . '%';
-                    $trendIcon = '▲'; // Up arrow
+                    $trendIcon = '▲'; 
                     $trendColor = 'green';
                 } elseif ($percentageChange < 0) {
                     $trendText = 'Turun ' . round(abs($percentageChange), 1) . '%';
-                    $trendIcon = '▼'; // Down arrow
+                    $trendIcon = '▼'; 
                     $trendColor = 'red';
                 } else {
                     $trendText = 'Stabil';
@@ -123,5 +113,4 @@
             <p>Bulan ini <strong><?= $trendText; ?></strong> dibanding bulan sebelumnya.</p>
         </div>
     </div>
-
 </main>

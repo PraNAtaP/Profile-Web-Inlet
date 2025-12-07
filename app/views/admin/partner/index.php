@@ -3,7 +3,6 @@
         <h1>🤝 Media Partner</h1>
         <a href="<?= BASEURL; ?>/partner/form" class="btn btn-primary">Tambah Partner</a>
     </div>
-
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive">

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +7,11 @@
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/admin.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
     <div class="sidebar">
         <div class="sidebar-header">
             <img src="<?= BASEURL; ?>/img/logo-putih.svg" alt="Logo Admin">
         </div>
-
         <ul class="sidebar-menu">
             <li>
                 <a href="<?= BASEURL; ?>/admin/dashboard">
@@ -28,9 +24,7 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-
             <li class="menu-label">KONTEN</li>
-
             <li>
                 <a href="<?= BASEURL; ?>/berita">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -85,9 +79,7 @@
                     <span>Kelola Galeri</span>
                 </a>
             </li>
-
             <li class="menu-label">MANAJEMEN</li>
-
             <li>
                 <a href="<?= BASEURL; ?>/anggota">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -99,7 +91,6 @@
                     <span>Anggota Lab</span>
                 </a>
             </li>
-
             <?php if (isset($_SESSION['admin_role']) && $_SESSION['admin_role'] == 'super_admin') : ?>
                 <li>
                     <a href="<?= BASEURL; ?>/pengguna">
@@ -110,7 +101,6 @@
                     </a>
                 </li>
             <?php endif; ?>
-
             <li>
                 <a href="<?= BASEURL; ?>/pesan">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -130,7 +120,6 @@
                 </a>
             </li>
         </ul>
-
         <div class="sidebar-footer">
             <a href="<?= BASEURL; ?>/admin/logout" class="logout-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -142,7 +131,6 @@
             </a>
         </div>
     </div>
-
     <div class="main-content">
         <header>
             <h2><?= htmlspecialchars($data['judul']); ?></h2>

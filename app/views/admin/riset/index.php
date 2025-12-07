@@ -80,14 +80,12 @@
         border-color: #17a2b8;
     }
 </style>
-
 <div class="container-fluid">
     <div class="table-container">
         <div class="table-title">
             <h2>Manajemen Riset</h2>
             <a href="<?= BASEURL; ?>/riset/tambah" class="btn-add">Tambah Riset</a>
         </div>
-
         <table class="table">
             <thead>
                 <tr>

@@ -3,7 +3,6 @@
         <h1>📦 Produk Lab</h1>
         <a href="<?= BASEURL; ?>/produk/tambah" class="btn btn-primary">Tambah Produk</a>
     </div>
-
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive">

@@ -1,5 +1,4 @@
 <?php
-
 class Profile extends Controller
 {
     public function __construct()
@@ -9,7 +8,6 @@ class Profile extends Controller
             exit;
         }
     }
-
     public function index()
     {
         $data['judul'] = 'Profil Saya';
@@ -18,21 +16,16 @@ class Profile extends Controller
         $this->view('admin/profile/index', $data);
         $this->view('templates/footer_admin');
     }
-
     public function update()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Set id_admin from session
             $_POST['id_admin'] = $_SESSION['admin_id'];
-
             if ($this->model('Admin_model')->updateAdmin($_POST) > 0) {
-                // Update session name if it was changed
                 if(isset($_POST['nama'])) {
                     $_SESSION['admin_name'] = $_POST['nama'];
                 }
                 Flasher::setFlash('Profil berhasil', 'diperbarui', 'success');
             } else {
-                // This could also mean no changes were made
                 Flasher::setFlash('Tidak ada perubahan', 'disimpan', 'info');
             }
         }

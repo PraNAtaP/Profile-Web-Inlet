@@ -5,7 +5,6 @@
     <p class="hero-description">Handy connects you with amazing Learning Engineering professionals.</p>
   </div>
 </section>
-
 <div class="cards-container">
   <div class="glass-container">
     <div class="card">
@@ -26,11 +25,9 @@
     </div>
   </div>
 </div>
-
 <section class="our-news" id="news">
   <h2 class="section-title">Our News</h2>
   <p class="section-subtitle">Read the recent blog posts about our work</p>
-
   <div style="position: relative;">
     <div class="swiper newsSwiper">
       <div class="swiper-wrapper">
@@ -60,17 +57,13 @@
         <?php endif; ?>
       </div>
     </div>
-
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
 </section>
-
 <section class="our-team" id="team">
   <h2 class="section-title">Our Team</h2>
-
   <div class="team-box-container">
-
     <div class="swiper myCardSwiper">
       <div class="swiper-wrapper">
         <?php if (isset($data['anggota']) && !empty($data['anggota'])) : ?>
@@ -78,11 +71,9 @@
             <div class="swiper-slide">
               <div class="team-card">
                 <div class="card-header-blue"></div>
-
                 <div class="team-image">
                   <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
                 </div>
-
                 <h3><?= htmlspecialchars($a['nama']); ?></h3>
                 <p><?= htmlspecialchars($a['jabatan']); ?></p>
                 <p><?= htmlspecialchars($a['email']); ?></p>
@@ -100,7 +91,6 @@
     </div>
   </div>
 </section>
-
 <section class="research-activities" id="research">
   <h2 class="section-title" style="color: #ffffffff;">Recorded Research Activities</h2>
   <p class="section-subtitle">Click on the card to watch our Recorded Research Activities</p>
@@ -114,17 +104,13 @@
                 <div class="research-image">
                   <img src="<?= BASEURL; ?>/img/riset/<?= htmlspecialchars($riset['file_dokumen']); ?>" alt="<?= htmlspecialchars($riset['judul_riset']); ?>" />
                 </div>
-
                 <div class="research-content">
                   <h3><?= htmlspecialchars($riset['judul_riset']); ?></h3>
-
                   <div class="researcher-name">
                     <i class="fas fa-user-circle"></i>
                     <?= htmlspecialchars($riset['peneliti']); ?>
                   </div>
-
                   <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 150)); ?>...</p>
-
                   <a href="<?= BASEURL; ?>/home/detail_riset/<?= $riset['id_riset']; ?>" class="research-btn">
                     <i class="fas fa-arrow-right"></i>
                   </a>
@@ -139,17 +125,13 @@
         <?php endif; ?>
       </div>
     </div>
-
     <div class="swiper-button-prev-research"><i class="fas fa-chevron-left"></i></div>
     <div class="swiper-button-next-research"><i class="fas fa-chevron-right"></i></div>
   </div>
 </section>
-
 <section class="gallery-section" id="gallery">
   <h2 class="section-title">Watch Our Gallery</h2>
-
   <div class="gallery-card-container">
-
     <div class="swiper myGallerySwiper">
       <div class="swiper-wrapper">
         <?php if (isset($data['galeri']) && !empty($data['galeri'])): ?>
@@ -172,17 +154,13 @@
           </div>
         <?php endif; ?>
       </div>
-
       <div class="swiper-pagination"></div>
     </div>
-
     <a href="<?= BASEURL; ?>/home/detail_galeri/" class="btn-detail-gallery">
       Detail Gallery <i class="fas fa-arrow-right"></i>
     </a>
-
   </div>
 </section>
-
 <section class="products-section" id="products">
   <h2 class="section-title">Our Products</h2>
   <p class="section-subtitle">Check out the innovative products from our lab.</p>
@@ -203,11 +181,9 @@
     <?php endif; ?>
   </div>
 </section>
-
 <section class="media-partner" id="partners">
   <h2 class="section-title">Media Partner</h2>
   <p class="section-subtitle">We are proud to collaborate with</p>
-
   <div class="partner-container">
     <div class="partner-logos">
       <?php if (isset($data['partner']) && !empty($data['partner'])) : ?>
@@ -222,7 +198,6 @@
     </div>
   </div>
 </section>
-
 <section class="contacts-section" id="contacts">
   <h2 class="section-title">Contacts</h2>
   <div class="contacts-container">

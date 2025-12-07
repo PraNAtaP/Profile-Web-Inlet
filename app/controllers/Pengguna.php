@@ -1,16 +1,13 @@
 <?php
-
 class Pengguna extends Controller
 {
     public function __construct()
     {
-        // Pengecekan session, jika tidak ada, redirect ke login
         if (!isset($_SESSION['admin_id'])) {
             header('Location: ' . BASEURL . '/admin/login');
             exit;
         }
     }
-
     public function index()
     {
         $data['judul'] = 'Kelola Admin';
@@ -19,7 +16,6 @@ class Pengguna extends Controller
         $this->view('admin/pengguna/index', $data);
         $this->view('templates/footer_admin');
     }
-
     public function tambah()
     {
         $data['judul'] = 'Tambah Admin';
@@ -27,7 +23,6 @@ class Pengguna extends Controller
         $this->view('admin/pengguna/form', $data);
         $this->view('templates/footer_admin');
     }
-
     public function simpan()
     {
         if ($this->model('Admin_model')->tambahAdmin($_POST) > 0) {
@@ -40,7 +35,6 @@ class Pengguna extends Controller
             exit;
         }
     }
-
     public function edit($id)
     {
         $data['judul'] = 'Edit Admin';
@@ -49,7 +43,6 @@ class Pengguna extends Controller
         $this->view('admin/pengguna/form', $data);
         $this->view('templates/footer_admin');
     }
-
     public function update()
     {
         if ($this->model('Admin_model')->updateAdmin($_POST) > 0) {
@@ -62,16 +55,13 @@ class Pengguna extends Controller
             exit;
         }
     }
-
     public function hapus($id)
     {
-        // Cek agar admin tidak bisa menghapus diri sendiri
         if ($id == $_SESSION['admin_id']) {
             Flasher::setFlash('gagal', 'Anda tidak dapat menghapus akun Anda sendiri.', 'danger');
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         }
-        
         if ($this->model('Admin_model')->hapusAdmin($id) > 0) {
             Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: ' . BASEURL . '/pengguna');

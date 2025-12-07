@@ -7,14 +7,12 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         overflow: hidden;
     }
-
     .profile-header {
         background: linear-gradient(135deg, #4a5f8f 0%, #2c3e5f 100%);
         color: white;
         padding: 2rem;
         text-align: center;
     }
-
     .profile-avatar {
         width: 120px;
         height: 120px;
@@ -26,24 +24,20 @@
         font-size: 4rem;
         color: #4a5f8f;
     }
-
     .profile-header h2 {
         margin: 0;
         font-weight: 600;
     }
-
     .profile-form-container {
         padding: 2rem;
     }
 </style>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <?php Flasher::flash(); ?>
         </div>
     </div>
-
     <div class="profile-card">
         <div class="profile-header">
             <img src="https://ui-avatars.com/api/?name=<?= urlencode($_SESSION['admin_name'] ?? 'Admin'); ?>&background=0D8ABC&color=fff" alt="Profile">

@@ -5,12 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('visitorChart');
     if (ctx) {
         const visitorData = <?= json_encode($data['visitor_stats'] ?? ['labels' => [], 'data' => []]); ?>;
-        
         const chartCtx = ctx.getContext('2d');
         const gradient = chartCtx.createLinearGradient(0, 0, 0, 400);
         gradient.addColorStop(0, 'rgba(54, 162, 235, 0.5)');
         gradient.addColorStop(1, 'rgba(54, 162, 235, 0)');
-
         new Chart(ctx, {
             type: 'line',
             data: {

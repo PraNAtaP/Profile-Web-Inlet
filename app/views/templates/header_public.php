@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,14 +12,12 @@
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/public.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
-
 <body>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
       <img src="<?= BASEURL; ?>/img/LOGO.png" alt="Logo" class="logo-image" />
     </div>
-
     <ul class="nav-menu">
       <li><a href="<?= BASEURL; ?>">Home</a></li>
       <li><a href="<?= BASEURL; ?>#news">Our News</a></li>

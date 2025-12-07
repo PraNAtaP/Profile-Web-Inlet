@@ -11,6 +11,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="<?= BASEURL; ?>/css/public.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -26,6 +27,7 @@
       <li><a href="<?= BASEURL; ?>#team">Our Team</a></li>
       <li><a href="<?= BASEURL; ?>#research">Research</a></li>
       <li><a href="<?= BASEURL; ?>#gallery">Gallery</a></li>
+      <li><a href="<?= BASEURL; ?>#products">Products</a></li>
       <li><a href="<?= BASEURL; ?>#contacts">Contacts</a></li>
     </ul>
   </nav>

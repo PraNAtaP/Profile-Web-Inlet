@@ -32,6 +32,7 @@ class Admin extends Controller
     
         // Isi Semua Variable Data yang diminta View
         $data['online_users']  = $visitorModel ? $visitorModel->countOnlineUsers() : 0;
+        $data['visitor_stats'] = $visitorModel ? $visitorModel->getVisitorStats() : ['labels' => [], 'data' => [], 'total' => 0];
         $data['total_berita']  = $adminModel->countData('berita');
         $data['total_galeri']  = $adminModel->countData('galeri');
         $data['total_riset']   = $adminModel->countData('riset');

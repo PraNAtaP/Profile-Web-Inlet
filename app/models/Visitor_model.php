@@ -47,4 +47,49 @@ class Visitor_model {
 
         return 0;
     }
+
+    public function getVisitorStats()
+    {
+        $query = "SELECT 
+                    TO_CHAR(waktu_akses, 'YYYY-MM') as month_year,
+                    TO_CHAR(waktu_akses, 'Mon') as month_label,
+                    COUNT(id) as total_visitors
+                  FROM 
+                    " . $this->table . "
+                  WHERE 
+                    waktu_akses >= NOW() - INTERVAL '12 months'
+                  GROUP BY 
+                    1, 2
+                  ORDER BY 
+                    month_year ASC";
+
+        $this->db->query($query);
+        $results = $this->db->resultSet();
+
+        $labels = [];
+        $data = [];
+        $total = 0;
+
+        // Inisialisasi 12 bulan terakhir
+        for ($i = 11; $i >= 0; $i--) {
+            $date = new DateTime("first day of -$i month");
+            $labels[$date->format('Y-m')] = $date->format('M');
+            $data[$date->format('Y-m')] = 0;
+        }
+
+        foreach ($results as $row) {
+            $month_year = $row['month_year'];
+            if (isset($data[$month_year])) {
+                $data[$month_year] = (int)$row['total_visitors'];
+            }
+        }
+        
+        $total = array_sum($data);
+
+        return [
+            'labels' => array_values($labels),
+            'data' => array_values($data),
+            'total' => $total,
+        ];
+    }
 }

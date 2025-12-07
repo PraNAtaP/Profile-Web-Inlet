@@ -50,24 +50,26 @@
 
 <section class="our-team" id="team">
   <h2 class="section-title">Our Team</h2>
-  <div class="team-carousel">
-    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-    <div class="team-container">
+  <div class="swiper myCardSwiper">
+    <div class="swiper-wrapper">
       <?php if (isset($data['anggota']) && !empty($data['anggota'])) : ?>
         <?php foreach ($data['anggota'] as $a) : ?>
-          <div class="team-card">
-            <div class="team-image">
-              <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
+          <div class="swiper-slide">
+            <div class="team-card">
+              <div class="team-image">
+                <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
+              </div>
+              <h3><?= htmlspecialchars($a['nama']); ?></h3>
+              <p><?= htmlspecialchars($a['jabatan']); ?></p>
             </div>
-            <h3><?= htmlspecialchars($a['nama']); ?></h3>
-            <p><?= htmlspecialchars($a['jabatan']); ?></p>
           </div>
         <?php endforeach; ?>
       <?php else : ?>
         <p style="text-align: center; width: 100%;">Belum ada anggota tim.</p>
       <?php endif; ?>
     </div>
-    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+    <div class="swiper-button-next-card"></div>
+    <div class="swiper-button-prev-card"></div>
   </div>
 </section>
 
@@ -94,26 +96,24 @@
 
 <section class="gallery-section" id="gallery">
   <h2 class="section-title">Watch Our Gallery</h2>
-  <div class="gallery-carousel">
-    <button class="gallery-btn prev-gallery-btn"><i class="fas fa-chevron-left"></i></button>
-    <div class="gallery-container">
+  <div class="swiper myGallerySwiper">
+    <div class="swiper-wrapper">
       <?php if (isset($data['galeri']) && !empty($data['galeri'])): ?>
         <?php foreach ($data['galeri'] as $g): ?>
-          <div class="gallery-slide">
+          <div class="swiper-slide">
             <img src="<?= BASEURL; ?>/img/galeri/<?= htmlspecialchars($g['foto']); ?>" alt="<?= htmlspecialchars($g['judul']); ?>" />
             <p class="gallery-caption"><?= htmlspecialchars($g['judul']); ?></p>
           </div>
         <?php endforeach; ?>
       <?php else: ?>
-        <div class="gallery-slide">
+        <div class="swiper-slide">
           <p>Tidak ada foto.</p>
         </div>
       <?php endif; ?>
     </div>
-    <button class="gallery-btn next-gallery-btn"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="gallery-dots">
-    <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
   </div>
 </section>
 

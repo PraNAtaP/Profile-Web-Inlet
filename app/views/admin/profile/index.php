@@ -4,15 +4,17 @@
         margin: 2rem auto;
         background: #fff;
         border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         overflow: hidden;
     }
+
     .profile-header {
         background: linear-gradient(135deg, #4a5f8f 0%, #2c3e5f 100%);
         color: white;
         padding: 2rem;
         text-align: center;
     }
+
     .profile-avatar {
         width: 120px;
         height: 120px;
@@ -24,10 +26,12 @@
         font-size: 4rem;
         color: #4a5f8f;
     }
+
     .profile-header h2 {
         margin: 0;
         font-weight: 600;
     }
+
     .profile-form-container {
         padding: 2rem;
     }
@@ -42,9 +46,8 @@
 
     <div class="profile-card">
         <div class="profile-header">
-            <div class="profile-avatar d-flex justify-content-center align-items-center">
-                <i class="fas fa-user"></i>
-            </div>
+            <img src="https://ui-avatars.com/api/?name=<?= urlencode($_SESSION['admin_name'] ?? 'Admin'); ?>&background=0D8ABC&color=fff" alt="Profile">
+            <i class="fas fa-user"></i>
             <h2><?= htmlspecialchars($data['admin']['nama']); ?></h2>
             <p><?= htmlspecialchars($data['admin']['email']); ?></p>
         </div>

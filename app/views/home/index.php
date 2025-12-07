@@ -30,67 +30,118 @@
 <section class="our-news" id="news">
   <h2 class="section-title">Our News</h2>
   <p class="section-subtitle">Read the recent blog posts about our work</p>
-  <div class="news-grid">
-    <?php if (isset($data['berita']) && !empty($data['berita'])) : ?>
-      <?php foreach ($data['berita'] as $brt) : ?>
-        <div class="news-card">
-          <img src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($brt['video_embed']); ?>" alt="<?= htmlspecialchars($brt['judul']); ?>" />
-          <div class="news-content">
-            <h3><a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-title-link"><?= htmlspecialchars($brt['judul']); ?></a></h3>
-            <p><?= htmlspecialchars(substr(strip_tags($brt['isi']), 0, 100)); ?>...</p>
-            <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-link"><i class="fas fa-arrow-right"></i></a>
+
+  <div style="position: relative;">
+    <div class="swiper newsSwiper">
+      <div class="swiper-wrapper">
+        <?php if (isset($data['berita']) && !empty($data['berita'])) : ?>
+          <?php foreach ($data['berita'] as $brt) : ?>
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($brt['video_embed']); ?>" alt="<?= htmlspecialchars($brt['judul']); ?>" />
+                <div class="news-content">
+                  <h3>
+                    <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-title-link">
+                      <?= htmlspecialchars($brt['judul']); ?>
+                    </a>
+                  </h3>
+                  <p><?= htmlspecialchars(substr(strip_tags($brt['isi']), 0, 50)); ?>...</p>
+                  <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-link">
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <div class="swiper-slide">
+            <p style="color: white; text-align: center; width: 100%;">Belum ada berita.</p>
           </div>
-        </div>
-      <?php endforeach; ?>
-    <?php else : ?>
-      <p>Belum ada berita yang dipublikasikan.</p>
-    <?php endif; ?>
+        <?php endif; ?>
+      </div>
+    </div>
+
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </section>
 
 <section class="our-team" id="team">
   <h2 class="section-title">Our Team</h2>
-  <div class="swiper myCardSwiper">
-    <div class="swiper-wrapper">
-      <?php if (isset($data['anggota']) && !empty($data['anggota'])) : ?>
-        <?php foreach ($data['anggota'] as $a) : ?>
-          <div class="swiper-slide">
-            <div class="team-card">
-              <div class="team-image">
-                <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
+
+  <div class="team-box-container">
+
+    <div class="swiper myCardSwiper">
+      <div class="swiper-wrapper">
+        <?php if (isset($data['anggota']) && !empty($data['anggota'])) : ?>
+          <?php foreach ($data['anggota'] as $a) : ?>
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="card-header-blue"></div>
+
+                <div class="team-image">
+                  <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
+                </div>
+
+                <h3><?= htmlspecialchars($a['nama']); ?></h3>
+                <p><?= htmlspecialchars($a['jabatan']); ?></p>
+                <p><?= htmlspecialchars($a['email']); ?></p>
               </div>
-              <h3><?= htmlspecialchars($a['nama']); ?></h3>
-              <p><?= htmlspecialchars($a['jabatan']); ?></p>
             </div>
-          </div>
-        <?php endforeach; ?>
-      <?php else : ?>
-        <p style="text-align: center; width: 100%;">Belum ada anggota tim.</p>
-      <?php endif; ?>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <p style="text-align: center; color: white; width: 100%;">Belum ada anggota tim.</p>
+        <?php endif; ?>
+      </div>
     </div>
-    <div class="swiper-button-next-card"></div>
-    <div class="swiper-button-prev-card"></div>
+    <div class="swiper-button-prev-card">
+    </div>
+    <div class="swiper-button-next-card">
+    </div>
   </div>
 </section>
 
 <section class="research-activities" id="research">
-  <h2 class="section-title">Recorded Research Activities</h2>
-  <div class="research-grid">
-    <?php if (isset($data['riset']) && !empty($data['riset'])) : ?>
-      <?php foreach ($data['riset'] as $riset) : ?>
-        <div class="research-card">
-          <div class="research-image">
-            <img src="<?= BASEURL; ?>/img/riset/<?= htmlspecialchars($riset['file_dokumen']); ?>" alt="<?= htmlspecialchars($riset['judul_riset']); ?>" />
+  <h2 class="section-title" style="color: #ffffffff;">Recorded Research Activities</h2>
+  <p class="section-subtitle">Click on the card to watch our Recorded Research Activities</p>
+  <div style="position: relative;">
+    <div class="swiper researchSwiper">
+      <div class="swiper-wrapper">
+        <?php if (isset($data['riset']) && !empty($data['riset'])) : ?>
+          <?php foreach ($data['riset'] as $riset) : ?>
+            <div class="swiper-slide">
+              <div class="research-card">
+                <div class="research-image">
+                  <img src="<?= BASEURL; ?>/img/riset/<?= htmlspecialchars($riset['file_dokumen']); ?>" alt="<?= htmlspecialchars($riset['judul_riset']); ?>" />
+                </div>
+
+                <div class="research-content">
+                  <h3><?= htmlspecialchars($riset['judul_riset']); ?></h3>
+
+                  <div class="researcher-name">
+                    <i class="fas fa-user-circle"></i>
+                    <?= htmlspecialchars($riset['peneliti']); ?>
+                  </div>
+
+                  <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 150)); ?>...</p>
+
+                  <a href="<?= BASEURL; ?>/home/detail_riset/<?= $riset['id_riset']; ?>" class="research-btn">
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <div class="swiper-slide">
+            <p style="text-align: center; width: 100%; color: #333;">Belum ada riset.</p>
           </div>
-          <h3><?= htmlspecialchars($riset['judul_riset']); ?></h3>
-          <p><strong>Peneliti:</strong> <?= htmlspecialchars($riset['peneliti']); ?></p>
-          <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 100)); ?>...</p>
-          <a href="<?= BASEURL; ?>/home/detail_riset/<?= $riset['id_riset']; ?>" class="btn-detail" style="display:inline-block; margin-top:10px; padding:5px 15px; background:#007bff; color:white; border-radius:5px; text-decoration:none;">Lihat Detail</a>
-        </div>
-      <?php endforeach; ?>
-    <?php else : ?>
-      <p style="text-align: center; width: 100%;">Belum ada riset.</p>
-    <?php endif; ?>
+        <?php endif; ?>
+      </div>
+    </div>
+
+    <div class="swiper-button-prev-research"><i class="fas fa-chevron-left"></i></div>
+    <div class="swiper-button-next-research"><i class="fas fa-chevron-right"></i></div>
   </div>
 </section>
 

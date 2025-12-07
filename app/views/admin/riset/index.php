@@ -112,7 +112,7 @@
                         </a>
                     </td>
                     <td class="action-links">
-                        <a href="<?= BASEURL; ?>/riset/ubah/<?= $riset['id_riset']; ?>" class="edit">Edit</a>
+                        <a href="<?= BASEURL; ?>/riset/edit/<?= $riset['id_riset']; ?>" class="edit">Edit</a>
                         <a href="<?= BASEURL; ?>/riset/hapus/<?= $riset['id_riset']; ?>" class="delete" onclick="return confirm('Yakin ingin menghapus data ini?');">Hapus</a>
                     </td>
                 </tr>

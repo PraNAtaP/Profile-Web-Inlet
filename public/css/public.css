@@ -6,7 +6,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url("../img/bg-Website.png");
+  background-image: url("../img/bg-website.svg");
   background-size: 100% auto;
   color: #333;
 }
@@ -323,63 +323,449 @@ section {
   font-size: 1.1rem;
 }
 
-/* --- NEWS SECTION --- */
+/* --- NEWS SECTION (Fixed Height & Navigation) --- */
 .our-news {
-  margin-top: 50px; /* Biar ada jarak dari floating cards */
+  padding: 60px 5%;
+  position: relative;
 }
 
-.news-grid {
+/* Container Swiper */
+.newsSwiper {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.newsSwiper .swiper-slide {
+  padding: 0 8px;
+  background: transparent !important;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 25px;
+  height: 100% !important; /* Paksa slide menuhin kotak grid */
+  box-sizing: border-box;
 }
 
 .news-card {
   background: white;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
+  padding: 15px;
+  width: 100%;
+  max-width: 350px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .news-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .news-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  flex-shrink: 0;
 }
 
 .news-content {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  text-align: center;
+  height: 100%; /* Paksa ngisi tinggi penuh */
 }
 
 .news-content h3 {
-  font-size: 1.1rem;
-  color: #2c3e5f;
   margin-bottom: 10px;
-  line-height: 1.4;
+  line-height: 1.3;
+  /* Opsional: Batasi judul max 2 baris biar gak njomplang */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-title-link {
+  font-size: 1.1rem;
+  color: #0d1b3e;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.news-title-link:hover {
+  color: #3498db;
 }
 
 .news-content p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #666;
   margin-bottom: 20px;
   line-height: 1.5;
-  flex-grow: 1; /* Dorong tombol ke bawah */
+
+  /* BATASI VISUAL MAX 2 BARIS (Biar pasti rata tingginya) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8em; /* Reservasi tempat buat minimal 2 baris */
 }
 
 .news-link {
+  margin-top: auto;
   align-self: flex-end;
-  background: #2c3e5f;
+
+  background: #0d1b3e;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.news-link:hover {
+  background: #3498db;
+  transform: translateX(5px);
+}
+
+/* Tombol Panah Kanan Kiri - Design Modern & Clean */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 45px;
+  height: 45px;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  top: 50%;
+  margin-top: -45px;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: none;
+  box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
+  transform: scale(1.08);
+}
+
+/* Disabled state untuk panah */
+.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Responsive - Sembunyikan panah di mobile */
+@media (max-width: 768px) {
+  .newsSwiper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* --- TEAM SECTION (Boxed Style) --- */
+.our-team {
+  padding: 60px 5%;
+  position: relative;
+}
+
+.our-team {
+  padding: 60px 5%;
+  position: relative;
+}
+
+.team-box-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 50px 60px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.myCardSwiper {
+  width: 100%;
+  padding: 20px 10px;
+}
+
+.myCardSwiper .swiper-slide {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.team-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s;
+  padding-bottom: 30px;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-header-blue {
+  height: 100px;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  width: 100%;
+}
+
+.team-image {
+  margin-top: -60px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.team-image img {
+  width: 160px !important;
+  height: 160px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border: 4px solid white !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  display: block;
+}
+
+.team-card h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #2c3e5f;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.team-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.swiper-button-next-card,
+.swiper-button-prev-card {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e3c72;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: all 0.3s;
+}
+
+.swiper-button-prev-card {
+  left: 10px;
+}
+.swiper-button-next-card {
+  right: 10px;
+}
+
+.swiper-button-next-card:hover,
+.swiper-button-prev-card:hover {
+  background: #1e3c72;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .team-box-container {
+    padding: 30px 20px;
+  }
+  .swiper-button-next-card,
+  .swiper-button-prev-card {
+    display: none;
+  }
+}
+
+/* --- RESEARCH ACTIVITIES (Cinematic/Landscape Cards) --- */
+.research-activities {
+  padding: 40px 2%;
+  position: relative;
+  background: transparent;
+}
+
+.researchSwiper {
+  width: 100%;
+  padding: 10px 50px;
+  padding-bottom: 50px;
+}
+
+.researchSwiper .swiper-slide {
+  height: auto;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+/* STYLE CARD (Bentuk Melebar/Landscape, Isi Vertikal) */
+.research-card {
+  background: white;
+  border-radius: 15px; /* Radius jangan terlalu bulat biar tegas */
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  /* Susunan Tetap Atas-Bawah */
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%; /* Tinggi ngikutin konten, gak dipaksa tinggi */
+  border: none;
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* GAMBAR (KUNCI LANDSCAPE: Aspek Rasio 16:9) */
+.research-image {
+  width: 100%;
+  /* Hapus height fix, ganti aspect-ratio */
+  aspect-ratio: 16 / 9; /* Ini bikin gambar otomatis lebar kayak TV */
+  position: relative;
+  overflow: hidden;
+}
+
+.research-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+/* Icon Play di Tengah */
+.research-image::after {
+  content: "▶";
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  border-radius: 50%;
+  border: 2px solid white;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.research-card:hover .research-image img {
+  transform: scale(1.05);
+}
+
+/* KONTEN (Dipadatkan biar gak bikin kartu jadi tinggi) */
+.research-content {
+  width: 100%;
+  padding: 20px; /* Padding sedang */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.research-content h3 {
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: 800;
+  margin-bottom: 5px;
+  line-height: 1.3;
+
+  /* Batasi judul max 2 baris */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.researcher-name {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.research-content p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.4;
+
+  /* Batasi deskripsi max 2 baris biar kartu gak kepanjangan ke bawah */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+/* Tombol bulat pojok kanan */
+.research-btn {
+  align-self: flex-end;
+  background: #0d1b3e;
   color: white;
   width: 35px;
   height: 35px;
@@ -388,183 +774,48 @@ section {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  margin-top: auto;
 }
 
-.news-link:hover {
-  background: #4a5f8f;
+.research-btn:hover {
+  background: #3498db;
+  transform: translateX(5px);
 }
 
-/* --- TEAM SECTION --- */
-.our-team {
-  position: relative;
-}
-
-.team-carousel {
-  background: rgba(18, 26, 56, 0.6); /* Dark glass container */
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  padding: 40px 60px;
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Navigasi Slide */
+.swiper-button-next-research,
+.swiper-button-prev-research {
+  width: 45px;
+  height: 45px;
+  background: white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-}
-
-.team-container {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 20px 0;
-  width: 100%;
   justify-content: center;
-  /* Hide scrollbar */
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.team-container::-webkit-scrollbar {
-  display: none;
-}
-
-.team-card {
-  background: white;
-  min-width: 220px;
-  padding: 30px 20px;
-  border-radius: 20px;
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.team-card:hover {
-  transform: scale(1.05);
-}
-
-.team-image img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border: 4px solid #f0f0f0;
-}
-
-.team-card h3 {
-  font-size: 1rem;
-  color: #2c3e5f;
-  margin-bottom: 5px;
-}
-
-.team-card p {
-  font-size: 0.8rem;
-  color: #888;
-  margin-bottom: 15px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.social-icons a {
-  color: #2c3e5f;
-  font-size: 1.1rem;
-  transition: color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #4a5f8f;
-}
-
-.carousel-btn {
+  color: #0d1b3e;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  color: #2c3e5f;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 99;
 }
 
-.prev-btn {
-  left: 10px;
+.swiper-button-prev-research {
+  left: 0;
 }
-.next-btn {
-  right: 10px;
-}
-
-/* --- RESEARCH ACTIVITIES --- */
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+.swiper-button-next-research {
+  right: 0;
 }
 
-.research-card {
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent */
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  overflow: hidden;
-  color: white;
-  transition: transform 0.3s;
-}
-
-.research-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.research-image {
-  position: relative;
-  width: 100%;
-  height: 200px;
-}
-
-.research-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Play button overlay effect (optional styling enhancement) */
-.research-image::after {
-  content: "\f04b"; /* FontAwesome Play Icon */
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  color: white;
-  background: rgba(0, 0, 0, 0.5);
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  opacity: 0.8;
-}
-
-.research-card h3 {
-  padding: 15px 15px 5px;
-  font-size: 1.1rem;
-  line-height: 1.4;
-}
-
-.research-card p {
-  padding: 0 15px 20px;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+@media (max-width: 768px) {
+  .swiper-button-next-research,
+  .swiper-button-prev-research {
+    display: none;
+  }
 }
 
 /* --- GALLERY SECTION --- */
@@ -695,102 +946,184 @@ section {
   filter: grayscale(0%);
 }
 
-/* --- CONTACTS SECTION --- */
+/* --- CONTACTS SECTION (Glassmorphism Style) --- */
 .contacts-section {
-  padding-bottom: 20px;
+  padding: 60px 5%;
+  position: relative;
 }
 
+/* Container Utama (Kotak Kaca Besar) */
 .contacts-container {
   display: flex;
-  gap: 40px;
-  background: rgba(18, 26, 56, 0.6);
-  backdrop-filter: blur(10px);
-  padding: 40px;
+  gap: 50px; /* Jarak antar kolom kiri dan kanan */
+  background: rgba(13, 24, 60, 0.6); /* Warna biru gelap transparan */
+  backdrop-filter: blur(15px); /* Efek blur di belakang kaca */
+  -webkit-backdrop-filter: blur(15px);
+  padding: 50px;
   border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 40px rgba(0, 100, 255, 0.1); /* Glow biru halus di luar */
+  align-items: stretch;
 }
 
+/* --- KOLOM KIRI (FORM) --- */
 .contact-form {
-  flex: 1;
+  flex: 1; /* Lebar 50% */
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-form h3 {
-  font-size: 1.8rem;
+  font-size: 2.5rem; /* Judul Get in Touch Besar */
+  color: white;
   margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .contact-form p {
-  margin-bottom: 25px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  font-size: 1rem;
 }
 
 .contact-form form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
+/* Styling Input & Textarea jadi Kapsul/Pill */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  padding: 15px 25px; /* Padding samping lega biar kapsul bagus */
+  background: rgba(0, 0, 0, 0.3); /* Background gelap transparan */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Border putih tipis */
+  border-radius: 50px; /* KUNCI: Membuat input jadi lonjong/kapsul */
   color: white;
   font-family: inherit;
+  font-size: 1rem;
   outline: none;
-  transition: border-color 0.3s;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow dalam biar mendalam */
+  transition: all 0.3s;
+}
+
+/* Khusus Textarea radiusnya beda biar gak aneh */
+.contact-form textarea {
+  border-radius: 20px;
+  resize: vertical;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #ffd700;
-  background: rgba(255, 255, 255, 0.15);
+  border-color: #8ab4f8; /* Warna biru Google pas diklik */
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(138, 180, 248, 0.3); /* Glow pas ngetik */
 }
 
+/* Tombol Submit */
 .contact-form button {
   padding: 15px;
-  background: linear-gradient(135deg, #5b7db1 0%, #4a6fa5 100%);
-  border: none;
-  border-radius: 10px;
+  margin-top: 10px;
+  background: linear-gradient(
+    90deg,
+    #1e3c72 0%,
+    #2a5298 100%
+  ); /* Gradasi Biru */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px; /* Tombol juga kapsul */
   color: white;
   font-weight: 600;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-transform: capitalize;
 }
 
 .contact-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(42, 82, 152, 0.4);
 }
 
+/* --- KOLOM KANAN (INFO & MAP) --- */
 .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1; /* Biar lebarnya seimbang sama form */
+  flex: 1; /* Lebar 50% */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
+/* Info Item (Email, HP) dibuat seperti tombol kapsul */
+.info-item {
+  display: flex;
+  align-items: center;
+  background: rgba(13, 24, 60, 0.8); /* Background lebih gelap */
+  padding: 12px 20px;
+  border-radius: 50px; /* Bentuk Kapsul */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-item:hover {
+  transform: translateX(5px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Icon Bulat Putih di kiri */
+.info-item i {
+  width: 35px;
+  height: 35px;
+  background: white;
+  color: #1e3c72; /* Icon warna biru */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.1rem;
+}
+
+/* Peta */
 .map-container {
-    width: 100%;       /* Full width mengikuti container parent (contact-info) */
-    height: 300px;     /* Tinggi yang pas */
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-top: 10px;  /* Jarak dari tulisan alamat */
+  width: 100%;
+  flex-grow: 1; /* Peta ngisi sisa ruang ke bawah */
+  min-height: 250px;
+  border-radius: 20px; /* Sudut tumpul */
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  margin-top: 10px;
 }
 
 .map-container iframe {
-    width: 100%;
-    height: 100%;
-    display: block;
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: contrast(1.1); /* Biar peta lebih tajam dikit */
+}
+
+/* --- RESPONSIVE (HP) --- */
+@media (max-width: 768px) {
+  .contacts-container {
+    flex-direction: column; /* Jadi atas bawah pas di HP */
+    padding: 30px 20px;
+    gap: 40px;
+  }
+
+  .contact-form h3 {
+    font-size: 2rem;
+  }
+
+  .map-container {
+    height: 300px;
+  }
 }
 
 /* --- FOOTER --- */
@@ -838,105 +1171,105 @@ section {
 
 /* Detail Page Styles */
 .detail-container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .detail-header h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 .detail-meta {
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1.5rem;
 }
 .detail-image {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 2rem;
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 2rem;
 }
 .detail-content {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    white-space: pre-wrap; /* Agar format paragraf dari textarea terjaga */
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  white-space: pre-wrap; /* Agar format paragraf dari textarea terjaga */
 }
 .btn-back {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.8rem 1.5rem;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 .btn-back:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 /* Detail Riset Page Styles */
 .detail-riset-container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    font-family: 'Poppins', sans-serif;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
 }
 .detail-riset-header h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 .detail-riset-meta {
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 2rem;
 }
 .video-player-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    border-radius: 8px;
-    margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+  border-radius: 8px;
+  margin-bottom: 2rem;
 }
 .video-player-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 .detail-riset-content {
-    line-height: 1.8;
-    color: #444;
-    text-align: justify;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
 }
 .btn-kembali {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 .btn-kembali:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 /* Paksa Grid/Flex biar item di tengah kalau jumlahnya sedikit */
@@ -1065,7 +1398,8 @@ section {
   border-radius: 10px;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   color: #fff;
 }
 
@@ -1081,7 +1415,8 @@ section {
   background: transparent;
 }
 
-.swiper-button-next-card, .swiper-button-prev-card {
+.swiper-button-next-card,
+.swiper-button-prev-card {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1106,16 +1441,16 @@ section {
   right: 10px;
 }
 
-.swiper-button-next-card::after, .swiper-button-prev-card::after {
+.swiper-button-next-card::after,
+.swiper-button-prev-card::after {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
 .swiper-button-prev-card::after {
-  content: '<';
+  content: "<";
 }
 
 .swiper-button-next-card::after {
-  content: '>';
+  content: ">";
 }
-

@@ -1,6 +1,6 @@
 <?php
 $isEdit = isset($data['riset']);
-$actionUrl = $isEdit ? BASEURL . '/riset/ubah/' . $data['riset']['id_riset'] : BASEURL . '/riset/simpan';
+$actionUrl = $isEdit ? BASEURL . '/riset/update' : BASEURL . '/riset/simpan';
 ?>
 
 <div class="container-fluid">

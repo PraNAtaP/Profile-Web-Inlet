@@ -103,6 +103,7 @@ class Riset extends Controller {
         }
         
         $_POST['file_dokumen'] = $namaFileThumbnail;
+        $_POST['tanggal_publikasi'] = date('Y-m-d H:i:s');
 
         if ($this->model('Riset_model')->updateRiset($_POST) > 0) {
             $this->model('Log_model')->catat('UPDATE', "Mengupdate Riset: " . $_POST['judul_riset']);

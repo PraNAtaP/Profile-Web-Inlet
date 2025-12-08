@@ -4,7 +4,6 @@
             <?php Flasher::flash(); ?>
         </div>
     </div>
-
     <div class="row mb-3">
         <div class="col-lg-12">
             <h1>Kelola Admin</h1>
@@ -13,7 +12,6 @@
             </a>
         </div>
     </div>
-
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

@@ -18,3 +18,85 @@ document.querySelectorAll(".card").forEach((card) => {
     }, 200);
   });
 });
+
+var gallerySwiper = new Swiper(".myGallerySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
+const cardSwiper = new Swiper(".myCardSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  navigation: {
+    nextEl: ".swiper-button-next-card",
+    prevEl: ".swiper-button-prev-card",
+  },
+  breakpoints: {
+    640: { slidesPerView: 2 }, // Tablet Kecil
+    768: { slidesPerView: 3 }, // Tablet
+    1024: { slidesPerView: 4 }, // Desktop (Muncul 4, sisanya slide)
+  },
+});
+
+var newsSwiper = new Swiper(".newsSwiper", {
+  slidesPerView: 1,
+  grid: {
+    rows: 2,
+    fill: "row",
+  },
+  spaceBetween: 30,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      grid: { rows: 2 },
+    },
+    1024: {
+      slidesPerView: 3,
+      grid: { rows: 2 },
+    },
+    1280: {
+      slidesPerView: 4,
+      grid: { rows: 2 },
+    },
+  },
+});
+
+// Config Research Swiper (2x2 GIANT & TIGHT)
+var researchSwiper = new Swiper(".researchSwiper", {
+  slidesPerView: 1, 
+  grid: {
+    rows: 2,
+    fill: "row",
+  },
+  spaceBetween: 20, 
+  navigation: {
+    nextEl: ".swiper-button-next-research",
+    prevEl: ".swiper-button-prev-research",
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 2, // Tablet: 2 Kolom
+      grid: { rows: 2 },
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 2, // Desktop: 2 Kolom (Biar LEBAR BANGET)
+      grid: { rows: 2 },
+      spaceBetween: 20, // Jarak pas
+    },
+  },
+});

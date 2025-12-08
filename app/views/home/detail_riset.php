@@ -2,8 +2,6 @@
     $riset = $data['riset'];
     $youtube_url = $riset['video_embed'];
     $embed_url = '';
-
-    // Ubah URL YouTube biasa ke URL embed
     if (strpos($youtube_url, 'watch?v=') !== false) {
         $video_id = substr($youtube_url, strpos($youtube_url, 'watch?v=') + 8);
         $embed_url = 'https://www.youtube.com/embed/' . $video_id;
@@ -12,7 +10,6 @@
         $embed_url = 'https://www.youtube.com/embed/' . $video_id;
     }
 ?>
-
 <div class="detail-riset-container">
     <div class="detail-riset-header">
         <h1><?= htmlspecialchars($riset['judul_riset']); ?></h1>
@@ -21,7 +18,6 @@
             <span>Tanggal Publikasi: <?= date('d M Y', strtotime($riset['tanggal_publikasi'])); ?></span>
         </div>
     </div>
-
     <?php if ($embed_url): ?>
     <div class="video-player-container">
         <iframe src="<?= $embed_url; ?>" 
@@ -31,10 +27,8 @@
                 allowfullscreen></iframe>
     </div>
     <?php endif; ?>
-
     <div class="detail-riset-content">
         <?= nl2br(htmlspecialchars($riset['deskripsi'])); ?>
     </div>
-
     <a href="<?= BASEURL; ?>#research" class="btn-kembali">Kembali ke Daftar Riset</a>
 </div>

@@ -4,7 +4,7 @@
         margin: 2rem auto;
         background: #fff;
         border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         overflow: hidden;
     }
     .profile-header {
@@ -32,19 +32,16 @@
         padding: 2rem;
     }
 </style>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <?php Flasher::flash(); ?>
         </div>
     </div>
-
     <div class="profile-card">
         <div class="profile-header">
-            <div class="profile-avatar d-flex justify-content-center align-items-center">
-                <i class="fas fa-user"></i>
-            </div>
+            <img src="https://ui-avatars.com/api/?name=<?= urlencode($_SESSION['admin_name'] ?? 'Admin'); ?>&background=0D8ABC&color=fff" alt="Profile">
+            <i class="fas fa-user"></i>
             <h2><?= htmlspecialchars($data['admin']['nama']); ?></h2>
             <p><?= htmlspecialchars($data['admin']['email']); ?></p>
         </div>

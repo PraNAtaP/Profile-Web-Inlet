@@ -5,118 +5,163 @@
     <p class="hero-description">Handy connects you with amazing Learning Engineering professionals.</p>
   </div>
 </section>
-
 <div class="cards-container">
   <div class="glass-container">
-    <div class="card">
+    <a href="#news" class="card">
       <div class="card-icon"><i class="fas fa-newspaper"></i></div>
       <h3>News</h3>
-    </div>
-    <div class="card">
+    </a>
+    <a href="#team" class="card">
       <div class="card-icon"><i class="fas fa-users"></i></div>
       <h3>Our Team</h3>
-    </div>
-    <div class="card">
+    </a>
+    <a href="#research" class="card">
       <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
       <h3>Research</h3>
-    </div>
-    <div class="card">
+    </a>
+    <a href="#contacts" class="card">
       <div class="card-icon"><i class="fas fa-envelope"></i></div>
       <h3>Contact Us</h3>
-    </div>
+    </a>
   </div>
 </div>
 
 <section class="our-news" id="news">
   <h2 class="section-title">Our News</h2>
   <p class="section-subtitle">Read the recent blog posts about our work</p>
-  <div class="news-grid">
-    <?php if (isset($data['berita']) && !empty($data['berita'])) : ?>
-      <?php foreach ($data['berita'] as $brt) : ?>
-        <div class="news-card">
-          <img src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($brt['video_embed']); ?>" alt="<?= htmlspecialchars($brt['judul']); ?>" />
-          <div class="news-content">
-            <h3><a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-title-link"><?= htmlspecialchars($brt['judul']); ?></a></h3>
-            <p><?= htmlspecialchars(substr(strip_tags($brt['isi']), 0, 100)); ?>...</p>
-            <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-link"><i class="fas fa-arrow-right"></i></a>
+  <div style="position: relative;">
+    <div class="swiper newsSwiper">
+      <div class="swiper-wrapper">
+        <?php if (isset($data['berita']) && !empty($data['berita'])) : ?>
+          <?php foreach ($data['berita'] as $brt) : ?>
+            <div class="swiper-slide">
+              <div class="news-card">
+                <img src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($brt['video_embed']); ?>" alt="<?= htmlspecialchars($brt['judul']); ?>" />
+                <div class="news-content">
+                  <h3>
+                    <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-title-link">
+                      <?= htmlspecialchars($brt['judul']); ?>
+                    </a>
+                  </h3>
+                  <p><?= htmlspecialchars(substr(strip_tags($brt['isi']), 0, 50)); ?>...</p>
+                  <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-link">
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <div class="swiper-slide">
+            <p style="color: white; text-align: center; width: 100%;">Belum ada berita.</p>
           </div>
-        </div>
-      <?php endforeach; ?>
-    <?php else : ?>
-      <p>Belum ada berita yang dipublikasikan.</p>
-    <?php endif; ?>
+        <?php endif; ?>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </section>
-
 <section class="our-team" id="team">
   <h2 class="section-title">Our Team</h2>
-  <div class="team-carousel">
-    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-    <div class="team-container">
-      <?php if (isset($data['anggota']) && !empty($data['anggota'])) : ?>
-        <?php foreach ($data['anggota'] as $a) : ?>
-          <div class="team-card">
-            <div class="team-image">
-              <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
+  <div class="team-box-container">
+    <div class="swiper myCardSwiper">
+      <div class="swiper-wrapper">
+        <?php if (isset($data['anggota']) && !empty($data['anggota'])) : ?>
+          <?php foreach ($data['anggota'] as $a) : ?>
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="card-header-blue"></div>
+                <div class="team-image">
+                  <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
+                </div>
+                <h3><?= htmlspecialchars($a['nama']); ?></h3>
+                <p><?= htmlspecialchars($a['jabatan']); ?></p>
+                <p><?= htmlspecialchars($a['email']); ?></p>
+              </div>
             </div>
-            <h3><?= htmlspecialchars($a['nama']); ?></h3>
-            <p><?= htmlspecialchars($a['jabatan']); ?></p>
-          </div>
-        <?php endforeach; ?>
-      <?php else : ?>
-        <p style="text-align: center; width: 100%;">Belum ada anggota tim.</p>
-      <?php endif; ?>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <p style="text-align: center; color: white; width: 100%;">Belum ada anggota tim.</p>
+        <?php endif; ?>
+      </div>
     </div>
-    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+    <div class="swiper-button-prev-card">
+    </div>
+    <div class="swiper-button-next-card">
+    </div>
   </div>
 </section>
-
 <section class="research-activities" id="research">
-  <h2 class="section-title">Recorded Research Activities</h2>
-  <div class="research-grid">
-    <?php if (isset($data['riset']) && !empty($data['riset'])) : ?>
-      <?php foreach ($data['riset'] as $riset) : ?>
-        <div class="research-card">
-          <div class="research-image">
-            <img src="<?= BASEURL; ?>/img/riset/<?= htmlspecialchars($riset['file_dokumen']); ?>" alt="<?= htmlspecialchars($riset['judul_riset']); ?>" />
+  <h2 class="section-title" style="color: #ffffffff;">Recorded Research Activities</h2>
+  <p class="section-subtitle">Click on the card to watch our Recorded Research Activities</p>
+  <div style="position: relative;">
+    <div class="swiper researchSwiper">
+      <div class="swiper-wrapper">
+        <?php if (isset($data['riset']) && !empty($data['riset'])) : ?>
+          <?php foreach ($data['riset'] as $riset) : ?>
+            <div class="swiper-slide">
+              <div class="research-card">
+                <div class="research-image">
+                  <img src="<?= BASEURL; ?>/img/riset/<?= htmlspecialchars($riset['file_dokumen']); ?>" alt="<?= htmlspecialchars($riset['judul_riset']); ?>" />
+                </div>
+                <div class="research-content">
+                  <h3><?= htmlspecialchars($riset['judul_riset']); ?></h3>
+                  <div class="researcher-name">
+                    <i class="fas fa-user-circle"></i>
+                    <?= htmlspecialchars($riset['peneliti']); ?>
+                  </div>
+                  <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 150)); ?>...</p>
+                  <a href="<?= BASEURL; ?>/home/detail_riset/<?= $riset['id_riset']; ?>" class="research-btn">
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <div class="swiper-slide">
+            <p style="text-align: center; width: 100%; color: #333;">Belum ada riset.</p>
           </div>
-          <h3><?= htmlspecialchars($riset['judul_riset']); ?></h3>
-          <p><strong>Peneliti:</strong> <?= htmlspecialchars($riset['peneliti']); ?></p>
-          <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 100)); ?>...</p>
-          <a href="<?= BASEURL; ?>/home/detail_riset/<?= $riset['id_riset']; ?>" class="btn-detail" style="display:inline-block; margin-top:10px; padding:5px 15px; background:#007bff; color:white; border-radius:5px; text-decoration:none;">Lihat Detail</a>
-        </div>
-      <?php endforeach; ?>
-    <?php else : ?>
-      <p style="text-align: center; width: 100%;">Belum ada riset.</p>
-    <?php endif; ?>
+        <?php endif; ?>
+      </div>
+    </div>
+    <div class="swiper-button-prev-research"><i class="fas fa-chevron-left"></i></div>
+    <div class="swiper-button-next-research"><i class="fas fa-chevron-right"></i></div>
   </div>
 </section>
-
 <section class="gallery-section" id="gallery">
   <h2 class="section-title">Watch Our Gallery</h2>
-  <div class="gallery-carousel">
-    <button class="gallery-btn prev-gallery-btn"><i class="fas fa-chevron-left"></i></button>
-    <div class="gallery-container">
-      <?php if (isset($data['galeri']) && !empty($data['galeri'])): ?>
-        <?php foreach ($data['galeri'] as $g): ?>
-          <div class="gallery-slide">
-            <img src="<?= BASEURL; ?>/img/galeri/<?= htmlspecialchars($g['foto']); ?>" alt="<?= htmlspecialchars($g['judul']); ?>" />
-            <p class="gallery-caption"><?= htmlspecialchars($g['judul']); ?></p>
+  <div class="gallery-card-container">
+    <div class="swiper myGallerySwiper">
+      <div class="swiper-wrapper">
+        <?php if (isset($data['galeri']) && !empty($data['galeri'])): ?>
+          <?php foreach ($data['galeri'] as $g): ?>
+            <div class="swiper-slide">
+              <div class="gallery-image-wrapper">
+                <img src="<?= BASEURL; ?>/img/galeri/<?= htmlspecialchars($g['foto']); ?>" alt="<?= htmlspecialchars($g['judul']); ?>" />
+                <div class="gallery-overlay">
+                  <h3><?= htmlspecialchars($g['judul']); ?></h3>
+                  <p><?= date('d F Y'); ?></p>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <div class="swiper-slide">
+            <div class="gallery-image-wrapper" style="background: #eee; display:flex; align-items:center; justify-content:center;">
+              <p style="color:#666;">Tidak ada foto galeri.</p>
+            </div>
           </div>
-        <?php endforeach; ?>
-      <?php else: ?>
-        <div class="gallery-slide">
-          <p>Tidak ada foto.</p>
-        </div>
-      <?php endif; ?>
+        <?php endif; ?>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    <button class="gallery-btn next-gallery-btn"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="gallery-dots">
-    <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+    <a href="<?= BASEURL; ?>/home/detail_galeri/" class="btn-detail-gallery">
+      Detail Gallery <i class="fas fa-arrow-right"></i>
+    </a>
   </div>
 </section>
-
 <section class="products-section" id="products">
   <h2 class="section-title">Our Products</h2>
   <p class="section-subtitle">Check out the innovative products from our lab.</p>
@@ -127,8 +172,8 @@
           <img src="<?= BASEURL; ?>/img/produk/<?= htmlspecialchars($p['gambar']); ?>" alt="<?= htmlspecialchars($p['judul']); ?>">
           <div class="product-content">
             <h3><?= htmlspecialchars($p['judul']); ?></h3>
-            <p><?= htmlspecialchars(substr(strip_tags($p['deskripsi']), 0, 80)); ?>...</p>
-            <a href="<?= htmlspecialchars($p['link']); ?>" target="_blank" class="btn-lihat">Lihat Produk</a>
+            <p><?= htmlspecialchars($p['deskripsi']); ?></p>
+            <a href="<?= htmlspecialchars($p['link']); ?>" target="_blank" class="btn-lihat">Try Now</a>
           </div>
         </div>
       <?php endforeach; ?>
@@ -137,11 +182,9 @@
     <?php endif; ?>
   </div>
 </section>
-
 <section class="media-partner" id="partners">
   <h2 class="section-title">Media Partner</h2>
   <p class="section-subtitle">We are proud to collaborate with</p>
-
   <div class="partner-container">
     <div class="partner-logos">
       <?php if (isset($data['partner']) && !empty($data['partner'])) : ?>
@@ -156,7 +199,6 @@
     </div>
   </div>
 </section>
-
 <section class="contacts-section" id="contacts">
   <h2 class="section-title">Contacts</h2>
   <div class="contacts-container">

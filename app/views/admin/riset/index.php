@@ -80,14 +80,12 @@
         border-color: #17a2b8;
     }
 </style>
-
 <div class="container-fluid">
     <div class="table-container">
         <div class="table-title">
             <h2>Manajemen Riset</h2>
             <a href="<?= BASEURL; ?>/riset/tambah" class="btn-add">Tambah Riset</a>
         </div>
-
         <table class="table">
             <thead>
                 <tr>
@@ -112,7 +110,7 @@
                         </a>
                     </td>
                     <td class="action-links">
-                        <a href="<?= BASEURL; ?>/riset/ubah/<?= $riset['id_riset']; ?>" class="edit">Edit</a>
+                        <a href="<?= BASEURL; ?>/riset/edit/<?= $riset['id_riset']; ?>" class="edit">Edit</a>
                         <a href="<?= BASEURL; ?>/riset/hapus/<?= $riset['id_riset']; ?>" class="delete" onclick="return confirm('Yakin ingin menghapus data ini?');">Hapus</a>
                     </td>
                 </tr>

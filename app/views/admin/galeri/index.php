@@ -16,14 +16,12 @@
     .action-links a.delete:hover { background-color: #fbebed; border-color: #dc3545; }
     .thumbnail { width: 100px; border-radius: 5px; object-fit: cover; height: 70px; }
 </style>
-
 <div class="container-fluid">
     <div class="table-container">
         <div class="table-title">
             <h2>Manajemen Galeri</h2>
             <a href="<?= BASEURL; ?>/galeri/tambah" class="btn-add">Tambah Galeri</a>
         </div>
-
         <table class="table">
             <thead>
                 <tr>

@@ -1,10 +1,8 @@
 <div class="container">
     <h1>Kelola Berita</h1>
-
     <div class="clearfix">
         <a href="<?= BASEURL; ?>/berita/tambah" class="btn btn-add">Tambah Berita</a>
     </div>
-
     <div class="table-wrapper">
         <table class="table">
             <thead>

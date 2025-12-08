@@ -1,5 +1,4 @@
 <?php
-
 class Flasher {
     public static function setFlash($pesan, $aksi, $tipe)
     {
@@ -9,7 +8,6 @@ class Flasher {
             'tipe'  => $tipe
         ];
     }
-
     public static function flash()
     {
         if (isset($_SESSION['flash'])) {

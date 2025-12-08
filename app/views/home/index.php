@@ -213,7 +213,7 @@
       </form>
     </div>
     <div class="contact-info">
-      <div class="info-item"><i class="fas fa-phone"></i><span>0 (800) 123 45 67</span></div>
+      <div class="info-item"><i class="fas fa-phone"></i><span>(0341) 404424</span></div>
       <div class="info-item"><i class="fas fa-envelope"></i><span>ando@polinema.ac.id</span></div>
       <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Politeknik Negeri Malang</span></div>
       <div class="map-container">

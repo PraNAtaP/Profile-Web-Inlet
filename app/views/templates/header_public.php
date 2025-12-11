@@ -18,7 +18,10 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
-      <img src="<?= BASEURL; ?>/img/LOGO.png" alt="Logo" class="logo-image" />
+      <a href="<?= BASEURL; ?>">
+        <img src="<?= BASEURL; ?>/img/LOGO.png" alt="Logo" class="logo-image" />
+      </a>
+
     </div>
     <ul class="nav-menu">
       <li><a href="<?= BASEURL; ?>">Home</a></li>

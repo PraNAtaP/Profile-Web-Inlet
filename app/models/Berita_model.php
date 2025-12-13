@@ -20,13 +20,13 @@ class Berita_model
     }
     public function tambahBerita($data)
     {
-        $query = "INSERT INTO berita (id_admin, judul, isi, tanggal_publikasi, video_embed) 
-                  VALUES (:id_admin, :judul, :isi, CURRENT_TIMESTAMP, :video_embed)";
+        $query = "INSERT INTO berita (id_admin, judul, isi, tanggal_publikasi, gambar) 
+                  VALUES (:id_admin, :judul, :isi, CURRENT_TIMESTAMP, :gambar)";
         $this->db->query($query);
-        $this->db->bind('id_admin', $data['id_admin']); 
+        $this->db->bind('id_admin', $data['id_admin']);
         $this->db->bind('judul', $data['judul']);
         $this->db->bind('isi', $data['isi']);
-        $this->db->bind('video_embed', $data['video_embed']); 
+        $this->db->bind('gambar', $data['gambar']);
         $this->db->execute();
         return $this->db->rowCount();
     }
@@ -35,12 +35,12 @@ class Berita_model
         $query = "UPDATE berita SET
                     judul = :judul,
                     isi = :isi,
-                    video_embed = :video_embed
+                    gambar = :gambar
                   WHERE id_berita = :id_berita";
         $this->db->query($query);
         $this->db->bind('judul', $data['judul']);
         $this->db->bind('isi', $data['isi']);
-        $this->db->bind('video_embed', $data['video_embed']);
+        $this->db->bind('gambar', $data['gambar']);
         $this->db->bind('id_berita', $data['id_berita']);
         $this->db->execute();
         return $this->db->rowCount();

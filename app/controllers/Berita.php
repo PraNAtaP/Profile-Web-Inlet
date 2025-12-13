@@ -8,6 +8,7 @@ class Berita extends Controller
             exit;
         }
     }
+
     public function index()
     {
         $data['judul'] = 'Manajemen Berita';
@@ -16,6 +17,7 @@ class Berita extends Controller
         $this->view('admin/berita/index', $data);
         $this->view('templates/footer_admin');
     }
+
     public function tambah()
     {
         $data['judul'] = 'Tambah Berita';
@@ -23,13 +25,16 @@ class Berita extends Controller
         $this->view('admin/berita/form', $data);
         $this->view('templates/footer_admin');
     }
+
     public function simpan()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header('Location: ' . BASEURL . '/berita');
             exit;
         }
+
         $namaFileGambar = null;
+
         if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === UPLOAD_ERR_OK) {
             $tmpName = $_FILES['gambar']['tmp_name'];
             $namaFile = $_FILES['gambar']['name'];
@@ -37,9 +42,11 @@ class Berita extends Controller
             $namaFileBaru = uniqid('brt_') . '.' . $ekstensi;
             $targetDir = __DIR__ . '/../../public/img/berita/';
             $targetFile = $targetDir . $namaFileBaru;
+
             if (!file_exists($targetDir)) {
                 mkdir($targetDir, 0777, true);
             }
+
             if (move_uploaded_file($tmpName, $targetFile)) {
                 $namaFileGambar = $namaFileBaru;
             } else {
@@ -47,14 +54,19 @@ class Berita extends Controller
                 exit;
             }
         }
-        $_POST['video_embed'] = $namaFileGambar;
+
+        $_POST['gambar'] = $namaFileGambar;
+
         $_POST['id_admin'] = $_SESSION['admin_id'];
+
         if ($this->model('Berita_model')->tambahBerita($_POST) > 0) {
             $this->model('Log_model')->catat('TAMBAH', "Menambah Berita: " . $_POST['judul']);
         }
+
         header('Location: ' . BASEURL . '/berita');
         exit;
     }
+
     public function edit($id)
     {
         $data['judul'] = 'Edit Berita';
@@ -63,13 +75,16 @@ class Berita extends Controller
         $this->view('admin/berita/form', $data);
         $this->view('templates/footer_admin');
     }
+
     public function update()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header('Location: ' . BASEURL . '/berita');
             exit;
         }
+
         $namaFileGambar = $_POST['gambar_lama'];
+
         if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] === UPLOAD_ERR_OK) {
             $tmpName = $_FILES['gambar']['tmp_name'];
             $namaFile = $_FILES['gambar']['name'];
@@ -77,11 +92,14 @@ class Berita extends Controller
             $namaFileBaru = uniqid('brt_') . '.' . $ekstensi;
             $targetDir = __DIR__ . '/../../public/img/berita/';
             $targetFile = $targetDir . $namaFileBaru;
+
             if (!file_exists($targetDir)) {
                 mkdir($targetDir, 0777, true);
             }
+
             if (move_uploaded_file($tmpName, $targetFile)) {
                 $namaFileGambar = $namaFileBaru;
+
                 $old_image_path = $targetDir . $_POST['gambar_lama'];
                 if (!empty($_POST['gambar_lama']) && file_exists($old_image_path)) {
                     unlink($old_image_path);
@@ -91,19 +109,33 @@ class Berita extends Controller
                 exit;
             }
         }
-        $_POST['video_embed'] = $namaFileGambar;
+
+        $_POST['gambar'] = $namaFileGambar;
+
         if ($this->model('Berita_model')->updateBerita($_POST) > 0) {
             $this->model('Log_model')->catat('UPDATE', "Mengupdate Berita: " . $_POST['judul']);
         }
+
         header('Location: ' . BASEURL . '/berita');
         exit;
     }
+
     public function hapus($id)
     {
+        $berita = $this->model('Berita_model')->getBeritaById($id);
+
         if ($this->model('Berita_model')->hapusBerita($id) > 0) {
+            if ($berita && !empty($berita['gambar'])) {
+                $targetDir = __DIR__ . '/../../public/img/berita/';
+                $fileGambar = $targetDir . $berita['gambar'];
+                if (file_exists($fileGambar)) {
+                    unlink($fileGambar);
+                }
+            }
+
             $this->model('Log_model')->catat('HAPUS', "Menghapus Berita ID: " . $id);
-        } else {
         }
+
         header('Location: ' . BASEURL . '/berita');
         exit;
     }

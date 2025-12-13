@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/auth.css">
 </head>
+
 <body>
     <div class="container">
-        <img src="<?= BASEURL; ?>/img/LOGO.png" alt="Logo">
+        <img src="<?= BASEURL; ?>/public/img/LOGO.png" alt="Logo">
         <form action="<?= BASEURL; ?>/admin/auth" method="POST">
             <?php if (isset($_SESSION['login_error'])) : ?>
                 <div class="error-message">
@@ -29,4 +31,5 @@
         </form>
     </div>
 </body>
+
 </html>

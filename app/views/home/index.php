@@ -36,7 +36,7 @@
           <?php foreach ($data['berita'] as $brt) : ?>
             <div class="swiper-slide">
               <div class="news-card">
-                <img src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($brt['video_embed']); ?>" alt="<?= htmlspecialchars($brt['judul']); ?>" />
+                <img src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($brt['gambar']); ?>" alt="<?= htmlspecialchars($brt['judul']); ?>" />
                 <div class="news-content">
                   <h3>
                     <a href="<?= BASEURL; ?>/home/detail/<?= $brt['id_berita']; ?>" class="news-title-link">
@@ -208,6 +208,7 @@
       <form action="<?= BASEURL; ?>/home/kirim_kontak" method="post">
         <input type="text" name="nama" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
+        <input type="institution" name="institution" placeholder="Institution/Organization" required />
         <textarea name="pesan" placeholder="Pesan..." rows="5" required></textarea>
         <button type="submit">Submit</button>
       </form>

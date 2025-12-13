@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="<?= BASEURL; ?>/img/LOGO-icon.png" />
-  <link rel="shortcut icon" href="<?= BASEURL; ?>/img/LOGO-icon.png" />
+  <link rel="icon" type="image/png" href="<?= BASEURL; ?>/public/img/LOGO-icon.png" />
+  <link rel="shortcut icon" href="<?= BASEURL; ?>/public/img/LOGO-icon.png" />
   <title><?= $data['judul']; ?></title>
   <link
     rel="stylesheet"
@@ -18,7 +18,10 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
-      <img src="<?= BASEURL; ?>/img/LOGO.png" alt="Logo" class="logo-image" />
+      <a href="<?= BASEURL; ?>">
+        <img src="<?= BASEURL; ?>/img/LOGO.png" alt="Logo" class="logo-image" />
+      </a>
+
     </div>
     <ul class="nav-menu">
       <li><a href="<?= BASEURL; ?>">Home</a></li>

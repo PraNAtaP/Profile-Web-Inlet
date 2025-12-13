@@ -6,7 +6,7 @@
             <div class="detail-meta">
                 <span>Diterbitkan pada: <?= date('d F Y', strtotime($data['berita']['tanggal_publikasi'])); ?></span>
             </div>
-            <img class="detail-image" src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($data['berita']['video_embed']); ?>" alt="<?= htmlspecialchars($data['berita']['judul']); ?>">
+            <img class="detail-image" src="<?= BASEURL; ?>/img/berita/<?= htmlspecialchars($data['berita']['gambar']); ?>" alt="<?= htmlspecialchars($data['berita']['judul']); ?>">
             <div class="detail-content">
                 <p><?= nl2br(htmlspecialchars($data['berita']['isi'])); ?></p>
             </div>

@@ -28,12 +28,13 @@ class Contact_model
         if (!$id_visitor) {
             return 0;
         }
-        $query = "INSERT INTO " . $this->table_form . " (id_visitor, nama, email, pesan, waktu_kirim) 
-                  VALUES (:id_visitor, :nama, :email, :pesan, CURRENT_TIMESTAMP)";
+        $query = "INSERT INTO " . $this->table_form . " (id_visitor, nama, email, institution, pesan, waktu_kirim) 
+              VALUES (:id_visitor, :nama, :email, :institution, :pesan, CURRENT_TIMESTAMP)";
         $this->db->query($query);
         $this->db->bind('id_visitor', $id_visitor);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('email', $data['email']);
+        $this->db->bind('institution', $data['institution']);
         $this->db->bind('pesan', $data['pesan']);
         $this->db->execute();
         return $this->db->rowCount();
@@ -49,5 +50,11 @@ class Contact_model
         $this->db->bind('id', $id);
         $this->db->execute();
         return $this->db->rowCount();
+    }
+    public function getPesanById($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table_form . ' WHERE id_form = :id');
+        $this->db->bind('id', $id);
+        return $this->db->single();
     }
 }

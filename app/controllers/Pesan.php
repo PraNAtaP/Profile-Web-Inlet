@@ -16,6 +16,16 @@ class Pesan extends Controller
         $this->view('admin/pesan/index', $data);
         $this->view('templates/footer_admin', $data);
     }
+
+    public function detail($id)
+    {
+        $data['judul'] = 'Detail Pesan';
+        $data['pesan'] = $this->model('Contact_model')->getPesanById($id);
+        $this->view('templates/header_admin', $data);
+        $this->view('admin/pesan/detail', $data);
+        $this->view('templates/footer_admin');
+    }
+
     public function hapus($id)
     {
         if ($this->model('Contact_model')->hapusPesan($id) > 0) {

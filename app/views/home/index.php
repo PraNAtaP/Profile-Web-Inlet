@@ -42,7 +42,8 @@
 <section class="our-news" id="news">
   <h2 class="section-title">Our News</h2>
   <p class="section-subtitle">Read the recent blog posts about our work</p>
-  <div style="position: relative;">
+
+  <div class="news-slider-wrapper">
     <div class="swiper newsSwiper">
       <div class="swiper-wrapper">
         <?php if (isset($data['berita']) && !empty($data['berita'])) : ?>
@@ -71,6 +72,7 @@
         <?php endif; ?>
       </div>
     </div>
+
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </div>
@@ -112,7 +114,8 @@
 <section class="research-activities" id="research">
   <h2 class="section-title" style="color: #ffffffff;">Recorded Research Activities</h2>
   <p class="section-subtitle">Click on the card to watch our Recorded Research Activities</p>
-  <div style="position: relative;">
+
+  <div class="container-slider">
     <div class="swiper researchSwiper">
       <div class="swiper-wrapper">
         <?php if (isset($data['riset']) && !empty($data['riset'])) : ?>
@@ -128,7 +131,7 @@
                     <i class="fas fa-user-circle"></i>
                     <?= htmlspecialchars($riset['peneliti']); ?>
                   </div>
-                  <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 150)); ?>...</p>
+                  <p><?= htmlspecialchars(substr(strip_tags($riset['deskripsi']), 0, 100)); ?>...</p>
                   <a href="<?= BASEURL; ?>/home/detail_riset/<?= $riset['id_riset']; ?>" class="research-btn">
                     <i class="fas fa-arrow-right"></i>
                   </a>
@@ -138,7 +141,7 @@
           <?php endforeach; ?>
         <?php else : ?>
           <div class="swiper-slide">
-            <p style="text-align: center; width: 100%; color: #333;">Belum ada riset.</p>
+            <p style="text-align: center; width: 100%; color: #fff;">Belum ada riset.</p>
           </div>
         <?php endif; ?>
       </div>
@@ -184,21 +187,35 @@
 <section class="products-section" id="products">
   <h2 class="section-title">Our Products</h2>
   <p class="section-subtitle">Check out the innovative products from our lab.</p>
-  <div class="products-grid">
-    <?php if (isset($data['produk']) && !empty($data['produk'])) : ?>
-      <?php foreach ($data['produk'] as $p) : ?>
-        <div class="product-card">
-          <img src="<?= BASEURL; ?>/img/produk/<?= htmlspecialchars($p['gambar']); ?>" alt="<?= htmlspecialchars($p['judul']); ?>">
-          <div class="product-content">
-            <h3><?= htmlspecialchars($p['judul']); ?></h3>
-            <p><?= htmlspecialchars($p['deskripsi']); ?></p>
-            <a href="<?= htmlspecialchars($p['link']); ?>" target="_blank" class="btn-lihat">Try Now</a>
+  <div class="product-container-wrapper">
+    <div class="swiper productSwiper">
+      <div class="swiper-wrapper">
+        <?php if (isset($data['produk']) && !empty($data['produk'])) : ?>
+          <?php foreach ($data['produk'] as $p) : ?>
+            <div class="swiper-slide">
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="<?= BASEURL; ?>/img/produk/<?= htmlspecialchars($p['gambar']); ?>" alt="<?= htmlspecialchars($p['judul']); ?>">
+                </div>
+                <div class="product-content">
+                  <h3><?= htmlspecialchars($p['judul']); ?></h3>
+                  <div class="desc-wrapper">
+                    <p>"<?= htmlspecialchars(strip_tags($p['deskripsi'])); ?>"</p>
+                  </div>
+                  <a href="<?= htmlspecialchars($p['link']); ?>" target="_blank" class="btn-try-now">Try Now</a>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        <?php else : ?>
+          <div class="swiper-slide" style="height: auto;">
+            <p style="text-align: center; color: white; width: 100%;">Belum ada produk.</p>
           </div>
-        </div>
-      <?php endforeach; ?>
-    <?php else : ?>
-      <p style="text-align: center; width: 100%;">Belum ada produk.</p>
-    <?php endif; ?>
+        <?php endif; ?>
+      </div>
+    </div>
+    <div class="swiper-button-prev-product"><i class="fas fa-chevron-left"></i></div>
+    <div class="swiper-button-next-product"><i class="fas fa-chevron-right"></i></div>
   </div>
 </section>
 

@@ -15,7 +15,6 @@
 </head>
 
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
       <a href="<?= BASEURL; ?>">
@@ -24,7 +23,7 @@
 
     </div>
     <ul class="nav-menu">
-      <li><a href="<?= BASEURL; ?>">Home</a></li>
+      <li><a href="<?= BASEURL; ?>#home">Home</a></li>
       <li><a href="<?= BASEURL; ?>#news">Our News</a></li>
       <li><a href="<?= BASEURL; ?>#team">Our Team</a></li>
       <li><a href="<?= BASEURL; ?>#research">Research</a></li>

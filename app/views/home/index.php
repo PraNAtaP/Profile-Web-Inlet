@@ -16,9 +16,9 @@
       <div class="card-icon"><i class="fas fa-users"></i></div>
       <h3>Our Team</h3>
     </a>
-    <a href="#research" class="card">
-      <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-      <h3>Research</h3>
+    <a href="#products" class="card">
+      <div class="card-icon"><i class="fas fa-trophy"></i></div>
+      <h3>Our Products</h3>
     </a>
     <a href="#contacts" class="card">
       <div class="card-icon"><i class="fas fa-envelope"></i></div>
@@ -84,15 +84,17 @@
         <?php if (isset($data['anggota']) && !empty($data['anggota'])) : ?>
           <?php foreach ($data['anggota'] as $a) : ?>
             <div class="swiper-slide">
-              <div class="team-card">
-                <div class="card-header-blue"></div>
-                <div class="team-image">
-                  <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
+              <a href="<?= BASEURL; ?>/home/detail_anggota/<?= $a['id_anggota']; ?>" class="team-card-link">
+                <div class="team-card">
+                  <div class="card-header-blue"></div>
+                  <div class="team-image">
+                    <img src="<?= BASEURL; ?>/img/anggota/<?= !empty($a['foto']) ? htmlspecialchars($a['foto']) : 'default.png'; ?>" alt="<?= htmlspecialchars($a['nama']); ?>" />
+                  </div>
+                  <h3><?= htmlspecialchars($a['nama']); ?></h3>
+                  <p><?= htmlspecialchars($a['jabatan']); ?></p>
+                  <p><?= htmlspecialchars($a['email']); ?></p>
                 </div>
-                <h3><?= htmlspecialchars($a['nama']); ?></h3>
-                <p><?= htmlspecialchars($a['jabatan']); ?></p>
-                <p><?= htmlspecialchars($a['email']); ?></p>
-              </div>
+              </a>
             </div>
           <?php endforeach; ?>
         <?php else : ?>

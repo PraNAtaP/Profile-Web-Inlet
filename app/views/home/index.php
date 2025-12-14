@@ -5,6 +5,7 @@
     <p class="hero-description">Handy connects you with amazing Learning Engineering professionals.</p>
   </div>
 </section>
+
 <div class="cards-container">
   <div class="glass-container">
     <a href="#news" class="card">
@@ -25,6 +26,18 @@
     </a>
   </div>
 </div>
+
+<section class="about-section" id="about">
+  <div class="about-container">
+    <div class="about-content">
+      <h2>About Us</h2>
+      <p>Based at State Polytechnic of Malang (Polinema), our laboratory is at the forefront of digital education innovation. We are committed to delivering advanced learning solutions by harnessing the power of technology. Our research portfolio is diverse, covering educational app development, advanced learning analytics, AI-driven education, adaptive systems, and gamification. Our primary goal is to build smarter, more interactive learning environments that prioritize user experience. We invite you to explore this website to discover our lab's profile, browse our publications, and stay updated with our latest research activities.</p>
+    </div>
+    <div class="about-image">
+      <img src="<?= BASEURL; ?>/img/robot.png" alt="About Robot">
+    </div>
+  </div>
+</section>
 
 <section class="our-news" id="news">
   <h2 class="section-title">Our News</h2>
@@ -62,6 +75,7 @@
     <div class="swiper-button-prev"></div>
   </div>
 </section>
+
 <section class="our-team" id="team">
   <h2 class="section-title">Our Team</h2>
   <div class="team-box-container">
@@ -92,6 +106,7 @@
     </div>
   </div>
 </section>
+
 <section class="research-activities" id="research">
   <h2 class="section-title" style="color: #ffffffff;">Recorded Research Activities</h2>
   <p class="section-subtitle">Click on the card to watch our Recorded Research Activities</p>
@@ -130,6 +145,7 @@
     <div class="swiper-button-next-research"><i class="fas fa-chevron-right"></i></div>
   </div>
 </section>
+
 <section class="gallery-section" id="gallery">
   <h2 class="section-title">Watch Our Gallery</h2>
   <div class="gallery-card-container">
@@ -162,6 +178,7 @@
     </a>
   </div>
 </section>
+
 <section class="products-section" id="products">
   <h2 class="section-title">Our Products</h2>
   <p class="section-subtitle">Check out the innovative products from our lab.</p>
@@ -182,6 +199,7 @@
     <?php endif; ?>
   </div>
 </section>
+
 <section class="media-partner" id="partners">
   <h2 class="section-title">Media Partner</h2>
   <p class="section-subtitle">We are proud to collaborate with</p>
@@ -199,6 +217,7 @@
     </div>
   </div>
 </section>
+
 <section class="contacts-section" id="contacts">
   <h2 class="section-title">Contacts</h2>
   <div class="contacts-container">

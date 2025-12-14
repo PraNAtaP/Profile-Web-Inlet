@@ -38,6 +38,14 @@ class Home extends Controller
         $this->view('home/detail_galeri', $data);
         $this->view('templates/footer_public', $data);
     }
+    public function detail_anggota($id)
+    {
+        $data['judul'] = 'Detail Anggota';
+        $data['anggota'] = $this->model('Anggota_model')->getAnggotaById($id);
+        $this->view('templates/header_public', $data);
+        $this->view('home/detail_anggota', $data);
+        $this->view('templates/footer_public', $data);
+    }
     public function galeri()
     {
         $data['judul'] = 'Galeri Kegiatan';

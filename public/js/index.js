@@ -19,31 +19,33 @@ document.querySelectorAll(".card").forEach((card) => {
   });
 });
 
-var gallerySwiper = new Swiper(".myGallerySwiper", {
-  slidesPerView: 1,
-  spaceBetween: 30,
-  loop: true,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
-const cardSwiper = new Swiper(".myCardSwiper", {
+var swiper = new Swiper(".myCardSwiper", {
   slidesPerView: 1,
   spaceBetween: 20,
+  loop: true,
+  grabCursor: true,
+  centeredSlides: false,
   navigation: {
     nextEl: ".swiper-button-next-card",
     prevEl: ".swiper-button-prev-card",
   },
   breakpoints: {
-    640: { slidesPerView: 2 }, // Tablet Kecil
-    768: { slidesPerView: 3 }, // Tablet
-    1024: { slidesPerView: 4 }, // Desktop (Muncul 4, sisanya slide)
+    576: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 25,
+    },
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
+    1280: {
+      slidesPerView: 5,
+      spaceBetween: 30,
+    },
   },
 });
 
@@ -75,28 +77,79 @@ var newsSwiper = new Swiper(".newsSwiper", {
   },
 });
 
-// Config Research Swiper (2x2 GIANT & TIGHT)
-var researchSwiper = new Swiper(".researchSwiper", {
-  slidesPerView: 1, 
+var swiperResearch = new Swiper(".researchSwiper", {
+  slidesPerView: 1,
   grid: {
     rows: 2,
     fill: "row",
   },
-  spaceBetween: 20, 
+  spaceBetween: 30,
   navigation: {
     nextEl: ".swiper-button-next-research",
     prevEl: ".swiper-button-prev-research",
   },
   breakpoints: {
     768: {
-      slidesPerView: 2, // Tablet: 2 Kolom
-      grid: { rows: 2 },
+      slidesPerView: 2,
+      grid: {
+        rows: 2,
+        fill: "row",
+      },
       spaceBetween: 20,
     },
     1024: {
-      slidesPerView: 2, // Desktop: 2 Kolom (Biar LEBAR BANGET)
-      grid: { rows: 2 },
-      spaceBetween: 20, // Jarak pas
+      slidesPerView: 3,
+      grid: {
+        rows: 2,
+        fill: "row",
+      },
+      spaceBetween: 30,
+    },
+  },
+});
+
+var gallerySwiper = new Swiper(".myGallerySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+
+var productSwiper = new Swiper(".productSwiper", {
+  slidesPerView: 1,
+  grid: {
+    rows: 2,
+    fill: "row",
+  },
+  spaceBetween: 30,
+  watchOverflow: true,
+  navigation: {
+    nextEl: ".swiper-button-next-product",
+    prevEl: ".swiper-button-prev-product",
+  },
+  breakpoints: {
+    768: {
+      slidesPerView: 1,
+      grid: {
+        rows: 2,
+        fill: "row",
+      },
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 2,
+      grid: {
+        rows: 2,
+        fill: "row",
+      },
+      spaceBetween: 30,
     },
   },
 });

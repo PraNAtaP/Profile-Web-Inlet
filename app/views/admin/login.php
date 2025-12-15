@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <img src="<?= BASEURL; ?>/public/img/LOGO.png" alt="Logo">
+        <img src="<?= BASEURL; ?>/img/LOGO.png" alt="Logo">
         <form action="<?= BASEURL; ?>/admin/auth" method="POST">
             <?php if (isset($_SESSION['login_error'])) : ?>
                 <div class="error-message">

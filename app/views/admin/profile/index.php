@@ -134,7 +134,6 @@
     <div class="container-fluid" style="max-width: 600px; padding: 0;">
         <div class="row">
             <div class="col-12 mb-3">
-                <?php Flasher::flash(); ?>
             </div>
         </div>
 

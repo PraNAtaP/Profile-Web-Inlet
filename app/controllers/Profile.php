@@ -21,12 +21,9 @@ class Profile extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST['id_admin'] = $_SESSION['admin_id'];
             if ($this->model('Admin_model')->updateAdmin($_POST) > 0) {
-                if(isset($_POST['nama'])) {
+                if (isset($_POST['nama'])) {
                     $_SESSION['admin_name'] = $_POST['nama'];
                 }
-                Flasher::setFlash('Profil berhasil', 'diperbarui', 'success');
-            } else {
-                Flasher::setFlash('Tidak ada perubahan', 'disimpan', 'info');
             }
         }
         header('Location: ' . BASEURL . '/profile');

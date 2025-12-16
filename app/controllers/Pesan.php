@@ -28,7 +28,9 @@ class Pesan extends Controller
 
     public function hapus($id)
     {
+        $pesan = $this->model('Contact_model')->getPesanById($id);
         if ($this->model('Contact_model')->hapusPesan($id) > 0) {
+            $this->model('Log_model')->catat('HAPUS', "Menghapus Pesan dari " . $pesan['nama']);
             header('Location: ' . BASEURL . '/pesan');
             exit;
         } else {

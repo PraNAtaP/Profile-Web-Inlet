@@ -394,7 +394,7 @@
                         </div>
                         <div class="action-group">
                             <button class="btn-detail" onclick='openDetailModal(<?= json_encode($pesan, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>)'>Lihat Detail</button>
-                            <a href="<?= BASEURL; ?>/pesan/hapus/<?= $pesan['id_form']; ?>" class="btn-trash" onclick="return confirm('Hapus pesan ini selamanya?');">
+                            <a href="<?= BASEURL; ?>/pesan/hapus/<?= $pesan['id_form']; ?>" class="btn-trash" onclick="return confirm('Apakah anda yakin ingin menghapus pesan ini selamanya?');">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>

@@ -5,10 +5,6 @@
         min-height: 100vh;
     }
 
-    .flash-wrapper {
-        margin-bottom: 20px;
-    }
-
     .top-action-bar {
         margin-bottom: 25px;
         display: flex;
@@ -302,10 +298,6 @@
 </style>
 
 <div class="content-area">
-    <div class="flash-wrapper">
-        <?php Flasher::flash(); ?>
-    </div>
-
     <div class="top-action-bar">
         <button class="btn-add" onclick="openModal('add')">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">

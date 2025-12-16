@@ -334,7 +334,7 @@
 
                     <div class="gallery-footer">
                         <button class="btn-action btn-edit-card" onclick='openModal("edit", <?= json_encode($item, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>)'>Edit</button>
-                        <a href="<?= BASEURL; ?>/galeri/hapus/<?= $item['id_galeri']; ?>" class="btn-action btn-delete-card" onclick="return confirm('Yakin ingin menghapus foto ini?');">Hapus</a>
+                        <a href="<?= BASEURL; ?>/galeri/hapus/<?= $item['id_galeri']; ?>" class="btn-action btn-delete-card" onclick="return confirm('Apakah anda yakin ingin menghapus foto ini?');">Hapus</a>
                     </div>
                 </div>
             <?php endforeach; ?>

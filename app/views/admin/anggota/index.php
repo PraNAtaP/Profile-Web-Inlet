@@ -346,7 +346,7 @@
                                         onclick='openModal("edit", <?= json_encode($agt, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>)'>
                                         Edit
                                     </button>
-                                    <a href="<?= BASEURL; ?>/anggota/hapus/<?= $agt['id_anggota']; ?>" class="btn-delete" onclick="return confirm('Yakin hapus data ini King?');">Hapus</a>
+                                    <a href="<?= BASEURL; ?>/anggota/hapus/<?= $agt['id_anggota']; ?>" class="btn-delete" onclick="return confirm('Apakah yakin ingin menghapus data ini?');">Hapus</a>
                                 </div>
                             </td>
                         </tr>
@@ -355,7 +355,7 @@
                     <tr>
                         <td colspan="7" style="text-align: center; padding: 40px; color: #7f8c8d;">
                             <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-state-2130362-1800926.png" alt="Empty" style="width: 150px; opacity: 0.6; margin-bottom: 10px;"><br>
-                            Belum ada data anggota tim nih, King.
+                            Belum ada data anggota tim.
                         </td>
                     </tr>
                 <?php endif; ?>

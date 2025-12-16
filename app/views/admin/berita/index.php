@@ -350,7 +350,7 @@
                 <?php else: ?>
                     <tr>
                         <td colspan="4" style="text-align: center; padding: 40px; color: #7f8c8d;">
-                            Belum ada berita yang diupload, King.
+                            Belum ada berita yang diupload.
                         </td>
                     </tr>
                 <?php endif; ?>

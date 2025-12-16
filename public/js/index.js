@@ -153,3 +153,20 @@ var productSwiper = new Swiper(".productSwiper", {
     },
   },
 });
+
+const menuToggle = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('.nav-menu');
+
+if(menuToggle) {
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('is-active');
+        navMenu.classList.toggle('active');
+    });
+}
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuToggle.classList.remove('is-active');
+        navMenu.classList.remove('active');
+    });
+});

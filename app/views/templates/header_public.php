@@ -20,7 +20,12 @@
       <a href="<?= BASEURL; ?>">
         <img src="<?= BASEURL; ?>/img/LOGO.png" alt="Logo" class="logo-image" />
       </a>
+    </div>
 
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
     <ul class="nav-menu">
       <li><a href="<?= BASEURL; ?>#home">Home</a></li>

@@ -346,7 +346,7 @@
                                     Edit
                                 </button>
                                 <?php if ($admin['id_admin'] != $_SESSION['admin_id']) : ?>
-                                    <a href="<?= BASEURL; ?>/pengguna/hapus/<?= $admin['id_admin']; ?>" class="btn-action btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus admin ini?');">
+                                    <a href="<?= BASEURL; ?>/pengguna/hapus/<?= $admin['id_admin']; ?>" class="btn-action delete-btn">
                                         Hapus
                                     </a>
                                 <?php endif; ?>

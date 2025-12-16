@@ -51,6 +51,9 @@ class Anggota extends Controller
         $_POST['id_admin'] = $_SESSION['admin_id'];
         if ($this->model('Anggota_model')->tambahAnggota($_POST) > 0) {
             $this->model('Log_model')->catat('TAMBAH', "Menambah Anggota: " . $_POST['nama']);
+            $_SESSION['success'] = 'Data berhasil ditambahkan';
+        } else {
+            $_SESSION['error'] = 'Gagal menambahkan data';
         }
         header('Location: ' . BASEURL . '/anggota');
         exit;
@@ -94,15 +97,27 @@ class Anggota extends Controller
         $_POST['foto'] = $namaFileFoto;
         if ($this->model('Anggota_model')->updateAnggota($_POST) > 0) {
             $this->model('Log_model')->catat('UPDATE', "Mengupdate Anggota: " . $_POST['nama']);
+            $_SESSION['success'] = 'Data berhasil diupdate';
+        } else {
+            $_SESSION['error'] = 'Gagal mengupdate data';
         }
         header('Location: ' . BASEURL . '/anggota');
         exit;
     }
     public function hapus($id)
     {
+        $anggota = $this->model('Anggota_model')->getAnggotaById($id);
         if ($this->model('Anggota_model')->hapusAnggota($id) > 0) {
             $this->model('Log_model')->catat('HAPUS', "Menghapus Anggota ID: " . $id);
+            if ($anggota && !empty($anggota['foto'])) {
+                $foto_path = __DIR__ . '/../../public/img/anggota/' . $anggota['foto'];
+                if (file_exists($foto_path)) {
+                    unlink($foto_path);
+                }
+            }
+            $_SESSION['success'] = 'Data berhasil dihapus';
         } else {
+            $_SESSION['error'] = 'Gagal menghapus data';
         }
         header('Location: ' . BASEURL . '/anggota');
         exit;

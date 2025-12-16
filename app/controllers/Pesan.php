@@ -31,9 +31,11 @@ class Pesan extends Controller
         $pesan = $this->model('Contact_model')->getPesanById($id);
         if ($this->model('Contact_model')->hapusPesan($id) > 0) {
             $this->model('Log_model')->catat('HAPUS', "Menghapus Pesan dari " . $pesan['nama']);
+            $_SESSION['success'] = 'Pesan berhasil dihapus';
             header('Location: ' . BASEURL . '/pesan');
             exit;
         } else {
+            $_SESSION['error'] = 'Gagal menghapus pesan';
             header('Location: ' . BASEURL . '/pesan');
             exit;
         }

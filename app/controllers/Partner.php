@@ -63,6 +63,9 @@ class Partner extends Controller
         $_POST['id_admin'] = $_SESSION['admin_id'] ?? 1;
         if ($this->model('Partner_model')->tambahPartner($_POST) > 0) {
             $this->model('Log_model')->catat('TAMBAH', "Menambah Partner: " . $_POST['nama']);
+            $_SESSION['success'] = 'Data berhasil ditambahkan';
+        } else {
+            $_SESSION['error'] = 'Gagal menambahkan data';
         }
         header('Location: ' . BASEURL . '/partner');
         exit;
@@ -98,14 +101,27 @@ class Partner extends Controller
         $_POST['logo'] = $namaFileGambar;
         if ($this->model('Partner_model')->updatePartner($_POST) > 0) {
             $this->model('Log_model')->catat('UPDATE', "Mengupdate Partner: " . $_POST['nama']);
+            $_SESSION['success'] = 'Data berhasil diupdate';
+        } else {
+            $_SESSION['error'] = 'Gagal mengupdate data';
         }
         header('Location: ' . BASEURL . '/partner');
         exit;
     }
     public function hapus($id)
     {
+        $partner = $this->model('Partner_model')->getPartnerById($id);
         if ($this->model('Partner_model')->hapusPartner($id) > 0) {
             $this->model('Log_model')->catat('HAPUS', "Menghapus Partner ID: " . $id);
+            if ($partner && !empty($partner['logo'])) {
+                $logo_path = __DIR__ . '/../../public/img/partner/' . $partner['logo'];
+                if (file_exists($logo_path)) {
+                    unlink($logo_path);
+                }
+            }
+            $_SESSION['success'] = 'Data berhasil dihapus';
+        } else {
+            $_SESSION['error'] = 'Gagal menghapus data';
         }
         header('Location: ' . BASEURL . '/partner');
         exit;

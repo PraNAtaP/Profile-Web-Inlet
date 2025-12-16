@@ -46,6 +46,9 @@ class Riset extends Controller {
         $_POST['tanggal_publikasi'] = date('Y-m-d H:i:s');
         if ($this->model('Riset_model')->tambahRiset($_POST) > 0) {
             $this->model('Log_model')->catat('TAMBAH', "Menambah Riset: " . $_POST['judul_riset']);
+            $_SESSION['success'] = 'Data berhasil ditambahkan';
+        } else {
+            $_SESSION['error'] = 'Gagal menambahkan data';
         }
         header('Location: ' . BASEURL . '/riset');
         exit;
@@ -88,6 +91,9 @@ class Riset extends Controller {
         $_POST['tanggal_publikasi'] = date('Y-m-d H:i:s');
         if ($this->model('Riset_model')->updateRiset($_POST) > 0) {
             $this->model('Log_model')->catat('UPDATE', "Mengupdate Riset: " . $_POST['judul_riset']);
+            $_SESSION['success'] = 'Data berhasil diupdate';
+        } else {
+            $_SESSION['error'] = 'Gagal mengupdate data';
         }
         header('Location: ' . BASEURL . '/riset');
         exit;
@@ -101,7 +107,12 @@ class Riset extends Controller {
                 if (!empty($riset['file_dokumen']) && file_exists($image_path)) {
                     unlink($image_path);
                 }
+                $_SESSION['success'] = 'Data berhasil dihapus';
+            } else {
+                $_SESSION['error'] = 'Gagal menghapus data';
             }
+        } else {
+            $_SESSION['error'] = 'Data tidak ditemukan';
         }
         header('Location: ' . BASEURL . '/riset');
         exit;

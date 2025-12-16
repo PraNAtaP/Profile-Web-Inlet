@@ -354,7 +354,7 @@
                             <button class="btn-action btn-edit-riset" onclick='openModal("edit", <?= json_encode($riset, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>)'>
                                 <i class="fas fa-pen"></i> Edit
                             </button>
-                            <a href="<?= BASEURL; ?>/riset/hapus/<?= $riset['id_riset']; ?>" class="btn-action btn-delete-riset" onclick="return confirm('Apakah anda yakin ingin menghapus video riset ini?');">
+                            <a href="<?= BASEURL; ?>/riset/hapus/<?= $riset['id_riset']; ?>" class="btn-action btn-delete-riset delete-btn">
                                 <i class="fas fa-trash"></i> Hapus
                             </a>
                             <a href="<?= htmlspecialchars($riset['video_embed']); ?>" target="_blank" class="btn-action btn-watch">

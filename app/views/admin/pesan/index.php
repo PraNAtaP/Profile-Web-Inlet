@@ -394,7 +394,7 @@
                         </div>
                         <div class="action-group">
                             <button class="btn-detail" onclick='openDetailModal(<?= json_encode($pesan, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>)'>Lihat Detail</button>
-                            <a href="<?= BASEURL; ?>/pesan/hapus/<?= $pesan['id_form']; ?>" class="btn-trash" onclick="return confirm('Apakah anda yakin ingin menghapus pesan ini selamanya?');">
+                            <a href="<?= BASEURL; ?>/pesan/hapus/<?= $pesan['id_form']; ?>" class="btn-trash delete-btn">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
@@ -433,7 +433,7 @@
                 Waktu Kirim
             </div>
             <div class="action-group">
-                <a href="#" id="modalDeleteBtn" class="btn-modal-action btn-delete-modal" onclick="return confirm('Hapus pesan ini?')">Hapus</a>
+                <a href="#" id="modalDeleteBtn" class="btn-modal-action btn-delete-modal delete-btn">Hapus</a>
                 <a href="#" id="modalReplyBtn" class="btn-modal-action btn-reply-modal">Balas Email</a>
             </div>
         </div>

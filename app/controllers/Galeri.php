@@ -46,6 +46,9 @@ class Galeri extends Controller {
         $_POST['tanggal_publikasi'] = date('Y-m-d H:i:s');
         if ($this->model('Galeri_model')->tambahGaleri($_POST) > 0) {
             $this->model('Log_model')->catat('TAMBAH', "Menambah Galeri: " . $_POST['judul']);
+            $_SESSION['success'] = 'Data berhasil ditambahkan';
+        } else {
+            $_SESSION['error'] = 'Gagal menambahkan data';
         }
         header('Location: ' . BASEURL . '/galeri');
         exit;
@@ -87,6 +90,9 @@ class Galeri extends Controller {
         $_POST['foto'] = $namaFileFoto;
         if ($this->model('Galeri_model')->updateGaleri($_POST) > 0) {
             $this->model('Log_model')->catat('UPDATE', "Mengupdate Galeri: " . $_POST['judul']);
+            $_SESSION['success'] = 'Data berhasil diupdate';
+        } else {
+            $_SESSION['error'] = 'Gagal mengupdate data';
         }
         header('Location: ' . BASEURL . '/galeri');
         exit;
@@ -100,7 +106,12 @@ class Galeri extends Controller {
                 if (!empty($galeri['foto']) && file_exists($image_path)) {
                     unlink($image_path);
                 }
+                $_SESSION['success'] = 'Data berhasil dihapus';
+            } else {
+                $_SESSION['error'] = 'Gagal menghapus data';
             }
+        } else {
+            $_SESSION['error'] = 'Data tidak ditemukan';
         }
         header('Location: ' . BASEURL . '/galeri');
         exit;

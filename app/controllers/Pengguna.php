@@ -26,9 +26,11 @@ class Pengguna extends Controller
     public function simpan()
     {
         if ($this->model('Admin_model')->tambahAdmin($_POST) > 0) {
+            $_SESSION['success'] = 'Data berhasil ditambahkan';
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         } else {
+            $_SESSION['error'] = 'Gagal menambahkan data';
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         }
@@ -44,9 +46,11 @@ class Pengguna extends Controller
     public function update()
     {
         if ($this->model('Admin_model')->updateAdmin($_POST) > 0) {
+            $_SESSION['success'] = 'Data berhasil diupdate';
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         } else {
+            $_SESSION['error'] = 'Gagal mengupdate data';
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         }
@@ -54,13 +58,16 @@ class Pengguna extends Controller
     public function hapus($id)
     {
         if ($id == $_SESSION['admin_id']) {
+            $_SESSION['error'] = 'Tidak dapat menghapus diri sendiri';
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         }
         if ($this->model('Admin_model')->hapusAdmin($id) > 0) {
+            $_SESSION['success'] = 'Data berhasil dihapus';
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         } else {
+            $_SESSION['error'] = 'Gagal menghapus data';
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         }

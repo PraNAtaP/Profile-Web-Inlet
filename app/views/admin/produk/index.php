@@ -362,7 +362,7 @@
                             <button class="btn-action btn-edit-prod" onclick='openModal("edit", <?= json_encode($p, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>)'>
                                 <i class="fas fa-pen"></i> Edit
                             </button>
-                            <a href="<?= BASEURL; ?>/produk/hapus/<?= $p['id_produk']; ?>" class="btn-action btn-delete-prod" onclick="return confirm('Apakah anda yakin ingin menghapus produk ini?');">
+                            <a href="<?= BASEURL; ?>/produk/hapus/<?= $p['id_produk']; ?>" class="btn-action btn-delete-prod delete-btn">
                                 <i class="fas fa-trash"></i> Hapus
                             </a>
                         </div>

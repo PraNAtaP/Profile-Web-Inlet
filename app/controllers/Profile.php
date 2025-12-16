@@ -24,6 +24,9 @@ class Profile extends Controller
                 if (isset($_POST['nama'])) {
                     $_SESSION['admin_name'] = $_POST['nama'];
                 }
+                $_SESSION['success'] = 'Profil berhasil diupdate';
+            } else {
+                $_SESSION['error'] = 'Gagal mengupdate profil';
             }
         }
         header('Location: ' . BASEURL . '/profile');

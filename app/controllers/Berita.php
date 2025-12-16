@@ -61,6 +61,9 @@ class Berita extends Controller
 
         if ($this->model('Berita_model')->tambahBerita($_POST) > 0) {
             $this->model('Log_model')->catat('TAMBAH', "Menambah Berita: " . $_POST['judul']);
+            $_SESSION['success'] = 'Data berhasil ditambahkan';
+        } else {
+            $_SESSION['error'] = 'Gagal menambahkan data';
         }
 
         header('Location: ' . BASEURL . '/berita');
@@ -114,6 +117,9 @@ class Berita extends Controller
 
         if ($this->model('Berita_model')->updateBerita($_POST) > 0) {
             $this->model('Log_model')->catat('UPDATE', "Mengupdate Berita: " . $_POST['judul']);
+            $_SESSION['success'] = 'Data berhasil diupdate';
+        } else {
+            $_SESSION['error'] = 'Gagal mengupdate data';
         }
 
         header('Location: ' . BASEURL . '/berita');
@@ -134,6 +140,9 @@ class Berita extends Controller
             }
 
             $this->model('Log_model')->catat('HAPUS', "Menghapus Berita ID: " . $id);
+            $_SESSION['success'] = 'Data berhasil dihapus';
+        } else {
+            $_SESSION['error'] = 'Gagal menghapus data';
         }
 
         header('Location: ' . BASEURL . '/berita');

@@ -334,7 +334,7 @@
 
                     <div class="card-actions">
                         <button class="btn-action btn-edit-card" onclick='openModal("edit", <?= json_encode($p, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>)'>Edit</button>
-                        <a href="<?= BASEURL; ?>/partner/hapus/<?= $p['id_media_partner']; ?>" class="btn-action btn-delete-card" onclick="return confirm('Apakah anda yakin menghapus partner ini?');">Hapus</a>
+                        <a href="<?= BASEURL; ?>/partner/hapus/<?= $p['id_media_partner']; ?>" class="btn-action btn-delete-card delete-btn">Hapus</a>
                     </div>
                 </div>
             <?php endforeach; ?>

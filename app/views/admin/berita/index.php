@@ -342,7 +342,7 @@
                                         onclick='openModal("edit", <?= json_encode($berita, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP); ?>)'>
                                         Edit
                                     </button>
-                                    <a href="<?= BASEURL; ?>/berita/hapus/<?= $berita['id_berita']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
+                                    <a href="<?= BASEURL; ?>/berita/hapus/<?= $berita['id_berita']; ?>" class="btn-delete delete-btn">Hapus</a>
                                 </div>
                             </td>
                         </tr>

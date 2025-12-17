@@ -303,7 +303,7 @@
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
-            Add Team
+            Tambah Anggota
         </button>
     </div>
 
@@ -414,19 +414,19 @@
 </div>
 
 <script>
-   const modal = document.getElementById('anggotaModal');
+    const modal = document.getElementById('anggotaModal');
     const modalTitle = document.getElementById('modalTitle');
     const form = document.getElementById('anggotaForm');
     const BASEURL = "<?= BASEURL; ?>";
-    const fotoInput = document.getElementById('foto'); 
+    const fotoInput = document.getElementById('foto');
     const previewContainer = document.getElementById('imagePreviewContainer');
     const previewImg = document.getElementById('imagePreview');
 
     function openModal(mode, data = null) {
         modal.classList.add('show');
-        form.reset(); 
-        fotoInput.value = ""; 
-        
+        form.reset();
+        fotoInput.value = "";
+
         if (mode === 'add') {
             modalTitle.innerText = 'Tambah Anggota';
             form.action = BASEURL + '/anggota/simpan';
@@ -434,7 +434,7 @@
             document.getElementById('id_anggota').value = '';
             document.getElementById('foto_lama').value = '';
 
-            fotoInput.setAttribute('required', 'required'); 
+            fotoInput.setAttribute('required', 'required');
             previewContainer.style.display = 'none';
 
         } else if (mode === 'edit' && data) {
@@ -448,7 +448,7 @@
             document.getElementById('kontak').value = data.kontak;
             document.getElementById('foto_lama').value = data.foto;
 
-            fotoInput.removeAttribute('required'); 
+            fotoInput.removeAttribute('required');
             fotoInput.required = false;
 
             if (data.foto) {

@@ -386,7 +386,10 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password" minlength="8" oninput="checkPasswordLen()">
+                <small id="passLenError" class="text-danger" style="display: none; font-size: 0.8em; margin-top: 5px;">
+                    *password harus memiliki panjang minimal 8 karakter
+                </small>
                 <small class="password-hint" id="passwordHint">Kosongkan jika tidak ingin mengganti password.</small>
             </div>
 
@@ -404,11 +407,22 @@
     const form = document.getElementById('adminForm');
     const passwordInput = document.getElementById('password');
     const passwordHint = document.getElementById('passwordHint');
+    const passLenError = document.getElementById('passLenError');
 
     const BASEURL = "<?= BASEURL; ?>";
 
+    function checkPasswordLen() {
+        const val = passwordInput.value;
+        if (val.length > 0 && val.length < 8) {
+            passLenError.style.display = 'block';
+        } else {
+            passLenError.style.display = 'none';
+        }
+    }
+
     function openModal(mode, data = null) {
         modal.classList.add('show');
+        passLenError.style.display = 'none';
 
         if (mode === 'add') {
             modalTitle.innerText = 'Tambah Admin';
@@ -430,7 +444,7 @@
             document.getElementById('username').value = data.username;
 
             passwordInput.value = '';
-            passwordInput.required = false;
+            passwordInput.required = false; // Di mode edit, required false
             passwordHint.style.display = 'block';
         }
     }

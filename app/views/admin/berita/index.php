@@ -402,6 +402,7 @@
     const modal = document.getElementById('beritaModal');
     const modalTitle = document.getElementById('modalTitle');
     const form = document.getElementById('beritaForm');
+    const gambarInput = document.getElementById('gambar');
 
     const BASEURL = "<?= BASEURL; ?>";
 
@@ -413,6 +414,8 @@
             form.action = BASEURL + '/berita/simpan';
             form.reset();
 
+            gambarInput.setAttribute('required', 'required');
+
             document.getElementById('imagePreviewContainer').style.display = 'none';
             document.getElementById('id_berita').value = '';
             document.getElementById('gambar_lama').value = '';
@@ -420,6 +423,8 @@
         } else if (mode === 'edit' && data) {
             modalTitle.innerText = 'Edit Berita';
             form.action = BASEURL + '/berita/update';
+
+            gambarInput.removeAttribute('required');
 
             document.getElementById('id_berita').value = data.id_berita;
             document.getElementById('judul').value = data.judul;

@@ -390,6 +390,7 @@
     const modal = document.getElementById('galeriModal');
     const modalTitle = document.getElementById('modalTitle');
     const form = document.getElementById('galeriForm');
+    const fotoInput = document.getElementById('foto');
 
     const BASEURL = "<?= BASEURL; ?>";
 
@@ -401,6 +402,8 @@
             form.action = BASEURL + '/galeri/simpan';
             form.reset();
 
+            fotoInput.setAttribute('required', 'required');
+
             document.getElementById('imagePreviewContainer').style.display = 'none';
             document.getElementById('id_galeri').value = '';
             document.getElementById('foto_lama').value = '';
@@ -408,6 +411,8 @@
         } else if (mode === 'edit' && data) {
             modalTitle.innerText = 'Edit Galeri';
             form.action = BASEURL + '/galeri/update';
+
+            fotoInput.removeAttribute('required');
 
             document.getElementById('id_galeri').value = data.id_galeri;
             document.getElementById('judul').value = data.judul;

@@ -25,12 +25,24 @@ class Pengguna extends Controller
     }
     public function simpan()
     {
+        if ($this->model('Admin_model')->cariUserGanda($_POST['username'], $_POST['email'])) {
+            $_SESSION['swal_type'] = 'error';
+            $_SESSION['swal_title'] = 'Gagal Menambah!';
+            $_SESSION['swal_text'] = 'Username atau Email sudah ada yang menggunakan, gunakan username atau email lain';
+
+            header('Location: ' . BASEURL . '/pengguna');
+            exit;
+        }
         if ($this->model('Admin_model')->tambahAdmin($_POST) > 0) {
-            $_SESSION['success'] = 'Data berhasil ditambahkan';
+            $_SESSION['swal_type'] = 'success';
+            $_SESSION['swal_title'] = 'Berhasil!';
+            $_SESSION['swal_text'] = 'Admin baru berhasil ditambahkan.';
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         } else {
-            $_SESSION['error'] = 'Gagal menambahkan data';
+            $_SESSION['swal_type'] = 'error';
+            $_SESSION['swal_title'] = 'Ups!';
+            $_SESSION['swal_text'] = 'Ada masalah saat nyimpen data.';
             header('Location: ' . BASEURL . '/pengguna');
             exit;
         }

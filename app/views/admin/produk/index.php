@@ -426,6 +426,7 @@
     const modal = document.getElementById('produkModal');
     const modalTitle = document.getElementById('modalTitle');
     const form = document.getElementById('produkForm');
+    const gambarInput = document.getElementById('gambar');
 
     const BASEURL = "<?= BASEURL; ?>";
 
@@ -437,6 +438,8 @@
             form.action = BASEURL + '/produk/simpan';
             form.reset();
 
+            gambarInput.setAttribute('required', 'required');
+
             document.getElementById('imagePreviewContainer').style.display = 'none';
             document.getElementById('id_produk').value = '';
             document.getElementById('gambar_lama').value = '';
@@ -444,6 +447,8 @@
         } else if (mode === 'edit' && data) {
             modalTitle.innerText = 'Edit Produk';
             form.action = BASEURL + '/produk/update';
+
+            gambarInput.removeAttribute('required');
 
             document.getElementById('id_produk').value = data.id_produk;
             document.getElementById('judul').value = data.judul;

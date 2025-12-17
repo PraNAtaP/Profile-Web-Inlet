@@ -148,7 +148,12 @@
                         </span>
                     </div>
                     <div class="avatar">
-                        <img src="https://ui-avatars.com/api/?name=<?= urlencode($_SESSION['admin_name'] ?? 'Admin'); ?>&background=0D8ABC&color=fff" alt="Profile">
+                        <img
+                            src="https://ui-avatars.com/api/?name=<?= urlencode($_SESSION['admin_name'] ?? 'Admin'); ?>&background=0D8ABC&color=fff"
+                            alt="Profile"
+                            width="40"
+                            height="40"
+                            style="object-fit: cover; border-radius: 50%;">
                     </div>
                 </div>
             </a>

@@ -84,4 +84,13 @@ class Admin_model
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function cariUserGanda($username, $email)
+    {
+        $this->db->query('SELECT * FROM admin WHERE username = :username OR email = :email');
+        $this->db->bind('username', $username);
+        $this->db->bind('email', $email);
+
+        return $this->db->single();
+    }
 }

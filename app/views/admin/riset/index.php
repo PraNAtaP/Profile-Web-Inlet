@@ -401,7 +401,7 @@
 
             <div class="form-group">
                 <label for="video_embed">Link YouTube</label>
-                <input type="url" class="form-control" id="video_embed" name="video_embed" placeholder="Contoh: https://www.youtube.com/watch?v=xxxxx">
+                <input type="url" class="form-control" id="video_embed" name="video_embed" placeholder="Contoh: https://www.youtube.com/watch?v=xxxxx" required>
             </div>
 
             <div class="form-group">
@@ -426,6 +426,7 @@
     const modal = document.getElementById('risetModal');
     const modalTitle = document.getElementById('modalTitle');
     const form = document.getElementById('risetForm');
+    const fileInput = document.getElementById('file_dokumen');
 
     const BASEURL = "<?= BASEURL; ?>";
 
@@ -437,6 +438,8 @@
             form.action = BASEURL + '/riset/simpan';
             form.reset();
 
+            fileInput.setAttribute('required', 'required');
+
             document.getElementById('imagePreviewContainer').style.display = 'none';
             document.getElementById('id_riset').value = '';
             document.getElementById('file_dokumen_lama').value = '';
@@ -444,6 +447,8 @@
         } else if (mode === 'edit' && data) {
             modalTitle.innerText = 'Edit Video Riset';
             form.action = BASEURL + '/riset/update';
+
+            fileInput.removeAttribute('required');
 
             document.getElementById('id_riset').value = data.id_riset;
             document.getElementById('judul_riset').value = data.judul_riset;

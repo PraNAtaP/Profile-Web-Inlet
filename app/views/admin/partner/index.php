@@ -390,6 +390,7 @@
     const modal = document.getElementById('partnerModal');
     const modalTitle = document.getElementById('modalTitle');
     const form = document.getElementById('partnerForm');
+    const logoInput = document.getElementById('logo');
 
     const BASEURL = "<?= BASEURL; ?>";
 
@@ -401,6 +402,8 @@
             form.action = BASEURL + '/partner/simpan';
             form.reset();
 
+            logoInput.setAttribute('required', 'required');
+
             document.getElementById('imagePreviewContainer').style.display = 'none';
             document.getElementById('id_media_partner').value = '';
             document.getElementById('logo_lama').value = '';
@@ -408,6 +411,8 @@
         } else if (mode === 'edit' && data) {
             modalTitle.innerText = 'Edit Partner';
             form.action = BASEURL + '/partner/update';
+
+            logoInput.removeAttribute('required');
 
             document.getElementById('id_media_partner').value = data.id_media_partner;
             document.getElementById('nama').value = data.nama;
